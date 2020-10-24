@@ -1,0 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+//@import "node_modules/bootstrap/scss/bootstrap";
+@import "./variables.scss";
+
+
+html,
+body,
+#__next{
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 100% !important;
+    min-height: 100%;
+    font-family: $font-main;
+    color: $text-color !important;
+    background-color: $background;
+}

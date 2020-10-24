@@ -1,0 +1,128 @@
+@import './variables.scss';
+#topBar{
+    background-color: $background-white;
+    box-shadow: 2px 2px 2px 2px rgba($color: #000000, $alpha: 0.1);
+    padding: 10px 50px 10px;
+
+    #firstRow{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+
+#main{
+    width: 100%;
+    height: calc(100% - 10px) !important;
+    max-height: calc(100% - 60px) !important;
+    position: relative;
+    #filters{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 30px 50px 10px ;
+    
+        #left{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            
+            h3{
+                margin-left: 20px;
+            }
+            
+        }
+    
+        .action-btn{
+            margin: 0 10px;
+        }
+    }
+
+    #tableContainer{
+        padding: 50px;
+        
+        #filterContainer{
+            padding: 15px 30px 15px 15px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+
+            #left{
+                display: inline-flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+
+                .filterItem{
+                    margin: 0 10px;
+                }
+            }
+
+            #right{
+                button{
+                    margin: 0 10px;
+                }
+            }
+        }
+    }
+}
+
+.overlay{
+    display: flex;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    background-color: rgba($color: #000000, $alpha: 0.2);
+    justify-content: flex-end;
+
+    #uploadContainer{
+        width: 40%;
+        padding: 50px;
+        background-color: $background-white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+
+        .upload{
+            width: 500px;
+        }
+
+        .close{
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+    }
+
+    #formContainer{
+        width: 45%;
+        padding: 20px 0;
+        background-color: $background-white;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        
+
+        #header{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-start;
+            border: 1px solid rgba($color: #c6c6c6, $alpha: 0.2);
+            margin: 0 20px;
+
+            .ant-typography{
+                margin: 0 20px;
+            }
+        }
+    }
+}
+

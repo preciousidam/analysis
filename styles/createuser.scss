@@ -1,0 +1,30 @@
+@import './variables.scss';
+
+#home{
+    height: calc(100% - 70px);
+    max-height: calc(100% - 70px);
+    padding: 50px;
+
+    #formContainer{
+        margin: 50px auto;
+        width: 800px;
+        border-radius: 20px;
+
+        header{
+            background: url('/front2.jpg') no-repeat;
+            background-size: cover;
+            height: 200px;
+            width: 100%;
+            border-radius: 20px 20px 0 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+            h2{
+                color: $background-white;
+                background-color: rgba($color: $primary, $alpha: .5);
+                padding: 0 20px;
+            }
+        }
+    }
+}

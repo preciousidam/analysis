@@ -1,0 +1,53 @@
+@import './variables.scss';
+
+
+///////////////AUTH//////////////////
+#authForm{
+    padding: 50px 50px 50px 50px;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    
+    #logo{
+        width: 100px;
+        height: 100px;
+        align-self:  center;
+    }
+
+    h1, p{
+        align-self: center;
+    }
+
+    #forgot_remember{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 30px;
+
+        a{
+            font-size: 14px;
+            text-decoration: none;
+            color: $text-color;
+        }
+    }
+
+}
+
+#propFormContainer{
+    padding: 20px;
+
+    .sm-3-cont{
+        
+    }
+}
+
+
+//////////////////////////NEW USER FORM////////////////////
+#form{
+    padding: 30px 30px 50px;
+
+    #create{
+        width: 150px;
+    }
+}
