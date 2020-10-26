@@ -11,7 +11,7 @@ import MainLayout from '../../layouts/index';
 import { Search } from '../../components/input/index';
 import '../../styles/createuser.scss';
 import { properties } from '../../libs/data';
-import { PropertyList } from '../../components/table/index/table/index';
+import { PropertyList } from '../../components/table/index';
 import Link from 'next/link';
 import { PriceChart } from '../../components/charts';
 import { AdminProtectRoute, ProtectRoute } from '../../route/index';
