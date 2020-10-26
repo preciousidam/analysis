@@ -18,7 +18,7 @@ import { faBars, faSpinner, faCheck, faEnvelope, faListAlt, faPlus,faFilePdf, fa
 from '@fortawesome/free-solid-svg-icons';
 
 import {fab,faEtsy} from '@fortawesome/free-brands-svg-icons';
-import { AuthProvider } from '../provider';
+import { AuthProvider } from '../provider/index';
  
 library.add(faBars,faSpinner, faCheck, faEnvelope, faListAlt, faCalendarAlt, faMapPin, faBed, faBuilding,
             faFilePdf, faExchangeAlt, faCreditCard, faMoneyBillAlt, faEllipsisH, faMapMarkedAlt, faUser,

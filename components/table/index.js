@@ -2,8 +2,8 @@ import { Button, Pagination, Popconfirm } from 'antd';
 import {DeleteOutlined, EditOutlined} from '@ant-design/icons';
 
 import {properties} from '../../libs/data';
-import '../../styles/tables.scss';
-import useAuth from '../../provider';
+import '../../styles/table/indexs.scss';
+import useAuth from '../../provider/index';
 
 export function List({}){
     const text = "Are you sure you want to delete?";
@@ -50,6 +50,6 @@ export function List({}){
                 </tr>
             ))}
             </tbody>
-        </table>
+        </table/index>
     )
 }

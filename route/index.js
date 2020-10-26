@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import {useRouter} from 'next/router';
 
-import useAuth from '../provider';
+import useAuth from '../provider/index';
 import Loader from '../components/loader';
 import { StopFilled } from '@ant-design/icons';
 import Link from 'next/link';

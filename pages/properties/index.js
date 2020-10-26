@@ -5,17 +5,17 @@ import {PlusOutlined, FilePdfFilled, CloseSquareOutlined} from '@ant-design/icon
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import { useRouter } from 'next/router';
 
-import MainLayout from '../../layouts';
-import { Search } from '../../components/input';
+import MainLayout from '../../layouts/index';
+import { Search } from '../../components/input/index';
 import '../../styles/properties.scss';
-import { List } from '../../components/table';
+import { List } from '../../components/table/index';
 import CustomScroll from 'react-custom-scroll';
 import { IconButton, Paper } from '@material-ui/core';
 import { properties } from '../../libs/data';
 import { UploadComponent } from '../../components/form/upload';
 import { PropertyForm } from '../../components/form/property';
-import { ProtectRoute } from '../../route';
-import useAuth from '../../provider';
+import { ProtectRoute } from '../../route/index';
+import useAuth from '../../provider/index';
 
 
 const {Option} =  Select;

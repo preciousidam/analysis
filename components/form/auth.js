@@ -3,12 +3,12 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {EmailOutlined, LockOutlined} from '@material-ui/icons';
 import { useRouter } from 'next/router';
 
-import { InputWithIcon } from "../input";
+import { InputWithIcon } from "../input/index";
 import {Checkbox} from 'antd';
 import Link from 'next/link';
 import { RoundedButton } from '../button';
 import '../../styles/form.scss';
-import useAuth from '../../provider';
+import useAuth from '../../provider/index';
 import {openNotification} from '../notification';
 
 

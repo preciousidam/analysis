@@ -5,7 +5,7 @@ import {useRouter} from 'next/router';
 import {SignInForm} from '../components/form/auth';
 import '../styles/auth.scss';
 import report from '../public/report.svg';
-import useAuth from '../provider';
+import useAuth from '../provider/index';
 import Loader from '../components/loader';
 
 export default function Auth() {

@@ -7,11 +7,11 @@ import { useRouter } from 'next/router';
 import CustomScroll from 'react-custom-scroll';
 import { IconButton, Paper } from '@material-ui/core';
 
-import MainLayout from '../layouts';
-import { Search } from '../components/input';
+import MainLayout from '../layouts/index';
+import { Search } from '../components/input/index';
 import '../styles/index.scss';
 import { properties } from '../libs/data';
-import { PropertyList } from '../components/table/table';
+import { PropertyList } from '../components/table/index/table/index';
 import Link from 'next/link';
 import { PriceChart } from '../components/charts';
 import { ProtectRoute } from '../route';

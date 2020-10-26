@@ -2,10 +2,10 @@ import {useRouter} from 'next/router';
 import {AccountBalance, AccountBalanceWalletOutlined, FormatBoldOutlined, Apartment, HotelOutlined, DescriptionOutlined, Person} from '@material-ui/icons';
 import Badge from '@material-ui/core/Badge';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import SideBarLayout from '../../layouts/sidebar';
+import SideBarLayout from '../../layouts/index/sidebar';
 import {SidebarLink, MinSidebarLink} from '../button/sidebarLinks';
 import '../../styles/sidebar.scss';
-import useAuth from '../../provider';
+import useAuth from '../../provider/index';
 
 
 

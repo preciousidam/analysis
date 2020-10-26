@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {HomeOutlined, HeatMapOutlined, AppstoreOutlined} from '@ant-design/icons';
 
-import { InputWithIconNonElevated } from "../input";
+import { InputWithIconNonElevated } from "../input/index";
 import '../../styles/form.scss';
 import '../../node_modules/bootstrap/scss/bootstrap.scss';
 import {RoundedButton} from '../button';
-import useAuth from "../../provider";
+import useAuth from "../../provider/index";
 import { setData } from "../../utility/fetcher";
 import {openNotification} from '../notification';
 
