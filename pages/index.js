@@ -11,7 +11,7 @@ import MainLayout from '../layouts/mainLayout';
 import { Search } from '../components/input/index';
 import '../styles/index.scss';
 import { properties } from '../libs/data';
-import { PropertyList } from '../components/table/index';
+import { PropertyList } from '../components/table/table';
 import Link from 'next/link';
 import { PriceChart } from '../components/charts';
 import { ProtectRoute } from '../route';
