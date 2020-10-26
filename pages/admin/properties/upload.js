@@ -96,4 +96,4 @@ export function Upload({}){
     )
 }
 
-export default ProtectRoute(Properties);
+export default ProtectRoute(Upload);
