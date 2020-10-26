@@ -5,7 +5,7 @@ import {PlusOutlined, FilePdfFilled, CloseSquareOutlined} from '@ant-design/icon
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import { useRouter } from 'next/router';
 
-import MainLayout from '../../../layouts/index';
+import MainLayout from '../../../layouts/mainLayout';
 import { Search } from '../../../components/input/index';
 import '../../../styles/properties.scss';
 import { List } from '../../../components/table/index';

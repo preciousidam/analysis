@@ -24,7 +24,7 @@ export function PropertyList({}){
                 </tr>: null
             ))}
             </tbody>
-        </table/index>
+        </table>
     )
 }
 
@@ -50,6 +50,6 @@ export function BedPriceTable({}){
                 </tr>: null
             ))}
             </tbody>
-        </table/index>
+        </table>
     )
 }

@@ -50,6 +50,6 @@ export function List({}){
                 </tr>
             ))}
             </tbody>
-        </table/index>
+        </table>
     )
 }

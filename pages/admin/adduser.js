@@ -7,7 +7,7 @@ import { useRouter } from 'next/router';
 import CustomScroll from 'react-custom-scroll';
 import { IconButton, Paper } from '@material-ui/core';
 
-import MainLayout from '../../layouts/index';
+import MainLayout from '../../layouts/mainLayout';
 import { Search } from '../../components/input/index';
 import '../../styles/createuser.scss';
 import { properties } from '../../libs/data';
