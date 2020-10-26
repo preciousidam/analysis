@@ -5,22 +5,22 @@ import {PlusOutlined, FilePdfFilled, CloseSquareOutlined} from '@ant-design/icon
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import { useRouter } from 'next/router';
 
-import MainLayout from '../../../layouts';
-import { Search } from '../../../components/input';
-import '../../../styles/properties.scss';
-import { List } from '../../../components/table';
+import MainLayout from '../../layouts';
+import { Search } from '../../components/input';
+import '../../styles/properties.scss';
+import { List } from '../../components/table';
 import CustomScroll from 'react-custom-scroll';
 import { IconButton, Paper } from '@material-ui/core';
-import { properties } from '../../../libs/data';
-import { UploadComponent } from '../../../components/form/upload';
-import { PropertyForm } from '../../../components/form/property';
-import { ProtectRoute, AdminProtectRoute } from '../../../route';
+import { properties } from '../../libs/data';
+import { UploadComponent } from '../../components/form/upload';
+import { PropertyForm } from '../../components/form/property';
+import { ProtectRoute } from '../../route';
 
 
 const {Option} =  Select;
 const {Title} = Typography;
 
-export function Properties({}){
+export function Upload({}){
 
     const router = useRouter();
     const [showUploadForm, setShowUploadForm] = useState(false);
@@ -29,30 +29,8 @@ export function Properties({}){
     return (
         <MainLayout title='Admin properties'>
             
-            <CustomScroll heightRelativeToParent="calc(100% - 70px)">
+            <CustomScroll heightRelativeToParent="calc(100%)">
                 <div id="main">
-                    <div id='filters'>
-                        <div id="left">
-                            <Title level={2}>Properties</Title>
-                            <h3>{properties.length} Total</h3>
-                        </div>
-                        <div id="right">
-                            <Button 
-                                className="action-btn" type='primary'
-                                onClick={_ => router.push('/admin/properties/new')}
-                            >
-                                <PlusOutlined /> 
-                                Add New Property
-                            </Button>
-                            <Button 
-                                className="action-btn" 
-                                type='default'
-                                onClick={e => setShowUploadForm(true)}
-                            >
-                                Import <FontAwesomeIcon icon='ellipsis-h' style={{marginLeft: 10}} />
-                            </Button>
-                        </div>
-                    </div>
                     <div id="tableContainer">
                         <Paper>
                             <div id="filterContainer">
@@ -112,11 +90,10 @@ export function Properties({}){
                     <CustomScroll heightRelativeToParent='calc(100%)'>
                         <PropertyForm />
                     </CustomScroll>
-                    
                 </div>
             </div>}
         </MainLayout>
     )
 }
 
-export default ProtectRoute(AdminProtectRoute(Properties))
+export default ProtectRoute(Properties);

@@ -12,9 +12,9 @@ import useAuth from '../../provider';
 
 
 export default function SideBar({min}){
-    const {isAdmin} = useAuth()
+    const {isAdmin} = useAuth();
     const links = [
-        {icon: <Apartment />, title: 'Properties', link: isAdmin === 'admin'? 'admin/properties' :'properties'},
+        {icon: <Apartment />, title: 'Properties', link: isAdmin? 'admin/properties' :'properties'},
     ]
     const router = useRouter();
     
@@ -22,10 +22,21 @@ export default function SideBar({min}){
         <SideBarLayout min={min}>
             <ul id="sidabar-content">
                 
-                <SidebarLink title="Home" icon={<AccountBalance />} link="/index" active={router.pathname == "/" || router.pathname == "/index" ? "active" : ""} />
+                <SidebarLink title="Home" icon={<AccountBalance />} link="/" active={router.pathname == "/" ? "active" : ""} />
                 {
                     links.map(
-                        ({title,icon,link}, id) => <SidebarLink key={id} title={title} icon={icon} link={link} active={router.pathname.split('/')[1] == `${link}` ? "active" : ""} />
+                        ({title,icon,link}, id) => 
+                            <SidebarLink 
+                                key={id} 
+                                title={title} 
+                                icon={icon} 
+                                link={link} 
+                                active={
+                                    router.pathname.split('/')[1] == `${link.split('/')[1]}`
+                                    || router.pathname.split('/')[1] == `${link.split('/')[0]}` 
+                                    ? "active" : ""
+                                } 
+                            />
                     )
                 }
                 
@@ -36,6 +47,10 @@ export default function SideBar({min}){
 
 export function MinSideBar({min}){
     const router = useRouter();
+    const {isAdmin} = useAuth();
+    const links = [
+        {icon: <Apartment />, title: 'Properties', link: isAdmin? 'admin/properties' :'properties'},
+    ]
     
     return(
         <SideBarLayout min={min}>
@@ -44,7 +59,18 @@ export function MinSideBar({min}){
                 <MinSidebarLink title="Dashboard" icon={<AccountBalance />} link="index" active={router.pathname == "/" || router.pathname == "/index" ? "active" : ""} />
                 {
                     links.map(
-                        ({title,icon,link}, id) => <MinSidebarLink key={id} title={title} icon={icon} link={link} active={router.pathname.split('/')[1] == `${link}` ? "active" : ""} />
+                        ({title,icon,link}, id) => 
+                            <MinSidebarLink 
+                                key={id} 
+                                title={title} 
+                                icon={icon} 
+                                link={link} 
+                                active={ 
+                                    router.pathname.split('/')[1] == `${link.split('/')[1]}`
+                                    || router.pathname.split('/')[1] == `${link.split('/')[0]}` 
+                                    ? "active" : ""
+                                } 
+                            />
                     )
                 }
                 

@@ -93,7 +93,7 @@ hr{
 
 .active{
     //background-color: rgba($color: #000000, $alpha: 0.1);
-    border-right: 5px solid $primary;
+    border-right: 5px solid $success;
     cursor: pointer;
     background-color: rgba($color: #000000, $alpha: 0.1);
     
@@ -102,7 +102,7 @@ hr{
 
     }
     svg{
-        color: $primary !important;
+        color: $success !important;
     }
 
     a{
@@ -145,11 +145,11 @@ hr{
 }
 
 .min-active{
-    border-right: 5px solid $primary-green;
+    border-right: 5px solid $success;
     cursor: pointer;
-    background-color: rgba($color: #ffffff, $alpha: 0.1);
+    background-color: rgba($color: #000000, $alpha: 0.1);
     
     svg{
-        color: $text-color-dark-active !important;
+        color: $success !important;
     }
 }

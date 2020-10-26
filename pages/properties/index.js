@@ -7,7 +7,7 @@ import { useRouter } from 'next/router';
 
 import MainLayout from '../../layouts';
 import { Search } from '../../components/input';
-import '../styles/properties.scss';
+import '../../styles/properties.scss';
 import { List } from '../../components/table';
 import CustomScroll from 'react-custom-scroll';
 import { IconButton, Paper } from '@material-ui/core';
@@ -15,6 +15,7 @@ import { properties } from '../../libs/data';
 import { UploadComponent } from '../../components/form/upload';
 import { PropertyForm } from '../../components/form/property';
 import { ProtectRoute } from '../../route';
+import useAuth from '../../provider';
 
 
 const {Option} =  Select;
@@ -25,6 +26,7 @@ export function Properties({}){
     const router = useRouter();
     const [showUploadForm, setShowUploadForm] = useState(false);
     const [showPropForm, setShowPropForm] = useState(false);
+    const {isAdmin} = useAuth();
     
     return (
         <MainLayout title='Admin properties'>
@@ -50,12 +52,12 @@ export function Properties({}){
                                     </Select>
                                 </div>
                                 <div id="right">
-                                    <Button 
+                                    {isAdmin && <Button 
                                         type='primary'
                                     > 
                                         <FontAwesomeIcon icon='file-csv' color="#fff" style={{marginRight: 10}} />
                                         Export CSV
-                                    </Button>
+                                    </Button>}
 
                                     <Button 
                                         type='primary' 

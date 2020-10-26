@@ -7,7 +7,7 @@ import { useRouter } from 'next/router';
 
 import MainLayout from '../../../layouts';
 import { Search } from '../../../components/input';
-import '../../../styles/properties.scss';
+import '../../../styles/newprops.scss';
 import { List } from '../../../components/table';
 import CustomScroll from 'react-custom-scroll';
 import { IconButton, Paper } from '@material-ui/core';
@@ -20,7 +20,7 @@ import { ProtectRoute, AdminProtectRoute } from '../../../route';
 const {Option} =  Select;
 const {Title} = Typography;
 
-export default function New({}){
+export function New({}){
 
     const router = useRouter();
     const [showUploadForm, setShowUploadForm] = useState(false);
@@ -29,9 +29,11 @@ export default function New({}){
     return (
         <MainLayout title='Admin properties'>
             <CustomScroll heightRelativeToParent="calc(100% - 70px)">
-                <div id="formContainer">
-                    <PropertyForm />
-                </div>  
+                <div id="main">
+                    <Paper id="formContainer">
+                        <PropertyForm />
+                    </Paper> 
+                </div>
             </CustomScroll>
         </MainLayout>
     )

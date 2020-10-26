@@ -3,9 +3,12 @@ import {DeleteOutlined, EditOutlined} from '@ant-design/icons';
 
 import {properties} from '../../libs/data';
 import '../../styles/tables.scss';
+import useAuth from '../../provider';
 
 export function List({}){
-    const text = "Are you sure you want to delete?"
+    const text = "Are you sure you want to delete?";
+    const {isAdmin} = useAuth();
+
     return (
         <table className="table">
             <thead>
@@ -21,7 +24,7 @@ export function List({}){
                     <th><span>CHARGES</span></th>
                     <th><span>S/PRICE</span></th>
                     <th><span>FLOORS</span></th>
-                    <th>Actions</th>
+                    {isAdmin && <th>Actions</th>}
                 </tr>
             </thead>
             <tbody>
@@ -38,12 +41,12 @@ export function List({}){
                     <td><span>{prop?.serv_charge}M</span></td>
                     <td><span>{prop?.salePrice === 0 ? '--': prop?.salePrice}</span></td>
                     <td><span>{prop?.floors}</span></td>
-                    <td className="action-space">
+                    {isAdmin && <td className="action-space">
                         <Button icon={<EditOutlined />} type="primary" onClick={e => router.push(`/expenses/${ref}`)} />
                         <Popconfirm placement="top" title={text} onConfirm={_ => del(id)} okText="Yes" cancelText="No">
                             <Button icon={<DeleteOutlined />} type="primary" danger/>
                         </Popconfirm> 
-                    </td>
+                    </td>}
                 </tr>
             ))}
             </tbody>
