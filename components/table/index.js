@@ -2,7 +2,7 @@ import { Button, Pagination, Popconfirm } from 'antd';
 import {DeleteOutlined, EditOutlined} from '@ant-design/icons';
 
 import {properties} from '../../libs/data';
-import '../../styles/table/indexs.scss';
+import '../../styles/index.scss';
 import useAuth from '../../provider/index';
 
 export function List({}){
