@@ -12,18 +12,19 @@ import '../styles/styles.scss';
 
 config.autoAddCss = false;
  
-import { faBars, faSpinner, faCheck, faEnvelope, faListAlt, faPlus,faFilePdf, faExchangeAlt, faUser,
+import { faBars, faSpinner, faCheck, faEnvelope, faListAlt, faPlus,faFilePdf, faExchangeAlt, faUser, faMap,
         faCreditCard, faMoneyBillAlt, faEllipsisH, faCaretDown, faCalendarAlt, faMapMarkedAlt, faMapMarkerAlt,
-        faArrowUp, faArrowDown, faBell, faSearch, faFileCsv, faMapPin, faBed, faBuilding, faArrowRight,} 
+        faArrowUp, faArrowDown, faBell, faSearch, faFileCsv, faMapPin, faBed, faBuilding, faArrowRight, faTh,
+        faChartBar} 
 from '@fortawesome/free-solid-svg-icons';
 
 import {fab,faEtsy} from '@fortawesome/free-brands-svg-icons';
-import { AuthProvider } from '../provider/index';
+import { AuthProvider } from '../provider';
  
 library.add(faBars,faSpinner, faCheck, faEnvelope, faListAlt, faCalendarAlt, faMapPin, faBed, faBuilding,
             faFilePdf, faExchangeAlt, faCreditCard, faMoneyBillAlt, faEllipsisH, faMapMarkedAlt, faUser,
            faCaretDown, faArrowUp, faArrowDown, faEtsy, faPlus, faBell, faSearch, faFileCsv, faArrowRight,
-           faMapMarkerAlt,);
+           faMapMarkerAlt, faMap, faTh, faChartBar);
 
 Router.events.on('routeChangeStart', () => NProgress.start()); 
 Router.events.on('routeChangeComplete', () => NProgress.done()); 

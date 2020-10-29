@@ -8,7 +8,7 @@ import {Checkbox} from 'antd';
 import Link from 'next/link';
 import { RoundedButton } from '../button';
 import '../../styles/form.scss';
-import useAuth from '../../provider/index';
+import useAuth from '../../provider';
 import {openNotification} from '../notification';
 
 

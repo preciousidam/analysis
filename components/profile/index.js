@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Avatar from '@material-ui/core/Avatar';
 import {Dropdown, Menu} from 'antd';
 import { deepOrange, deepPurple } from '@material-ui/core/colors';
-import useAuth from '../../provider/index';
+import useAuth from '../../provider';
 import { useRouter } from 'next/router';
 
 

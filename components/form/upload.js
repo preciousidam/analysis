@@ -26,10 +26,10 @@ export function UploadComponent({}){
     return (
         <Dragger {...props} className="upload">
             <p className="ant-upload-drag-icon">
-            <FileImageOutlined />
+            <FileImageOutlined style={{color: '#2AAF2E'}} />
             </p>
-            <p className="ant-upload-text">Click or drag file to this area to upload</p>
-            <p className="ant-upload-hint">
+            <p className="ant-upload-text" id='mainText'>Click or drag file to this area to upload</p>
+            <p className="ant-upload-hint" id="hint">
             Support for a single upload. CSV File Only.
             </p>
         </Dragger>

@@ -6,5 +6,10 @@
     #formContainer{
         width: 800px;
         margin: 50px auto;
+
+        .upload{
+            height: 350px;
+            border-color: $success !important;            
+        }
     }
 }

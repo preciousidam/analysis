@@ -1,13 +1,14 @@
 import React, {useState, useEffect} from 'react';
 import Head from "next/head";
 import {useRouter} from 'next/router';
+import PropTypes from 'prop-types';
 
 import '../styles/layout.scss';
 import Sidebar, {MinSideBar} from '../components/sidebar';
 import Header from '../components/header';
 
 
-export default function MainLayout({children, title}){
+export const MainLayout = ({children, title}) => {
 
     const [min, setMin] = useState(false);
     
@@ -47,4 +48,11 @@ export default function MainLayout({children, title}){
             </main>
         </div>
     );
+}
+
+export default MainLayout;
+
+MainLayout.propTypes = {
+    children: PropTypes.element,
+    title: PropTypes.string,
 }

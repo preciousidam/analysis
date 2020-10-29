@@ -1,21 +1,17 @@
 import React, {useState} from 'react';
-import moment from 'moment';
 import { Button, Select, Typography } from 'antd';
-import {PlusOutlined, FilePdfFilled, CloseSquareOutlined} from '@ant-design/icons';
+import { FilePdfFilled} from '@ant-design/icons';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import { useRouter } from 'next/router';
 
-import MainLayout from '../../layouts/mainLayout';
-import { Search } from '../../components/input/index';
+import MainLayout from '../../layouts';
+import { Search } from '../../components/input';
 import '../../styles/properties.scss';
 import { List } from '../../components/table/index';
 import CustomScroll from 'react-custom-scroll';
-import { IconButton, Paper } from '@material-ui/core';
-import { properties } from '../../libs/data';
-import { UploadComponent } from '../../components/form/upload';
-import { PropertyForm } from '../../components/form/property';
-import { ProtectRoute } from '../../route/index';
-import useAuth from '../../provider/index';
+import {  Paper } from '@material-ui/core';
+import { ProtectRoute } from '../../route';
+import useAuth from '../../provider';
 
 
 const {Option} =  Select;
@@ -27,11 +23,12 @@ export function Properties({}){
     const [showUploadForm, setShowUploadForm] = useState(false);
     const [showPropForm, setShowPropForm] = useState(false);
     const {isAdmin} = useAuth();
+    const onClick = id => router.push(`/properties/${id}`);
     
     return (
         <MainLayout title='Admin properties'>
             
-            <CustomScroll heightRelativeToParent="calc(100%)">
+            <CustomScroll heightRelativeToParent="calc(100% - 70px)">
                 <div id="main">
                     <div id="tableContainer">
                         <Paper>
@@ -68,32 +65,11 @@ export function Properties({}){
                                     </Button>
                                 </div>
                             </div>
-                            <List />
+                            <List onClick={onClick} />
                         </Paper>
                     </div>
                 </div>
             </CustomScroll>
-            {showUploadForm && <div className="overlay" >
-                <div id="uploadContainer">
-                    <IconButton className="close" onClick={_ => setShowUploadForm(false)}>
-                        <CloseSquareOutlined />
-                    </IconButton>
-                    <UploadComponent />
-                </div>
-            </div>}
-            {showPropForm && <div className="overlay" >
-                <div id="formContainer">
-                    <div id="header">
-                        <IconButton className="close" onClick={_ => setShowPropForm(false)}>
-                            <CloseSquareOutlined />
-                        </IconButton>
-                        <Title level={3}>New Property</Title>
-                    </div>
-                    <CustomScroll heightRelativeToParent='calc(100%)'>
-                        <PropertyForm />
-                    </CustomScroll>
-                </div>
-            </div>}
         </MainLayout>
     )
 }

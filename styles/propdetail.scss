@@ -1,0 +1,77 @@
+@import './variables.scss';
+@import "node_modules/bootstrap/scss/bootstrap";
+
+#main{
+    width: 100%;
+    padding: 30px;
+
+    #contentContainer{
+        margin: 50px 0;
+        padding: 30px;
+
+        header{
+            border-bottom: 1px solid rgba($color: #c3c3c3, $alpha: .5);
+            margin-bottom: 20px;
+        }
+
+        .col-4{
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+
+            p{
+                svg{
+                    margin-right: 10px;
+                }
+            }
+        }
+
+        #facilities{
+            background-color: rgba($color: #c3c3c3, $alpha: .5);
+            padding: 10px;
+
+            header{
+                svg{
+                    margin-right: 10px;
+                }
+            }
+
+            p{
+                svg{
+                    color: #969696;
+                    margin: 0 10px;
+                }
+            }
+        }
+
+        #right{
+
+            header{
+                background-color: $primary;
+                border-radius: 5px;
+                padding: 10px;
+                border-bottom: 0px;
+                color: $background-white;
+            }
+
+            #priceChart{
+                max-height: 350px;
+            }
+
+            #servCharge{
+                padding: 5 10px;
+                background-color: #c3c3c3;
+                
+            }
+        }
+
+        footer{
+            border-top: 1px solid rgba($color: #c3c3c3, $alpha: .5) !important;
+            padding: 10px;
+            margin: 10px;
+            width: 100%;
+            display: flex;
+            flex-direction: row-reverse;
+        }
+    }
+}

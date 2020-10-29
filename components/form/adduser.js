@@ -5,7 +5,7 @@ import { EmailOutlined, PersonOutline, PhoneOutlined } from '@material-ui/icons'
 import { LockOutlined } from '@ant-design/icons';
 
 import '../../styles/form.scss';
-import { InputWithIcon, SelectInput } from '../input/index';
+import { InputWithIcon, SelectInput } from '../input';
 import { RoundedButton } from '../button';
 import { createUser } from '../../utility/fetcher';
 import {openNotification} from '../notification';

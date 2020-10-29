@@ -7,16 +7,16 @@ import { useRouter } from 'next/router';
 import CustomScroll from 'react-custom-scroll';
 import { IconButton, Paper } from '@material-ui/core';
 
-import MainLayout from '../../layouts/mainLayout';
-import { Search } from '../../components/input/index';
+import MainLayout from '../../layouts';
+import { Search } from '../../components/input';
 import '../../styles/createuser.scss';
 import { properties } from '../../libs/data';
 import { PropertyList } from '../../components/table/index';
 import Link from 'next/link';
 import { PriceChart } from '../../components/charts';
-import { AdminProtectRoute, ProtectRoute } from '../../route/index';
+import { AdminProtectRoute, ProtectRoute } from '../../route';
 import NewUserForm from '../../components/form/adduser';
-import useAuth from '../../provider/index';
+import useAuth from '../../provider';
 
 
 const {Title} = Typography;

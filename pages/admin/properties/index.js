@@ -5,16 +5,16 @@ import {PlusOutlined, FilePdfFilled, CloseSquareOutlined} from '@ant-design/icon
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import { useRouter } from 'next/router';
 
-import MainLayout from '../../../layouts/mainLayout';
-import { Search } from '../../../components/input/index';
+import MainLayout from '../../../layouts';
+import { Search } from '../../../components/input';
 import '../../../styles/properties.scss';
-import { List } from '../../../components/table/index';
+import { List } from '../../../components/table';
 import CustomScroll from 'react-custom-scroll';
 import { IconButton, Paper } from '@material-ui/core';
 import { properties } from '../../../libs/data';
 import { UploadComponent } from '../../../components/form/upload';
 import { PropertyForm } from '../../../components/form/property';
-import { ProtectRoute, AdminProtectRoute } from '../../../route/index';
+import { ProtectRoute, AdminProtectRoute } from '../../../route';
 
 
 const {Option} =  Select;
@@ -47,7 +47,7 @@ export function Properties({}){
                             <Button 
                                 className="action-btn" 
                                 type='default'
-                                onClick={e => setShowUploadForm(true)}
+                                onClick={_ => router.push('/admin/properties/upload')}
                             >
                                 Import <FontAwesomeIcon icon='ellipsis-h' style={{marginLeft: 10}} />
                             </Button>

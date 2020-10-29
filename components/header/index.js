@@ -7,7 +7,7 @@ import Link from 'next/link';
 
 
 import {ProfileDropdown} from '../profile';
-import {Search} from '../input/index';
+import {Search} from '../input';
 
 export default function header({toogle}){
     

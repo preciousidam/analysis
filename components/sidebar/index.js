@@ -1,22 +1,34 @@
+import React, {useEffect, useState} from 'react';
 import {useRouter} from 'next/router';
-import {AccountBalance, AccountBalanceWalletOutlined, FormatBoldOutlined, Apartment, HotelOutlined, DescriptionOutlined, Person} from '@material-ui/icons';
+import {AccountBalance, Apartment, Person, People} from '@material-ui/icons';
 import Badge from '@material-ui/core/Badge';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import SideBarLayout from '../../layouts/sidebar';
 import {SidebarLink, MinSidebarLink} from '../button/sidebarLinks';
 import '../../styles/sidebar.scss';
-import useAuth from '../../provider/index';
+import useAuth from '../../provider';
 
 
+const userLink = [
+    {icon: <Apartment />, title: 'Properties', link: 'properties'},
+];
 
+const adminLink = [
+    {icon: <Apartment />, title: 'Properties', link: '/admin/properties'},
+    {icon: <People />, title: 'Users', link: '/admin/users'},
+];
 
 
 export default function SideBar({min}){
     const {isAdmin} = useAuth();
-    const links = [
-        {icon: <Apartment />, title: 'Properties', link: isAdmin? 'admin/properties' :'properties'},
-    ]
+    const [links, setLinks] = useState([]);
+    
     const router = useRouter();
+
+    useEffect(() => {
+        if(isAdmin) setLinks(adminLink);
+        else setLinks(userLink);
+    }, [isAdmin]);
     
     return(
         <SideBarLayout min={min}>
@@ -32,8 +44,7 @@ export default function SideBar({min}){
                                 icon={icon} 
                                 link={link} 
                                 active={
-                                    router.pathname.split('/')[1] == `${link.split('/')[1]}`
-                                    || router.pathname.split('/')[1] == `${link.split('/')[0]}` 
+                                    router.pathname.includes(link) 
                                     ? "active" : ""
                                 } 
                             />
@@ -47,16 +58,22 @@ export default function SideBar({min}){
 
 export function MinSideBar({min}){
     const router = useRouter();
+
     const {isAdmin} = useAuth();
-    const links = [
-        {icon: <Apartment />, title: 'Properties', link: isAdmin? 'admin/properties' :'properties'},
-    ]
+
+    const [links, setLinks] = useState([]);
+    
+
+    useEffect(() => {
+        if(isAdmin) setLinks(adminLink);
+        else setLinks(userLink);
+    }, [isAdmin]);
     
     return(
         <SideBarLayout min={min}>
             <ul id="sidabar-content">
                 
-                <MinSidebarLink title="Dashboard" icon={<AccountBalance />} link="index" active={router.pathname == "/" || router.pathname == "/index" ? "active" : ""} />
+                <MinSidebarLink title="Home" icon={<AccountBalance />} link="/" active={router.pathname == "/" ? "active" : ""} />
                 {
                     links.map(
                         ({title,icon,link}, id) => 
@@ -66,8 +83,7 @@ export function MinSideBar({min}){
                                 icon={icon} 
                                 link={link} 
                                 active={ 
-                                    router.pathname.split('/')[1] == `${link.split('/')[1]}`
-                                    || router.pathname.split('/')[1] == `${link.split('/')[0]}` 
+                                     router.pathname.includes(link) 
                                     ? "active" : ""
                                 } 
                             />
