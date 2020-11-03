@@ -1,5 +1,5 @@
-import MainLayout from "../../layouts"
-import { AdminProtectRoute, ProtectRoute } from "../../route"
+import MainLayout from "../../../layouts"
+import { AdminProtectRoute, ProtectRoute } from "../../../route"
 
 
 export const Users = ({}) => {

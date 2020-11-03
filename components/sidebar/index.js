@@ -4,17 +4,32 @@ import {AccountBalance, Apartment, Person, People} from '@material-ui/icons';
 import Badge from '@material-ui/core/Badge';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import SideBarLayout from '../../layouts/sidebar';
-import {SidebarLink, MinSidebarLink} from '../button/sidebarLinks';
+import {SidebarLink, MinSidebarLink} from './sidebarLinks';
 import '../../styles/sidebar.scss';
 import useAuth from '../../provider';
+import { CollapingLink } from './collapsingLink';
 
 
 const userLink = [
-    {icon: <Apartment />, title: 'Properties', link: 'properties'},
+    {
+        icon: <Apartment />, 
+        title: 'Properties', 
+        link: 'properties', 
+        options: [{
+            title: "V-Island", 
+            link: '/properties/vi',
+        },{
+            title: "Ikoyi", 
+            link: '/properties/ikoyi',
+        },{
+            title: "Lekki", 
+            link: '/properties/lekki',
+        }]
+    },
 ];
 
 const adminLink = [
-    {icon: <Apartment />, title: 'Properties', link: '/admin/properties'},
+    {icon: <Apartment />, title: 'Properties', link: '/admin/properties', options: [ ]},
     {icon: <People />, title: 'Users', link: '/admin/users'},
 ];
 
@@ -35,10 +50,21 @@ export default function SideBar({min}){
             <ul id="sidabar-content">
                 
                 <SidebarLink title="Home" icon={<AccountBalance />} link="/" active={router.pathname == "/" ? "active" : ""} />
+                
                 {
                     links.map(
-                        ({title,icon,link}, id) => 
-                            <SidebarLink 
+                        ({title,icon,link, options}, id) => options? 
+                            <CollapingLink  
+                                key={id} 
+                                title={title} 
+                                icon={icon} 
+                                link={link} 
+                                active={
+                                    router.pathname.includes(link) 
+                                    ? "active" : ""
+                                } 
+                            />
+                            :<SidebarLink 
                                 key={id} 
                                 title={title} 
                                 icon={icon} 

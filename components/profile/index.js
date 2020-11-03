@@ -39,7 +39,15 @@ export const ProfileDropdown = ({links}) =>{
 
 
     const menu = _ => (<Menu>
-          {links.map((x,i) => <Menu.Item key={i} className="drop-link" key={i} ><a>{x}</a></Menu.Item>)}
+          {links.map(({text, onClick},i) => 
+            <Menu.Item 
+              key={i} 
+              className="drop-link" 
+              onClick={onClick} 
+              key={i} 
+            >
+              {text}
+            </Menu.Item>)}
           <Menu.Item onClick={onClick} key={10}>logout</Menu.Item>
       </Menu>)
 

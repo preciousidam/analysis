@@ -8,7 +8,7 @@ import CustomScroll from 'react-custom-scroll';
 import { IconButton, Paper } from '@material-ui/core';
 
 import MainLayout from '../layouts';
-import { Search } from '../components/input';
+import { SelectInput, Search } from '../components/input';
 import '../styles/index.scss';
 import { properties } from '../libs/data';
 import { PropertyList } from '../components/table/table';
@@ -22,6 +22,8 @@ const {Title} = Typography;
 export function Home({}){
 
     const router = useRouter();
+    const [bed, setBed] = useState(3);
+
     
     return (
         <MainLayout title='Properties'>
@@ -47,14 +49,33 @@ export function Home({}){
                     </div>
                     <div id="table-chart">
                         <Paper id="float-left">
-                            <div>
-                                <h3>Average rent for 3Bedroom</h3>
-                                
-                            </div>
+                            <header>
+                                <h3>Average rent</h3>
+                                <SelectInput 
+                                    id="sBedroom" 
+                                    value={bed}
+                                    onChange={e => setBed(e.target.value)}
+                                    label=""
+                                    options={[
+                                        {text: '1 Bedroom', value:1},
+                                        {text: '2 Bedroom', value:2},
+                                        {text: '3 Bedroom', value:3},
+                                        {text: '4 Bedroom', value:4},
+                                    ]} 
+                                />
+                            </header>
                             <PriceChart />
                         </Paper>
                         <Paper id="float-right">
-                            <div style={{padding: 20, display: "flex", flexDirection: 'row', justifyContent: "space-between", alignItems: "center"}}>
+                            <div 
+                                style={{
+                                    padding: 20, 
+                                    display: "flex", 
+                                    flexDirection: 'row', 
+                                    justifyContent: "space-between", 
+                                    alignItems: "center"
+                                }}
+                            >
                                 <Search placeholder="Search" />
                                 <Link href="/properties"><a>View All<FontAwesomeIcon icon='arrow-right' style={{marginLeft: 5}} /></a></Link>
                             </div>

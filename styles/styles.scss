@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
 //@import "node_modules/bootstrap/scss/bootstrap";
 @import "./variables.scss";
 
@@ -11,6 +11,7 @@ body,
     height: 100% !important;
     min-height: 100%;
     font-family: $font-main;
+    font-size: 14px;
     color: $text-color !important;
     background-color: $background;
 }

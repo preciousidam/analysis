@@ -126,7 +126,7 @@ export function Id({}){
                                 title="Rent"
                             />
                             <div id="servCharge">
-                                <Title level={4}>Service Charge: {data?.serv_charge}</Title>
+                                <Title className='serv' level={5}>Service Charge: {data?.serv_charge}</Title>
                             </div>
                         </div>
                         <footer>

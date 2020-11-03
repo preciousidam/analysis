@@ -8,8 +8,11 @@ import Link from 'next/link';
 
 import {ProfileDropdown} from '../profile';
 import {Search} from '../input';
+import { useRouter } from 'next/router';
 
 export default function header({toogle}){
+
+    const {push} = useRouter();
     
     return(
         <header id="navbar">
@@ -38,7 +41,11 @@ export default function header({toogle}){
                         </Link>
                     </li>
                     <li className="nav-link">
-                        <ProfileDropdown links={['Settings','Preference']} />                           
+                        <ProfileDropdown links={[
+                                {text:'Profile', onClick: _ => push('/profile')},
+                                {text: 'Preference', onClick: _ => push('/settings')}
+                            ]} 
+                        />                           
                     </li>
                 </ul>
             </nav>

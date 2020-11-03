@@ -17,7 +17,7 @@ export function PropertyList({}){
             </thead>
             <tbody>
             {properties.map((prop,index) => (
-                index < 7 ? <tr>
+                index < 11 ? <tr>
                     <td className='sn'><span>{index+1}</span></td>
                     <td><span>{prop?.name}</span></td>
                     <td><Money amount={prop?.rent['2020']} /></td>

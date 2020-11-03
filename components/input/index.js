@@ -24,6 +24,16 @@ export const InputWithIconNonElevated = ({id, icon, placeholder,...rest}) => {
     )
 }
 
+export const InputWithLabel = ({id, label, ...rest}) => {
+
+    return (
+        <div className="InWithLabel">
+            <label forHtml={id}>{label}</label>
+            <InputWithIconNonElevated id={id} {...rest} />
+        </div>
+    )
+}
+
 export const Search = ({id, placeholder,...rest}) =>{
 
     return (
@@ -34,13 +44,13 @@ export const Search = ({id, placeholder,...rest}) =>{
     )
 }
 
-export const SelectInput = ({id, icon, options, ...rest}) =>{
+export const SelectInput = ({id, label, icon, options, ...rest}) =>{
 
     return (
         <div className='elevatedInput' id={id}>
             {icon}
-            <select className="input" {...rest}>
-                <option>select user role</option>
+            <select label className="input" {...rest}>
+                <option>{label}</option>
                 {options.map(({value, text}) => <option key={text} value={value}>{text}</option>)}
             </select>
         </div>
@@ -69,4 +79,5 @@ SelectInput.propTypes = {
     options: PropTypes.array.isRequired,
     id: PropTypes.string.isRequired,
     onChange: PropTypes.func,
+    label: PropTypes.string.isRequired,
 }
