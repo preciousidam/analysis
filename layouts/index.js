@@ -6,9 +6,10 @@ import PropTypes from 'prop-types';
 import '../styles/layout.scss';
 import Sidebar, {MinSideBar} from '../components/sidebar';
 import Header from '../components/header';
+import { Breadcrumb } from '../components/breadcrumb';
 
 
-export const MainLayout = ({children, title}) => {
+export const MainLayout = ({children, title="", BreadIcon, links}) => {
 
     const [min, setMin] = useState(false);
     
@@ -42,6 +43,11 @@ export const MainLayout = ({children, title}) => {
                     {min? <MinSideBar min={min} /> :<Sidebar min={min} />}
                     <div className={`${className} content-area`}>
                         <Header toogle={handleToogle} />
+                        <Breadcrumb 
+                            pageTitle={title}
+                            pageIcon={BreadIcon}
+                            links={['Home', ...title.split(' ')]}
+                        />
                         {children}
                     </div>
                 </div>

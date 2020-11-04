@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {useRouter} from 'next/router';
-import {AccountBalance, Apartment, Person, People} from '@material-ui/icons';
+import {AccountBalance, Apartment, Person, People, ContactSupport} from '@material-ui/icons';
 import Badge from '@material-ui/core/Badge';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import SideBarLayout from '../../layouts/sidebar';
@@ -26,6 +26,16 @@ const userLink = [
             link: '/properties/lekki',
         }]
     },
+    {
+        icon: <ContactSupport />,
+        title: 'Support',
+        link: 'support'
+    },
+    {
+        icon: <ContactSupport />,
+        title: 'About',
+        link: 'about'
+    }
 ];
 
 const adminLink = [
@@ -58,7 +68,8 @@ export default function SideBar({min}){
                                 key={id} 
                                 title={title} 
                                 icon={icon} 
-                                link={link} 
+                                link={link}
+                                options={options}
                                 active={
                                     router.pathname.includes(link) 
                                     ? "active" : ""

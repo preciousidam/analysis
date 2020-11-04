@@ -8,7 +8,7 @@ import '../../styles/components.scss';
 
 export const CollapingLink = ({icon, title, options}) => {
 
-    const [dropdown, setDropdown] = useState(false);
+    const [dropdown, setDropdown] = useState(true);
 
     return (
         <div className="collapsingLink">

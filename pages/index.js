@@ -6,6 +6,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import { useRouter } from 'next/router';
 import CustomScroll from 'react-custom-scroll';
 import { IconButton, Paper } from '@material-ui/core';
+import {HomeOutlined} from '@material-ui/icons';
 
 import MainLayout from '../layouts';
 import { SelectInput, Search } from '../components/input';
@@ -26,7 +27,7 @@ export function Home({}){
 
     
     return (
-        <MainLayout title='Properties'>
+        <MainLayout title='Dashboard' BreadIcon={<HomeOutlined fontSize='large' />}>
             <CustomScroll heightRelativeToParent="calc(100% - 67px)">
                 <div id="home">
                     <div id="top">
