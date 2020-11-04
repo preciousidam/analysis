@@ -91,7 +91,7 @@ export default function NewUserForm({}){
                 id="password"
             />
             <SelectInput 
-                options={[{value: 1, text: 'Admin'}, {value: 2, text: 'User'}]} 
+                options={[{value: "admin", text: 'Admin'}, {value: "user", text: 'User'}]} 
                 value={role}
                 onChange={e => setRole(e.target.value)}
                 id="role"
