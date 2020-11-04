@@ -9,7 +9,7 @@ import { IconButton, Paper } from '@material-ui/core';
 
 import MainLayout from '../../../layouts';
 import { Search } from '../../../components/input';
-import '../../styles/createuser.scss';
+import '../../../styles/createuser.scss';
 import { properties } from '../../../libs/data';
 import { PropertyList } from '../../../components/table/index';
 import Link from 'next/link';
