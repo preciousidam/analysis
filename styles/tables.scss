@@ -31,5 +31,12 @@ table{
             font-size: 12px;
         }
     }
+}
 
+.empty{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }

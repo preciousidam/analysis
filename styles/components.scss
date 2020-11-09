@@ -303,3 +303,25 @@
         }
     }
 }
+
+
+////////////////////////////FOOTER////////////////////////////////////
+#footer{
+    width: 100%;
+    border: 2px solid rgba($color: #c6c6c6, $alpha: .4);
+
+    #footerContainer{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 30px;
+
+        #right-links{
+            li{
+                display: inline-block;
+                margin: 10px;
+            }
+        }
+    }
+}

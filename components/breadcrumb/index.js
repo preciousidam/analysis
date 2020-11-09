@@ -11,7 +11,7 @@ export const Breadcrumb = ({pageTitle, pageIcon, links, right}) => {
         <div className="breadcrumb">
             <div className="breadLeft">
                 <Title className="title" level={3}>{pageIcon} {pageTitle}</Title>
-                { links.map(link => <Link href={link == 'Home'? '/':link.toLowerCase()}><a>{link}</a></Link>)}
+                { links.length > 1 && links.map(link => <Link href={link == 'Home'? '/':link.toLowerCase()}><a>{link}</a></Link>)}
             </div>
 
             {right}
@@ -22,5 +22,5 @@ export const Breadcrumb = ({pageTitle, pageIcon, links, right}) => {
 Breadcrumb.propTypes = {
     pageTitle: PropTypes.string.isRequired,
     pageIcon: PropTypes.element.isRequired,
-    links: PropTypes.array.isRequired,
+    links: PropTypes.arrayOf(PropTypes.string).isRequired,
 }

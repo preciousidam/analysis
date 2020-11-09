@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import moment from 'moment';
 import { Button, Select, Typography } from 'antd';
 import {PlusOutlined, FilePdfFilled, CloseSquareOutlined} from '@ant-design/icons';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
@@ -9,7 +8,6 @@ import MainLayout from '../../../layouts';
 import { Search } from '../../../components/input';
 import '../../../styles/properties.scss';
 import { List } from '../../../components/table';
-import CustomScroll from 'react-custom-scroll';
 import { IconButton, Paper } from '@material-ui/core';
 import { properties } from '../../../libs/data';
 import { UploadComponent } from '../../../components/form/upload';
@@ -28,71 +26,69 @@ export function Properties({}){
     
     return (
         <MainLayout title='Admin properties'>
-            
-            <CustomScroll heightRelativeToParent="calc(100% - 70px)">
-                <div id="main">
-                    <div id='filters'>
-                        <div id="left">
-                            <Title level={2}>Properties</Title>
-                            <h3>{properties.length} Total</h3>
-                        </div>
-                        <div id="right">
-                            <Button 
-                                className="action-btn" type='primary'
-                                onClick={_ => router.push('/admin/properties/new')}
-                            >
-                                <PlusOutlined /> 
-                                Add New Property
-                            </Button>
-                            <Button 
-                                className="action-btn" 
-                                type='default'
-                                onClick={_ => router.push('/admin/properties/upload')}
-                            >
-                                Import <FontAwesomeIcon icon='ellipsis-h' style={{marginLeft: 10}} />
-                            </Button>
-                        </div>
+        
+            <div id="main">
+                <div id='filters'>
+                    <div id="left">
+                        <Title level={2}>Properties</Title>
+                        <h3>{properties.length} Total</h3>
                     </div>
-                    <div id="tableContainer">
-                        <Paper>
-                            <div id="filterContainer">
-                                <div id="left">
-                                    <Search />
-                                    <Select defaultValue='*' className="filterItem">
-                                        <Option value='*'>Sort By</Option>
-                                        <Option value='price'>Price</Option>
-                                        <Option value='area'>Area</Option>
-                                    </Select>
-                                    <Select defaultValue='all' className="filterItem">
-                                        <Option value='all'>All Locales</Option>
-                                        <Option value='lekki'>Lekki</Option>
-                                        <Option value='victoria island'>Victoria Island</Option>
-                                        <Option value='ikoyi'>Ikoyi</Option>
-                                        <Option value='lekki phase ii'>Lekki phase II</Option>
-                                    </Select>
-                                </div>
-                                <div id="right">
-                                    <Button 
-                                        type='primary'
-                                    > 
-                                        <FontAwesomeIcon icon='file-csv' color="#fff" style={{marginRight: 10}} />
-                                        Export CSV
-                                    </Button>
-
-                                    <Button 
-                                        type='primary' 
-                                        danger
-                                    >
-                                        <FilePdfFilled />
-                                        Export PDF
-                                    </Button>
-                                </div>
-                            </div>
-                            <List />
-                        </Paper>
+                    <div id="right">
+                        <Button 
+                            className="action-btn" type='primary'
+                            onClick={_ => router.push('/admin/properties/new')}
+                        >
+                            <PlusOutlined /> 
+                            Add New Property
+                        </Button>
+                        <Button 
+                            className="action-btn" 
+                            type='default'
+                            onClick={_ => router.push('/admin/properties/upload')}
+                        >
+                            Import <FontAwesomeIcon icon='ellipsis-h' style={{marginLeft: 10}} />
+                        </Button>
                     </div>
                 </div>
-            </CustomScroll>
+                <div id="tableContainer">
+                    <Paper>
+                        <div id="filterContainer">
+                            <div id="left">
+                                <Search />
+                                <Select defaultValue='*' className="filterItem">
+                                    <Option value='*'>Sort By</Option>
+                                    <Option value='price'>Price</Option>
+                                    <Option value='area'>Area</Option>
+                                </Select>
+                                <Select defaultValue='all' className="filterItem">
+                                    <Option value='all'>All Locales</Option>
+                                    <Option value='lekki'>Lekki</Option>
+                                    <Option value='victoria island'>Victoria Island</Option>
+                                    <Option value='ikoyi'>Ikoyi</Option>
+                                    <Option value='lekki phase ii'>Lekki phase II</Option>
+                                </Select>
+                            </div>
+                            <div id="right">
+                                <Button 
+                                    type='primary'
+                                > 
+                                    <FontAwesomeIcon icon='file-csv' color="#fff" style={{marginRight: 10}} />
+                                    Export CSV
+                                </Button>
+
+                                <Button 
+                                    type='primary' 
+                                    danger
+                                >
+                                    <FilePdfFilled />
+                                    Export PDF
+                                </Button>
+                            </div>
+                        </div>
+                        <List />
+                    </Paper>
+                </div>
+            </div>
             {showUploadForm && <div className="overlay" >
                 <div id="uploadContainer">
                     <IconButton className="close" onClick={_ => setShowUploadForm(false)}>
@@ -109,10 +105,7 @@ export function Properties({}){
                         </IconButton>
                         <Title level={3}>New Property</Title>
                     </div>
-                    <CustomScroll heightRelativeToParent='calc(100%)'>
-                        <PropertyForm />
-                    </CustomScroll>
-                    
+                    <PropertyForm />
                 </div>
             </div>}
         </MainLayout>

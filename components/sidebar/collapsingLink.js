@@ -5,10 +5,13 @@ import Link from 'next/link';
 
 import {SidebarInnerLink} from './sidebarLinks';
 import '../../styles/components.scss';
+import { useRouter } from 'next/router';
 
 export const CollapingLink = ({icon, title, options}) => {
 
     const [dropdown, setDropdown] = useState(true);
+    const router = useRouter();
+    console.log(window.location.href)
 
     return (
         <div className="collapsingLink">
@@ -17,15 +20,18 @@ export const CollapingLink = ({icon, title, options}) => {
                 <a>{icon}
                     <p>{title}</p>
                     <FontAwesomeIcon 
-                        icon={dropdown? 'angle-down':'angle-right'} 
+                        icon={dropdown? 'angle-right':'angle-down'} 
                         style={{position: "absolute", right: 20}} 
                     />
                 </a>
             </li>
             
             {dropdown && <div className="collapsedItem">
-                {options.map(({title, link, active}) =>
-                    <SidebarInnerLink  title={title} link={link} active={active} />
+                {options.map(({title, link}) =><SidebarInnerLink  
+                        title={title} 
+                        link={link} 
+                        active={window.location.href.includes(link) ? "active" : ""} 
+                    />
                 )}
             </div>}
         </div>
