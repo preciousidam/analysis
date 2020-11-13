@@ -14,37 +14,45 @@
         align-items: center;
         padding: 50px 30px;
 
-        .card{
-            padding: 20px 30px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 250px;
-            box-shadow: 1.5px 1.5px 1.5px 1.5px rgba($color: #d8d8d8, $alpha: .3);
-            color: $background-white;
-            border-color: transparent;
-            .ant-typography{
+        .col-sm-3{
+            .card{
+                padding: 20px 30px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                box-shadow: 1.5px 1.5px 1.5px 1.5px rgba($color: #d8d8d8, $alpha: .3);
                 color: $background-white;
-                margin: 0;
-                
-            }
-            span{
-                border-bottom: 1px solid rgba($color: #ffffff, $alpha: .4);
-                display: block;
-                width: 100%;
-                text-align: center;
+                border-color: transparent;
+                .ant-typography{
+                    color: $background-white;
+                    margin: 0;
+                }
+                span{
+                    border-bottom: 1px solid rgba($color: #ffffff, $alpha: .4);
+                    display: block;
+                    width: 100%;
+                    text-align: center;
+                }
             }
             &:nth-child(1){
-                background-color: $info; 
+                .card{
+                    background-color: $info;
+                }
             }
             &:nth-child(3){
-                background-color: $success; 
+                .card{
+                    background-color: $success;
+                }
             }
             &:nth-child(2){
-                background-color: $warning; 
+                .card{
+                    background-color: $warning;
+                } 
             }
             &:nth-child(4){
-                background-color: $danger; 
+                .card{
+                    background-color: $danger;
+                }
             }
         }
     }
@@ -58,7 +66,6 @@
 
         #float-left{
             display: flex;
-            width: 60%;
             max-height: 600px;
             flex-direction: column;
             padding: 10px;
@@ -71,7 +78,6 @@
 
         #float-right{
             display: flex;
-            width: 35%;
             flex-direction: column;
 
             .table{

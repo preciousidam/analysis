@@ -39,8 +39,16 @@ const userLink = [
 ];
 
 const adminLink = [
-    {icon: <Apartment />, title: 'Properties', link: '/admin/properties', options: [ ]},
-    {icon: <People />, title: 'Users', link: '/admin/users'},
+    {icon: <Apartment />, title: 'Properties', link: '/admin/properties'},
+    {icon: <People />, title: 'Users', link: '/admin/users', options: [
+        {
+            title: "All users",
+            link: "/admin/users/",
+        },{
+            title: "Add users",
+            link: "/admin/users/adduser",
+        },
+    ]},
 ];
 
 
