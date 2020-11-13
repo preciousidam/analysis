@@ -1,4 +1,4 @@
-import { Button, Pagination, Popconfirm } from 'antd';
+import { Button, Pagination, Popconfirm, Typography } from 'antd';
 import {DeleteOutlined} from '@ant-design/icons';
 import PropTypes from 'prop-types';
 
@@ -7,16 +7,19 @@ import '../../styles/tables.scss';
 import useAuth from '../../provider';
 import { getViewData } from '../../libs/hooks';
 import Money from '../money';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-export const List = ({onClick}) => {
+const {Title} = Typography;
+
+export const List = ({onClick, area}) => {
     const text = "Are you sure you want to delete?";
     const m = 1000000;
     const {isAdmin} = useAuth();
-    const {data, isLoading} = getViewData('properties/');
+    const {data, isLoading} = getViewData(area? `properties/${area}`:'properties/');
     
 
     return (
-        !isLoading && <table className="table">
+        !isLoading && <div><table className="table">
             <thead>
                 <tr>
                     <th className='sn'><span>SN</span></th>
@@ -35,7 +38,7 @@ export const List = ({onClick}) => {
             </thead>
             <tbody>
             {data?.map(({rents,  ...prop},index) => (
-                <tr onClick={isAdmin? null : () => onClick(prop?.id)}>
+                <tr onClick={isAdmin? null : () => onClick(prop?.name)}>
                     <td className='sn'><span>{index+1}</span></td>
                     <td><span>{prop?.name}</span></td>
                     <td><span>{prop?.address}</span></td>
@@ -56,6 +59,11 @@ export const List = ({onClick}) => {
             ))}
             </tbody>
         </table>
+        {data?.length <= 0 && <div className="empty">
+            <FontAwesomeIcon icon="inbox" color="#51cce3" size="5x" />
+            <Title level={5}>No Data</Title>
+        </div>}
+    </div>
     )
 }
 

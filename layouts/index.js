@@ -7,9 +7,11 @@ import '../styles/layout.scss';
 import Sidebar, {MinSideBar} from '../components/sidebar';
 import Header from '../components/header';
 import { Breadcrumb } from '../components/breadcrumb';
+import CustomScroll from 'react-custom-scroll';
+import { Footer } from '../components/footer';
 
 
-export const MainLayout = ({children, title="", BreadIcon, links}) => {
+export const MainLayout = ({children, title="", BreadIcon, links=[], right}) => {
 
     const [min, setMin] = useState(false);
     
@@ -46,9 +48,13 @@ export const MainLayout = ({children, title="", BreadIcon, links}) => {
                         <Breadcrumb 
                             pageTitle={title}
                             pageIcon={BreadIcon}
-                            links={['Home', ...title.split(' ')]}
+                            links={['Home', ...links]}
+                            right={right}
                         />
-                        {children}
+                        <CustomScroll heightRelativeToParent="calc(100% - 135px)">
+                            {children}
+                            <Footer />
+                        </CustomScroll>
                     </div>
                 </div>
             </main>
@@ -61,4 +67,6 @@ export default MainLayout;
 MainLayout.propTypes = {
     children: PropTypes.element,
     title: PropTypes.string,
+    right: PropTypes.element,
+    links: PropTypes.arrayOf(PropTypes.string),
 }

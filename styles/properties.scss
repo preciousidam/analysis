@@ -1,22 +1,8 @@
 @import './variables.scss';
-#topBar{
-    background-color: $background-white;
-    box-shadow: 2px 2px 2px 2px rgba($color: #000000, $alpha: 0.1);
-    padding: 10px 50px 10px;
 
-    #firstRow{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-}
-
-
-#main{
+#mainContProp{
     width: 100%;
-    height: calc(100% - 10px) !important;
-    max-height: calc(100% - 60px) !important;
-    position: relative;
+    min-height: 88%;
     #filters{
         display: flex;
         flex-direction: row;

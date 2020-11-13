@@ -17,11 +17,12 @@ export default function Auth() {
       () => {
           if( isAuthenticated){
               router.push('/');
+              return;
           }
-          //router.prefetch('/');
+          router.prefetch('/');
       },[isAuthenticated]
   );
-  //const action = _ => push('index');
+  
   return (
     <div id='authContainer'>
       <Head>

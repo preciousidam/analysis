@@ -1,0 +1,25 @@
+.propStat{
+    width: 100%;
+    height: calc(100% - 135px) !important ;
+    min-height: calc(100% - 135px) !important ;
+}
+
+
+.form-contr{
+    margin-right: 20px;
+
+    #areas{
+        padding: 10px;
+        background-color: white;
+        border-radius: 5px;
+        width: 150px;
+        box-shadow: 1px 1px 1px 1px rgba($color: #c6c6c6, $alpha: 0.2);
+    
+        input{
+            border: 0 !important;
+            &:before{
+                border: none !important;
+            }
+        }
+    }
+}
