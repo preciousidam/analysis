@@ -25,118 +25,115 @@ export function Home({}){
     
     return (
         <MainLayout title='Dashboard' BreadIcon={<HomeOutlined fontSize='large' />}>
-            <CustomScroll heightRelativeToParent="calc(100% - 67px)">
-                <div id="home">
-                    <div id="top" className="row">
-                        <div className='col-sm-3'>
-                            <div className="card">
-                                <span>PROPERTIES</span>
-                                <Title level={3}>{properties.length}</Title>
-                            </div>
-                        </div>
-                        <div className='col-sm-3'>
-                            <div className="card">
-                                <span>LEKKI</span>
-                                <Title level={3}>{properties.length}</Title>
-                            </div>
-                        </div>
-                        <div className='col-sm-3'>
-                            <div className="card">
-                                <span>VICTORIA ISLAND</span>
-                                <Title level={3}>{properties.length}</Title>
-                            </div>
-                        </div>
-                        <div className='col-sm-3'>
-                            <div className="card">
-                                <span>IKOYI</span>
-                                <Title level={3}>{properties.length}</Title>
-                            </div>
+            <div id="home">
+                <div id="top" className="row">
+                    <div className='col-sm-3'>
+                        <div className="card">
+                            <span>PROPERTIES</span>
+                            <Title level={3}>{properties.length}</Title>
                         </div>
                     </div>
-                    <div id="table-chart" className="row">
-                        <div  className="col-sm-8">
-                            <Paper id="float-left">
-                                <header>
-                                    <h3>Average rent</h3>
-                                    <SelectInput 
-                                        id="sBedroom" 
-                                        value={bed}
-                                        onChange={e => setBed(e.target.value)}
-                                        label=""
-                                        options={[
-                                            {text: '1 Bedroom', value:1},
-                                            {text: '2 Bedroom', value:2},
-                                            {text: '3 Bedroom', value:3},
-                                            {text: '4 Bedroom', value:4},
-                                        ]} 
-                                    />
-                                </header>
-                                <PriceChart />
-                            </Paper>
-                        </div>
-                        <div  className="col-sm-4">
-                            <Paper id="float-right">
-                                <div 
-                                    style={{
-                                        padding: 20, 
-                                        display: "flex", 
-                                        flexDirection: 'row', 
-                                        justifyContent: "space-between", 
-                                        alignItems: "center"
-                                    }}
-                                >
-                                    <Search placeholder="Search" />
-                                    <Link href="/properties"><a>View All<FontAwesomeIcon icon='arrow-right' style={{marginLeft: 5}} /></a></Link>
-                                </div>
-                                <PropertyList />
-                            </Paper>
+                    <div className='col-sm-3'>
+                        <div className="card">
+                            <span>LEKKI</span>
+                            <Title level={3}>{properties.length}</Title>
                         </div>
                     </div>
-                    <div className="card">
-                        <span>IKOYI</span>
-                        <Title level={3}>{properties.length}</Title>
+                    <div className='col-sm-3'>
+                        <div className="card">
+                            <span>VICTORIA ISLAND</span>
+                            <Title level={3}>{properties.length}</Title>
+                        </div>
+                    </div>
+                    <div className='col-sm-3'>
+                        <div className="card">
+                            <span>IKOYI</span>
+                            <Title level={3}>{properties.length}</Title>
+                        </div>
                     </div>
                 </div>
-                <div id="table-chart">
-                    <Paper id="float-left">
-                        <header>
-                            <h3>Average rent</h3>
-                            <SelectInput 
-                                id="sBedroom" 
-                                value={bed}
-                                onChange={e => setBed(e.target.value)}
-                                label=""
-                                options={[
-                                    {text: '1 Bedroom', value:1},
-                                    {text: '2 Bedroom', value:2},
-                                    {text: '3 Bedroom', value:3},
-                                    {text: '4 Bedroom', value:4},
-                                ]} 
-                            />
-                        </header>
-                        <PriceChart />
-                    </Paper>
-                    <Paper id="float-right">
-                        <div 
-                            style={{
-                                padding: 20, 
-                                display: "flex", 
-                                flexDirection: 'row', 
-                                justifyContent: "space-between", 
-                                alignItems: "center"
-                            }}
-                        >
-                            <Search placeholder="Search" />
-                            <Link href="/properties"><a>View All<FontAwesomeIcon icon='arrow-right' style={{marginLeft: 5}} /></a></Link>
-                        </div>
-                        <PropertyList />
-                    </Paper>
+                <div id="table-chart" className="row">
+                    <div  className="col-sm-8">
+                        <Paper id="float-left">
+                            <header>
+                                <h3>Average rent</h3>
+                                <SelectInput 
+                                    id="sBedroom" 
+                                    value={bed}
+                                    onChange={e => setBed(e.target.value)}
+                                    label=""
+                                    options={[
+                                        {text: '1 Bedroom', value:1},
+                                        {text: '2 Bedroom', value:2},
+                                        {text: '3 Bedroom', value:3},
+                                        {text: '4 Bedroom', value:4},
+                                    ]} 
+                                />
+                            </header>
+                            <PriceChart />
+                        </Paper>
+                    </div>
+                    <div  className="col-sm-4">
+                        <Paper id="float-right">
+                            <div 
+                                style={{
+                                    padding: 20, 
+                                    display: "flex", 
+                                    flexDirection: 'row', 
+                                    justifyContent: "space-between", 
+                                    alignItems: "center"
+                                }}
+                            >
+                                <Search placeholder="Search" />
+                                <Link href="/properties"><a>View All<FontAwesomeIcon icon='arrow-right' style={{marginLeft: 5}} /></a></Link>
+                            </div>
+                            <PropertyList />
+                        </Paper>
+                    </div>
                 </div>
-                <Paper id="bedPriceCont">
-                    
+                <div className="card">
+                    <span>IKOYI</span>
+                    <Title level={3}>{properties.length}</Title>
+                </div>
+            </div>
+            <div id="table-chart">
+                <Paper id="float-left">
+                    <header>
+                        <h3>Average rent</h3>
+                        <SelectInput 
+                            id="sBedroom" 
+                            value={bed}
+                            onChange={e => setBed(e.target.value)}
+                            label=""
+                            options={[
+                                {text: '1 Bedroom', value:1},
+                                {text: '2 Bedroom', value:2},
+                                {text: '3 Bedroom', value:3},
+                                {text: '4 Bedroom', value:4},
+                            ]} 
+                        />
+                    </header>
+                    <PriceChart />
+                </Paper>
+                <Paper id="float-right">
+                    <div 
+                        style={{
+                            padding: 20, 
+                            display: "flex", 
+                            flexDirection: 'row', 
+                            justifyContent: "space-between", 
+                            alignItems: "center"
+                        }}
+                    >
+                        <Search placeholder="Search" />
+                        <Link href="/properties"><a>View All<FontAwesomeIcon icon='arrow-right' style={{marginLeft: 5}} /></a></Link>
+                    </div>
+                    <PropertyList />
                 </Paper>
             </div>
-          
+            <Paper id="bedPriceCont">
+                
+            </Paper>
         </MainLayout>
     )
 }
