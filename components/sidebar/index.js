@@ -32,12 +32,12 @@ const userLink = [
     {
         icon: <ContactSupport />,
         title: 'Support',
-        link: 'support'
+        link: '/support'
     },
     {
         icon: <ContactSupport />,
         title: 'About',
-        link: 'about'
+        link: '/about'
     }
 ];
 

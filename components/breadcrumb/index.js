@@ -11,7 +11,8 @@ export const Breadcrumb = ({pageTitle, pageIcon, links, right}) => {
         <div className="breadcrumb">
             <div className="breadLeft">
                 <Title className="title" level={3}>{pageIcon} {pageTitle}</Title>
-                { links.length > 1 && links.map(link => <Link href={link == 'Home'? '/':link.toLowerCase()}><a>{link}</a></Link>)}
+                <Link href='/'><a>Home</a></Link>
+                { links.length > 1 && links.map(link => <Link href={`/${link.toLowerCase().split('/').pop()}`}><a>{link}</a></Link>)}
             </div>
 
             {right}

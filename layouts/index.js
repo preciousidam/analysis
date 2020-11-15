@@ -48,7 +48,7 @@ export const MainLayout = ({children, title="", BreadIcon, links=[], right}) => 
                         <Breadcrumb 
                             pageTitle={title}
                             pageIcon={BreadIcon}
-                            links={['Home', ...links]}
+                            links={links}
                             right={right}
                         />
                         <CustomScroll heightRelativeToParent="calc(100% - 135px)">
