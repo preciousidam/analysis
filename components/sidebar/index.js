@@ -19,6 +19,9 @@ const userLink = [
             title: "V-Island", 
             link: '/properties/vi',
         },{
+            title: "Oniru", 
+            link: '/properties/oniru',
+        },{
             title: "Ikoyi", 
             link: '/properties/ikoyi',
         },{

@@ -83,30 +83,12 @@ export default function Details({}){
                         Facilities
                     </header>
                     <div className="row">
-                        <div className="col-6">
-                            <p><FontAwesomeIcon icon="check" />
-                            Swimming Pool</p>
-                        </div>
-                        <div className="col-6">
-                            <p><FontAwesomeIcon icon="check" />
-                            24hrs Power supply</p>
-                        </div>
-                        <div className="col-6">
-                            <p><FontAwesomeIcon icon="check" />
-                            CCTV </p>
-                        </div>
-                        <div className="col-6">
-                            <p><FontAwesomeIcon icon="check" />
-                            Gym</p>
-                        </div>
-                        <div className="col-6">
-                            <p><FontAwesomeIcon icon="check" />
-                            Tennis Court</p>
-                        </div>
-                        <div className="col-6">
-                            <p><FontAwesomeIcon icon="check" />
-                            Ensuite</p>
-                        </div>
+                        {data?.facilities.split(',').map(x => (
+                            <div className="col-6">
+                                <p><FontAwesomeIcon icon="check" />
+                                {x}</p>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </div>
