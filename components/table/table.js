@@ -1,12 +1,15 @@
 import { properties } from "../../libs/data"
 import Money from "../money";
+import { getViewData } from '../../libs/hooks';
 
 
 
 export function PropertyList({}){
-    const data = properties;
+    const m = 1000000;
+    const {data, isLoading} = getViewData('properties/');
+    console.log(data)
     return (
-        <table className="table">
+        !isLoading && <table className="table">
             <thead>
                 <tr>
                     <th className='sn'><span>SN</span></th>
@@ -16,12 +19,12 @@ export function PropertyList({}){
                 </tr>
             </thead>
             <tbody>
-            {properties.map((prop,index) => (
+            {data?.map(({rents, serv_charge, name},index) => (
                 index < 11 ? <tr>
                     <td className='sn'><span>{index+1}</span></td>
-                    <td><span>{prop?.name}</span></td>
-                    <td><Money amount={prop?.rent['2020']} /></td>
-                    <td><Money amount={`${prop?.serv_charge}M`} /></td>
+                    <td><span>{name}</span></td>
+                    <td><Money amount={`${rents[4].amount/m}M`} /></td>
+                    <td><Money amount={`${serv_charge/m}M`} /></td>
                 </tr>: null
             ))}
             </tbody>

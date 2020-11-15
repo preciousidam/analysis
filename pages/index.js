@@ -13,9 +13,16 @@ import { PropertyList } from '../components/table/table';
 import Link from 'next/link';
 import { PriceChart } from '../components/charts';
 import { ProtectRoute } from '../route';
+import { getViewData } from '../libs/hooks';
 
 
 const {Title} = Typography;
+const areas = [
+    {code: 'vi', text:"VICTORIA ISLAND"},
+    {code: 'ikoyi', text:"IKOYI"},
+    {code: 'lekki', text:"LEKKI"},
+    {code: 'oniru', text:"ONIRU"},
+]
 
 export function Home({}){
 
@@ -27,30 +34,14 @@ export function Home({}){
         <MainLayout title='Dashboard' BreadIcon={<HomeOutlined fontSize='large' />}>
             <div id="home">
                 <div id="top" className="row">
-                    <div className='col-sm-3'>
-                        <div className="card">
-                            <span>PROPERTIES</span>
-                            <Title level={3}>{properties.length}</Title>
-                        </div>
-                    </div>
-                    <div className='col-sm-3'>
-                        <div className="card">
-                            <span>LEKKI</span>
-                            <Title level={3}>{properties.length}</Title>
-                        </div>
-                    </div>
-                    <div className='col-sm-3'>
-                        <div className="card">
-                            <span>VICTORIA ISLAND</span>
-                            <Title level={3}>{properties.length}</Title>
-                        </div>
-                    </div>
-                    <div className='col-sm-3'>
-                        <div className="card">
-                            <span>IKOYI</span>
-                            <Title level={3}>{properties.length}</Title>
-                        </div>
-                    </div>
+                    {
+                        areas.map(area => (
+                            <div className='col-sm-3'>
+                                <CountCard area={area} />
+                            </div>
+                        ))
+                    }
+                    
                 </div>
                 <div id="table-chart" className="row">
                     <div  className="col-sm-8">
@@ -70,7 +61,7 @@ export function Home({}){
                                     ]} 
                                 />
                             </header>
-                            <PriceChart />
+                            <PriceChart bed={bed} />
                         </Paper>
                     </div>
                     <div  className="col-sm-4">
@@ -85,7 +76,7 @@ export function Home({}){
                                 }}
                             >
                                 <Search placeholder="Search" />
-                                <Link href="/properties"><a>View All<FontAwesomeIcon icon='arrow-right' style={{marginLeft: 5}} /></a></Link>
+                                {/*<Link href="/properties"><a>View All<FontAwesomeIcon icon='arrow-right' style={{marginLeft: 5}} /></a></Link>*/}
                             </div>
                             <PropertyList />
                         </Paper>
@@ -97,3 +88,15 @@ export function Home({}){
 }
 
 export default ProtectRoute(Home);
+
+export const CountCard = ({area}) => {
+    console.log(area)
+    const {data, isLoading} = getViewData(`properties/${area.code}`);
+
+    return(
+        !isLoading && <div className="card">
+            <span>{area.text}</span>
+            <Title level={3}>{data.length}</Title>
+        </div>
+    )
+}

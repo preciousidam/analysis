@@ -31,21 +31,6 @@ export default function Stats({}){
                         </MenuItem>)}
                     </Select>
                 </FormControl>
-                <FormControl className="form-contr">
-                    <Select
-                        multiple
-                        input={<Input />}
-                        id="areas"
-                        value={selectedArea}
-                        renderValue={selected => `${selected.length} Areas`}
-                        onChange={handleChange}
-                    >
-                        {areas.map(area => <MenuItem key={area} value={area}>
-                            <Checkbox checked={selectedArea.indexOf(area) > -1} />
-                            <ListItemText primary={area} />
-                        </MenuItem>)}
-                    </Select>
-                </FormControl>
             </div>
             
         </div>
