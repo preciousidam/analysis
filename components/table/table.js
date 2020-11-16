@@ -8,7 +8,7 @@ import { getViewData } from '../../libs/hooks';
 export function PropertyList({}){
     const m = 1000000;
     const {data, isLoading} = getViewData('properties/');
-    const sortByYear = (a,b) => a.year > b.year ? 1 : a.year === b.year? 0 : -1;
+    const sortByYear = (a,b) => a?.year > b?.year ? 1 : a?.year === b?.year? 0 : -1;
     const [prop, setProp] = useState(null);
 
     useEffect(() => {
