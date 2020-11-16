@@ -27,7 +27,7 @@ export function Properties({}){
     return (
         <MainLayout title={`Properties ${area}`} 
             BreadIcon={<ApartmentOutlined fontSize="large" />} 
-            links={['Properties', area]}
+            links={['Properties', 'Properties/'+area]}
         >
             
             <div id="mainContProp">

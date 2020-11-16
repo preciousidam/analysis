@@ -7,12 +7,14 @@ import MainLayout from '../../../layouts';
 import { ProtectRoute } from '../../../route';
 import '../../../styles/propdetail.scss';
 import Loader from '../../../components/loader';
+import {getViewData} from '../../../libs/hooks';
 
 
 export function Id({}){
     const router = useRouter();
     const [compare, setCompare] = useState(false);
     const {area, name} = router.query;
+    const {data, isLoading, isError} = getViewData(`properties/${area}/${name}`);
     const Details = dynamic(
         () => import('../../../components/detailsPage/details'), {ssr: false, loading: () => <Loader />}
     )
@@ -32,13 +34,14 @@ export function Id({}){
     
     
     return (
-        <MainLayout title={`${name}`} right={breadcrumbRight()} links={[area, name]}>
-            <div id='main'>
+        <MainLayout title={`${name}`} right={breadcrumbRight()} links={[area, `${area}/${name}`]}>
+            {!isLoading && <div id='main'>
                 {!compare? <Details 
                     compare={() => setCompare(prev => setCompare(!prev))}
+                    data={data}
                 />
-                : <Stats />}
-            </div>
+                : <Stats data={data} />}
+            </div>}
         </MainLayout>
     )
 }

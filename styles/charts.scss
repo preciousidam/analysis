@@ -1,0 +1,39 @@
+.compCont{
+    width: 100%;
+    padding: 20px;
+    .compChart{
+        height: 400px !important;
+        max-height: 400px !important;
+        margin-bottom: 10px;
+        width: 100%;
+    }
+
+    table{
+        width: 100%;
+    
+        tbody, td{
+            border: 1px solid rgba($color: #c6c6c6, $alpha: .6);
+        }
+
+        td, th{
+            text-align: right;
+            padding: 10px;
+        }
+
+        th{
+            color: #fff;
+        }
+
+        thead{
+            background-color: #3d3d3d;
+        }
+    }
+}
+
+.empty{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}

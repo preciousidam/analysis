@@ -13,19 +13,20 @@ import Loader from '../loader';
 
 const {Title} = Typography;
 
-export default function Details({}){
+export default function Details({data}){
 
     const router = useRouter();
-    const {name,area} = router.query;
-    const {data, isLoading, isError} = getViewData(`properties/${area}/${name}`);
+    
     const [years, setYears] = useState([]);
     const [amounts, setAmounts] = useState([]);
+
+    const sortByYear = (a,b) => a.year > b.year ? 1 : a.year === b.year? 0 : -1;
 
     useEffect(() => {
         if (data){
             let years = [];
             let amt = [];
-            data?.rents.forEach(({year, amount}) => {
+            data?.rents.sort(sortByYear).forEach(({year, amount}) => {
                 years.push(year);
                 amt.push(amount);
             });
@@ -36,7 +37,7 @@ export default function Details({}){
     },[data])
 
     return(
-        !isLoading ? <Paper id="contentContainer" className="row">
+        <Paper id="contentContainer" className="row">
             <div id="left" className="col-sm-6">
                 <header>
                     <Title level={3}>{data?.name}</Title>
@@ -83,7 +84,7 @@ export default function Details({}){
                         Facilities
                     </header>
                     <div className="row">
-                        {data?.facilities.split(',').map(x => (
+                        {data?.facilities?.split(',').map(x => (
                             <div className="col-6">
                                 <p><FontAwesomeIcon icon="check" />
                                 {x}</p>
@@ -106,7 +107,6 @@ export default function Details({}){
                     <Title className='serv' level={5}>Service Charge: {data?.serv_charge}</Title>
                 </div>
             </div>
-           
-        </Paper>: isError? <p>Something happened</p>: <Loader />
+        </Paper>
     )
 }

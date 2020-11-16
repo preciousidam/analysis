@@ -25,7 +25,7 @@ export const SidebarInnerLink = ({ title, link, active}) => {
 export const MinSidebarLink = ({icon,link,active}) => {
     return (
         <li className={`min-link ${active ? 'min-active' : ''}`}>
-            <Link href={`${link}`}><a>{icon}</a></Link>
+            <Link href={`/${link}`}><a>{icon}</a></Link>
         </li>
     );
 }
