@@ -7,7 +7,7 @@ import { getViewData } from '../../libs/hooks';
 export function PropertyList({}){
     const m = 1000000;
     const {data, isLoading} = getViewData('properties/');
-    console.log(data)
+    const sortByYear = (a,b) => a.year > b.year ? 1 : a.year === b.year? 0 : -1;
     return (
         !isLoading && <table className="table">
             <thead>
@@ -23,7 +23,7 @@ export function PropertyList({}){
                 index < 11 ? <tr>
                     <td className='sn'><span>{index+1}</span></td>
                     <td><span>{name}</span></td>
-                    <td><Money amount={`${rents[4].amount/m}M`} /></td>
+                    <td><Money amount={`${rents?.sort(sortByYear).pop().amount/m}M`} /></td>
                     <td><Money amount={`${serv_charge/m}M`} /></td>
                 </tr>: null
             ))}

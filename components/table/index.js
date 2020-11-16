@@ -16,6 +16,7 @@ export const List = ({onClick, area}) => {
     const m = 1000000;
     const {isAdmin} = useAuth();
     const {data, isLoading} = getViewData(area? `properties/${area}`:'properties/');
+    const sortByYear = (a,b) => a.year > b.year ? 1 : a.year === b.year? 0 : -1;
     
 
     return (
@@ -45,7 +46,7 @@ export const List = ({onClick, area}) => {
                     <td><span>{prop?.bedrooms}</span></td>
                     <td><span>{prop?.built}</span></td>
                     <td><span>{prop?.units  === '' ? '--': prop?.units}</span></td>
-                    <td><Money amount={`${rents?.sort().pop().amount/m}M`} /></td>
+                    <td><Money amount={`${rents?.sort(sortByYear).pop().amount/m}M`} /></td>
                     <td><Money amount={`${prop?.serv_charge/m}M`} /></td>
                     <td><span>{prop?.sale_price === '' ? '--': prop?.sale_price}</span></td>
                     <td><span>{prop?.floors}</span></td>
