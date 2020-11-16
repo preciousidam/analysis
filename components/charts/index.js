@@ -131,7 +131,6 @@ export function PriceChart({bed}){
         () => {
             if(!isLoading && data){
                 instatiateChart()
-                console.log(data)
             } 
         },[data]
     );
