@@ -1,16 +1,13 @@
 import React, {useState} from 'react';
 import { Typography } from 'antd';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import { useRouter } from 'next/router';
-import { IconButton, Paper } from '@material-ui/core';
+import { Paper } from '@material-ui/core';
 import {HomeOutlined} from '@material-ui/icons';
 
 import MainLayout from '../layouts';
 import { SelectInput, Search } from '../components/input';
 import '../styles/index.scss';
-import { properties } from '../libs/data';
 import { PropertyList } from '../components/table/table';
-import Link from 'next/link';
 import { PriceChart } from '../components/charts';
 import { ProtectRoute } from '../route';
 import { getViewData } from '../libs/hooks';
@@ -27,8 +24,6 @@ const areas = [
 export function Home({}){
 
     const router = useRouter();
-    const [bed, setBed] = useState(3);
-
     
     return (
         <MainLayout title='Dashboard' BreadIcon={<HomeOutlined fontSize='large' />}>
@@ -46,22 +41,7 @@ export function Home({}){
                 <div id="table-chart" className="row">
                     <div  className="col-sm-8">
                         <Paper id="float-left">
-                            <header>
-                                <h3>Average rent</h3>
-                                <SelectInput 
-                                    id="sBedroom" 
-                                    value={bed}
-                                    onChange={e => setBed(e.target.value)}
-                                    label=""
-                                    options={[
-                                        {text: '1 Bedroom', value:1},
-                                        {text: '2 Bedroom', value:2},
-                                        {text: '3 Bedroom', value:3},
-                                        {text: '4 Bedroom', value:4},
-                                    ]} 
-                                />
-                            </header>
-                            <PriceChart bed={bed} />
+                            <PriceChart />
                         </Paper>
                     </div>
                     <div  className="col-sm-4">
@@ -90,7 +70,6 @@ export function Home({}){
 export default ProtectRoute(Home);
 
 export const CountCard = ({area}) => {
-    console.log(area)
     const {data, isLoading} = getViewData(`properties/${area.code}`);
 
     return(
