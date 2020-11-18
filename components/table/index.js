@@ -16,12 +16,6 @@ export const List = ({onClick, area}) => {
     const m = 1000000;
     const {isAdmin} = useAuth();
     const {data, isLoading} = getViewData(area? `properties/${area}`:'properties/');
-    const sortByYear = (a,b) => {
-        if(a?.year > b?.year) return 1 
-        else if (a?.year < b?.year) return -1
-
-        return 0;
-    }
     
 
     return (
@@ -51,9 +45,9 @@ export const List = ({onClick, area}) => {
                     <td><span>{prop?.bedrooms}</span></td>
                     <td><span>{prop?.built}</span></td>
                     <td><span>{prop?.units  === '' ? '--': prop?.units}</span></td>
-                    <td><Money amount={`${rents?.sort(sortByYear)?.pop().amount/m}M`} /></td>
-                    <td><Money amount={prop?.serv_charge} /></td>
-                    <td><span>{prop?.sale_price === '' ? '--': prop?.sale_price}</span></td>
+                    <td>{rents.length > 0?<Money amount={`${rents?.pop().amount/m}M`} />: '--'}</td>
+                    <td>{prop?.serv_charge ?<Money amount={prop?.serv_charge} />: `--`}</td>
+                    <td>{prop?.sale_price ?<Money amount={prop?.sale_price} />: `--`}</td>
                     <td><span>{prop?.floors}</span></td>
                     {isAdmin && <td className="action-space">
                         {/*<Button icon={<EditOutlined />} type="primary" onClick={e => router.push(`/expenses/${ref}`)} />*/}

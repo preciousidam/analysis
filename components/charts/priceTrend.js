@@ -90,7 +90,7 @@ PriceTrendChart.propTypes = {
 export const PriceTrendComparison = ({base, comArea}) => {
 
     let myChart = null;
-    const {data, isLoading} = getViewData(`stats/compare?comarea=${comArea}&bed=${base?.bedrooms}&typeOf=${base.type}`)
+    const {data, isLoading} = getViewData(`stats/compare?comarea=${comArea}&bed=${base?.bedrooms}&type=${base.type}`)
     const sortByYear = (a,b) => a.year > b.year ? 1 : a.year === b.year? 0 : -1;
 
     const [years, setYears] = useState([2016, 2017, 2018, 2019, 2020]);

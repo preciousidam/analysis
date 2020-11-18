@@ -18,28 +18,12 @@ export default function Stats({data}){
 
     return(
         <div id="propStat">
-            {/*<div id="control">
-                <FormControl className="form-contr">
-                    <Select
-                        multiple
-                        input={<Input />}
-                        id="areas"
-                        value={selectedArea}
-                        renderValue={selected => `${selected.length} Areas`}
-                        onChange={handleChange}
-                    >
-                        {areas.map(area => <MenuItem key={area} value={area}>
-                            <Checkbox checked={selectedArea.indexOf(area) > -1} />
-                            <ListItemText primary={area} />
-                        </MenuItem>)}
-                    </Select>
-                </FormControl>
-                        </div>*/}
+            
             <div className="chartsContainer row">
                 {selectedArea.map(area => (<div className="col-md-6">
                     <Paper className="comparison">
                         <header>
-                            <h5>Similar {data?.bedrooms} bedrooms in {area.toUpperCase()}</h5>
+                            <h5>Similar {data?.bedrooms} bedrooms {data?.type} in {area.toUpperCase()}</h5>
                         </header>
                         <PriceTrendComparison base={data} comArea={area} />
                     </Paper>
