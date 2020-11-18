@@ -13,8 +13,6 @@ export function PriceChart({}){
     
     const instatiateChart = _ => {
         
-        myChart?.destroy();
-        myChart?.clear();
         const ctx = document.getElementById('priceChart').getContext('2d');
 
          myChart = new Chart(ctx, {
@@ -136,6 +134,7 @@ export function PriceChart({}){
     useEffect(
         () => {
             if(!isLoading && data){
+                myChart.clear()
                 instatiateChart()
             } 
         },[data]
@@ -144,7 +143,7 @@ export function PriceChart({}){
     useEffect(
         () => {
             if (myChart != undefined){
-                myChart.destroy()  
+                myChart.clear()  
             }
         },[bed]
     );

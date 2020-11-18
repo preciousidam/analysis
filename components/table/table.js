@@ -8,7 +8,12 @@ import { getViewData } from '../../libs/hooks';
 export function PropertyList({}){
     const m = 1000000;
     const {data, isLoading} = getViewData('properties/');
-    const sortByYear = (a,b) => a?.year > b?.year ? 1 : a?.year === b?.year? 0 : -1;
+    const sortByYear = (a,b) => {
+        if(a?.year > b?.year) return 1 
+        else if (a?.year < b?.year) return -1
+
+        return 0;
+    }
     const [prop, setProp] = useState(null);
 
     useEffect(() => {
@@ -27,7 +32,7 @@ export function PropertyList({}){
             </thead>
             <tbody>
             {prop?.map(({rents, area, name},index) => (
-                index < 11 ? <tr>
+                index < 8 ? <tr>
                     <td className='sn'><span>{index+1}</span></td>
                     <td><span>{name}</span></td>
                     <td><Money amount={`${rents?.sort(sortByYear).pop()?.amount/m}M`} /></td>
