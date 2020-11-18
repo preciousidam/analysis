@@ -134,7 +134,8 @@ export function PriceChart({}){
     useEffect(
         () => {
             if(!isLoading && data){
-                myChart.clear()
+                if(myChart != undefined)
+                    myChart.clear()
                 instatiateChart()
             } 
         },[data]
@@ -143,7 +144,8 @@ export function PriceChart({}){
     useEffect(
         () => {
             if (myChart != undefined){
-                myChart.clear()  
+                if(myChart != undefined)
+                    myChart.clear()  
             }
         },[bed]
     );
