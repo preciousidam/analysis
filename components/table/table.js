@@ -26,12 +26,12 @@ export function PropertyList({}){
                 </tr>
             </thead>
             <tbody>
-            {prop?.map(({rents, serv_charge, name},index) => (
+            {prop?.map(({rents, area, name},index) => (
                 index < 11 ? <tr>
                     <td className='sn'><span>{index+1}</span></td>
                     <td><span>{name}</span></td>
                     <td><Money amount={`${rents?.sort(sortByYear).pop()?.amount/m}M`} /></td>
-                    <td><Money amount={`${serv_charge/m}M`} /></td>
+                    <td><spa>{area}</spa></td>
                 </tr>: null
             ))}
             </tbody>

@@ -47,7 +47,7 @@ export const List = ({onClick, area}) => {
                     <td><span>{prop?.built}</span></td>
                     <td><span>{prop?.units  === '' ? '--': prop?.units}</span></td>
                     <td><Money amount={`${rents?.sort(sortByYear).pop().amount/m}M`} /></td>
-                    <td><Money amount={`${prop?.serv_charge/m}M`} /></td>
+                    <td><Money amount={prop?.serv_charge} /></td>
                     <td><span>{prop?.sale_price === '' ? '--': prop?.sale_price}</span></td>
                     <td><span>{prop?.floors}</span></td>
                     {isAdmin && <td className="action-space">
