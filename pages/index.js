@@ -49,14 +49,9 @@ export function Home({}){
                             <div 
                                 style={{
                                     padding: 20, 
-                                    display: "flex", 
-                                    flexDirection: 'row', 
-                                    justifyContent: "space-between", 
-                                    alignItems: "center"
                                 }}
                             >
-                                <Search placeholder="Search" />
-                                {/*<Link href="/properties"><a>View All<FontAwesomeIcon icon='arrow-right' style={{marginLeft: 5}} /></a></Link>*/}
+                                <h5>Recently Added</h5>
                             </div>
                             <PropertyList />
                         </Paper>
