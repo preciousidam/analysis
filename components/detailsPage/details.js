@@ -1,13 +1,13 @@
 import React, {useState, useEffect} from 'react';
-import { Typography, Button } from 'antd';
+import { Typography} from 'antd';
 import { useRouter } from 'next/router';
 import { Paper } from '@material-ui/core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import '../../styles/propdetail.scss';
-import { getViewData } from '../../libs/hooks';
 import {PriceTrendChart} from '../charts/priceTrend';
-import Loader from '../loader';
+import Money from '../money';
+
 
 
 
@@ -104,7 +104,7 @@ export default function Details({data}){
                     title="Rent"
                 />
                 <div id="servCharge">
-                    <Title className='serv' level={5}>Service Charge: {data?.serv_charge}</Title>
+                    <Title className='serv' level={5}>Service Charge: <Money amount={data?.serv_charge} /></Title>
                 </div>
             </div>
         </Paper>
