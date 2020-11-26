@@ -28,13 +28,6 @@ export default function header({toogle}){
                 <ul id="navbar-content-right">
                     <li className="nav-link">
                         <Link href="/#">
-                            <a><Badge badgeContent={4} color="secondary">
-                                <MailIcon style={{color: '#000000'}} />
-                            </Badge></a>
-                        </Link>
-                    </li>
-                    <li className="nav-link">
-                        <Link href="/#">
                             <a><Badge badgeContent={2} color="primary">
                                 <Notifications style={{color: '#000000'}} />
                             </Badge></a>
@@ -43,7 +36,6 @@ export default function header({toogle}){
                     <li className="nav-link">
                         <ProfileDropdown links={[
                                 {text:'Profile', onClick: _ => push('/profile')},
-                                {text: 'Preference', onClick: _ => push('/settings')}
                             ]} 
                         />                           
                     </li>

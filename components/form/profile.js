@@ -18,7 +18,6 @@ export const ProfileForm = ({}) => {
             <InputWithLabel 
                 label={<span><FontAwesomeIcon />Fullname</span>}
                 id="fullname"
-                v
             />
 
             <InputWithLabel 

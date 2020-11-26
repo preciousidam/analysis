@@ -33,11 +33,6 @@ const userLink = [
         icon: <ContactSupport />,
         title: 'Support',
         link: '/support'
-    },
-    {
-        icon: <ContactSupport />,
-        title: 'About',
-        link: '/about'
     }
 ];
 

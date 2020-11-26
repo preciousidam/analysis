@@ -28,23 +28,13 @@ export function Home({}){
     return (
         <MainLayout title='Dashboard' BreadIcon={<HomeOutlined fontSize='large' />}>
             <div id="home">
-                <div id="top" className="row">
-                    {
-                        areas.map(area => (
-                            <div className='col-sm-3'>
-                                <CountCard area={area} />
-                            </div>
-                        ))
-                    }
-                    
-                </div>
                 <div id="table-chart" className="row">
-                    <div  className="col-sm-8">
+                    <div  className="col-lg-8">
                         <Paper id="float-left">
                             <PriceChart />
                         </Paper>
                     </div>
-                    <div  className="col-sm-4">
+                    <div  className="col-lg-4">
                         <Paper id="float-right">
                             <div 
                                 style={{
