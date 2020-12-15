@@ -90,11 +90,13 @@
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
-        border-bottom: 1px solid rgba($color: #c3c3c3, $alpha: .9);
+        padding: 10px;
+
         #sBedroom{
             box-shadow: none;
             border-radius: 5px;
             border: 1px solid rgba($color: #d8d8d8, $alpha: .9) !important;
+            margin: 0 !important;
         }
     }
 }

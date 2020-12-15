@@ -30,7 +30,7 @@ export function PropertyList({}){
                 index < 8 ? <tr>
                     <td className='sn'><span>{index+1}</span></td>
                     <td><span>{name}</span></td>
-                    <td>{rents.length > 0?<Money amount={`${rents?.pop().amount/m}M`} />: '--'}</td>
+                    <td>{rents.length > 0?<Money amount={`${rents[rents.length - 1].amount/m}`} prefix="M"/>: '--'}</td>
                     <td><span>{area}</span></td>
                 </tr>: null
             ))}

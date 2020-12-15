@@ -6,7 +6,6 @@ import { useRouter } from 'next/router';
 import {ApartmentOutlined} from '@material-ui/icons';
 
 import MainLayout from '../../../layouts';
-import { Search } from '../../../components/input';
 import '../../../styles/properties.scss';
 import { List } from '../../../components/table/index';
 import {  Paper } from '@material-ui/core';
@@ -35,14 +34,13 @@ export function Properties({}){
                     <Paper>
                         <div id="filterContainer">
                             <div id="left">
-                                <Search />
+                                
                                 <Select defaultValue='*' className="filterItem">
                                     <Option value='*'>Sort By</Option>
-                                    <Option value='price'>Price</Option>
-                                    <Option value='area'>Area</Option>
+                                    <Option value='price'>Rent</Option>
                                 </Select>
                                 <Select defaultValue='all' className="filterItem">
-                                    <Option value='all'>By year</Option>
+                                    <Option value='all'>By year Built</Option>
                                     <Option value={2016}>2016</Option>
                                     <Option value={2017}>2017</Option>
                                     <Option value={2018}>2018</Option>

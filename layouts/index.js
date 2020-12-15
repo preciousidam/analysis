@@ -12,25 +12,8 @@ import { Footer } from '../components/footer';
 
 
 export const MainLayout = ({children, title="", BreadIcon, links=[], right}) => {
-
-    const [min, setMin] = useState(false);
     
-    const router = useRouter();
-    const className = min ? 'col-sm-11 max' : 'col-sm-10';
-
-    const handleToogle = e => {
-        e.preventDefault();
-        setMin(!min);
-    }
-
-    useEffect(() => {
-        window.addEventListener('resize', resizeHandler)
-    },[min]);
-
-    const resizeHandler = _ => {
-        if (window.innerWidth < 1000) setMin(true)
-        else setMin(false)
-    }
+    const className = 'col-sm-10';
     
     return (
         <div className="main">
@@ -42,9 +25,9 @@ export const MainLayout = ({children, title="", BreadIcon, links=[], right}) => 
             <main id="mainContainer" className="container-fluid">
                 
                 <div className="row" id="mainContent">
-                    {min? <MinSideBar min={min} /> :<Sidebar min={min} />}
+                    <Sidebar />
                     <div className={`${className} content-area`}>
-                        <Header toogle={handleToogle} />
+                        <Header />
                         <Breadcrumb 
                             pageTitle={title}
                             pageIcon={BreadIcon}

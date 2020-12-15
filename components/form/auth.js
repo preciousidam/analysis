@@ -41,7 +41,7 @@ export function SignInForm(){
 
     return (<div id='authForm'>
         <img id="logo" src='/logo.jpeg' />
-        <h1>Login To NAPIM App</h1>
+        <h3>National Petroleum Investment Management Services</h3>
         <p>Please enter login details</p>
 
         <div>

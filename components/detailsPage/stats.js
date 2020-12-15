@@ -23,7 +23,7 @@ export default function Stats({data}){
                 {selectedArea.map(area => (<div className="col-md-6">
                     <Paper className="comparison">
                         <header>
-                            <h5>Similar {data?.bedrooms} bedrooms {data?.type} in {area.toUpperCase()}</h5>
+                            <h5>Similar {data?.bedrooms} bedroom {data?.type} in {area.toUpperCase()}</h5>
                         </header>
                         <PriceTrendComparison base={data} comArea={area} />
                     </Paper>

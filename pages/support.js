@@ -1,7 +1,7 @@
 import { Paper } from "@material-ui/core";
 import { SupportForm } from "../components/form/support";
 import MainLayout from "../layouts";
-import { ProtectRoute } from "../route"
+import { ProtectRoute } from "../route";
 import '../styles/support.scss';
 
 

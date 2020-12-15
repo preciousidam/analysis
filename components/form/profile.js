@@ -10,26 +10,25 @@ export const ProfileForm = ({}) => {
     return (
         <div id="profileForm">
             <InputWithLabel 
-                label={<span><FontAwesomeIcon />Username</span>}
-                id="username"
-                type="text"
+                label={<span><FontAwesomeIcon />Current Password</span>}
+                id="password"
+                name="password"
+                type="password"
             />
 
             <InputWithLabel 
-                label={<span><FontAwesomeIcon />Fullname</span>}
-                id="fullname"
-            />
-
-            <InputWithLabel 
-                label={<span><FontAwesomeIcon />Email</span>}
+                label={<span><FontAwesomeIcon />New Password</span>}
                 id="email"
                 type="email"
+                type="password"
+                name="new-password"
             />
 
             <InputWithLabel 
-                label={<span><FontAwesomeIcon />Password</span>}
+                label={<span><FontAwesomeIcon />Confirm New Password</span>}
                 id="Password"
                 type="password"
+                name="con-new-password"
             />
 
             <RoundedButton

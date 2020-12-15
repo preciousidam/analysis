@@ -13,7 +13,10 @@ export function PriceChart({}){
         scales: {
             yAxes: [{
                 ticks: {
-                    beginAtZero: true
+                    beginAtZero: true,
+                    callback: function(value, index, values) {
+                        return `${'₦'} ${value / 1e6}M`;
+                    }
                 },
                 gridLines: {
                     drawBorder: false,
@@ -28,6 +31,13 @@ export function PriceChart({}){
         },
         responsive: true,
         maintainAspectRatio: false,
+        legend:  {
+            position: 'bottom',
+            align: 'start',
+            labels: {
+                boxWidth: 10,
+            }
+        }
     }
 
     
@@ -57,28 +67,6 @@ export function PriceChart({}){
                 borderWidth: 1
             },
             {
-                label: 'Average Rent Oniru',
-                barThickness: 20,
-                categoryPercentage: 0.5,
-                barPercentage: 0.5,
-                data: data?.oniru,
-                backgroundColor: [
-                    'rgba(54, 162, 235, 1.0)',
-                    'rgba(54, 162, 235, 1.0)',
-                    'rgba(54, 162, 235, 1.0)',
-                    'rgba(54, 162, 235, 1.0)',
-                    'rgba(54, 162, 235, 1.0)',
-                ],
-                borderColor: [
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(54, 162, 235, 1)',
-                ],
-                borderWidth: 1
-            },
-            {
                 label: 'Average Rent Ikoyi',
                 barThickness: 20,
                 categoryPercentage: 0.5,
@@ -97,6 +85,28 @@ export function PriceChart({}){
                     'rgba(255, 206, 86, 1)',
                     'rgba(255, 206, 86, 1)',
                     'rgba(255, 206, 86, 1)',
+                ],
+                borderWidth: 1
+            },
+            {
+                label: 'Average Rent Oniru',
+                barThickness: 20,
+                categoryPercentage: 0.5,
+                barPercentage: 0.5,
+                data: data?.oniru,
+                backgroundColor: [
+                    'rgba(54, 162, 235, 1.0)',
+                    'rgba(54, 162, 235, 1.0)',
+                    'rgba(54, 162, 235, 1.0)',
+                    'rgba(54, 162, 235, 1.0)',
+                    'rgba(54, 162, 235, 1.0)',
+                ],
+                borderColor: [
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(54, 162, 235, 1)',
                 ],
                 borderWidth: 1
             },

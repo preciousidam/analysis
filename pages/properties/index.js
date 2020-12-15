@@ -5,7 +5,6 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import { useRouter } from 'next/router';
 
 import MainLayout from '../../layouts';
-import { Search } from '../../components/input';
 import '../../styles/properties.scss';
 import { List } from '../../components/table/index';
 import {  Paper } from '@material-ui/core';
@@ -29,7 +28,6 @@ export function Properties({}){
                     <Paper>
                         <div id="filterContainer">
                             <div id="left">
-                                <Search />
                                 <Select defaultValue='*' className="filterItem">
                                     <Option value='*'>Sort By</Option>
                                     <Option value='price'>Price</Option>

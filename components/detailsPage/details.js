@@ -49,34 +49,23 @@ export default function Details({data}){
                 <div className="row">
                     <div className="col-4">
                         <p>
-                            <FontAwesomeIcon icon="bed" />
-                            {data?.bedrooms} bedroom
+                            <FontAwesomeIcon icon="bed" />Bedroom: 
+                            {` `+data?.bedrooms} 
                         </p>
                     </div>
                     <div className="col-4">
                         <p>
-                            <FontAwesomeIcon icon="calendar-alt" />
-                            {data?.built}
+                            <FontAwesomeIcon icon="calendar-alt" />Built:
+                            {` `+data?.built}
                         </p>
                     </div>
                     <div className="col-4">
                         <p>
-                            <FontAwesomeIcon icon="th" />
-                            {data?.units} units
+                            <FontAwesomeIcon icon="th" />Total Units:  
+                            {` `+data?.units}
                         </p>
                     </div>
-                    <div className="col-4">
-                        <p>
-                            <FontAwesomeIcon icon="building" />
-                            {data?.floors} Floors
-                        </p>
-                    </div>
-                    <div className="col-4">
-                        <p>
-                            <FontAwesomeIcon icon="map" />
-                            {data?.land_size} SQM
-                        </p>
-                    </div>
+                   
                 </div>
                 <div id="facilities">
                     <header>
@@ -104,7 +93,7 @@ export default function Details({data}){
                     title="Rent"
                 />
                 <div id="servCharge">
-                    <Title className='serv' level={5}>Service Charge: <Money amount={data?.serv_charge} /></Title>
+                    <Title className='serv' level={5}>Current Rent: <Money amount={data?.rents[data?.rents.length -1 ]?.amount} year={data?.rents[data?.rents.length -1 ]?.year} /></Title>
                 </div>
             </div>
         </Paper>

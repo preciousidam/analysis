@@ -14,8 +14,8 @@
         align-self:  center;
     }
 
-    h1, p{
-        align-self: center;
+    h3, p{
+        align-self: center !important;
     }
 
     #forgot_remember{
@@ -69,7 +69,7 @@
 
 ////////////////////////PROFILE FORM//////////////////////
 #profileForm{
-    padding: 30px;
+    padding: 0 10px 0 20px;
 
     #submit{
         background-color: $info;

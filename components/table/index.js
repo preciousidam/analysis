@@ -1,4 +1,4 @@
-import { Button, Pagination, Popconfirm, Typography } from 'antd';
+import { Button, Pagination, Popconfirm, Tooltip, Typography } from 'antd';
 import {DeleteOutlined} from '@ant-design/icons';
 import PropTypes from 'prop-types';
 
@@ -12,7 +12,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 const {Title} = Typography;
 
 export const List = ({onClick, area}) => {
-    const text = "Are you sure you want to delete?";
+    const text = "Click to view historical data about property";
     const m = 1000000;
     const {isAdmin} = useAuth();
     const {data, isLoading} = getViewData(area? `properties/${area}`:'properties/');
@@ -29,32 +29,44 @@ export const List = ({onClick, area}) => {
                     <th><span>BUILT</span></th>
                     <th><span>UNITS</span></th>
                     
-                    <th><span>RENTS</span></th>
-                    <th><span>S/CHARGE</span></th>
-                    <th><span>S/PRICE</span></th>
+                    <th>
+                        <p style={{margin: 0, padding: 0}}>RENTS</p>
+                        <span>M=(000,000)</span>
+                    </th>
+                    <th><p style={{margin: 0, padding: 0}}>S-CHARGE</p>
+                        <span>M=(000,000)</span>
+                    </th>
                     <th><span>FLOORS</span></th>
-                    {isAdmin && <th>Actions</th>}
                 </tr>
             </thead>
             <tbody>
             {data?.map(({rents,  ...prop},index) => (
                 <tr onClick={isAdmin? null : () => onClick(prop?.name)}>
                     <td className='sn'><span>{index+1}</span></td>
-                    <td><span>{prop?.name}</span></td>
-                    <td><span>{prop?.address}</span></td>
+                    <td>
+                        <Tooltip title={text} placement="top">
+                            <span>{prop?.name}</span>
+                        </Tooltip>
+                    </td>
+                    <td><Tooltip title={text} placement="top">
+                            <span>{prop?.address}</span>
+                        </Tooltip>
+                    </td>
                     <td><span>{prop?.bedrooms}</span></td>
-                    <td><span>{prop?.built}</span></td>
+                    <td>
+                        <Tooltip title={text} placement="top">
+                            <span>{prop?.built}</span>
+                        </Tooltip>
+                    </td>
                     <td><span>{prop?.units  === '' ? '--': prop?.units}</span></td>
-                    <td>{rents.length > 0?<Money amount={`${rents?.pop().amount/m}M`} />: '--'}</td>
-                    <td>{prop?.serv_charge ?<Money amount={prop?.serv_charge} />: `--`}</td>
-                    <td>{prop?.sale_price ?<Money amount={prop?.sale_price} />: `--`}</td>
+                    <td>
+                        {rents.length > 0?
+                        <Money prefix="M" amount={`${rents[rents.length -1 ]?.amount/m}`} year={rents[rents.length -1 ]?.year} />
+                        : '--'}
+                    </td>
+                    <td>{prop?.serv_charge ?<Money amount={`${prop?.serv_charge/m}`} prefix="M" />: `--`}</td>
                     <td><span>{prop?.floors}</span></td>
-                    {isAdmin && <td className="action-space">
-                        {/*<Button icon={<EditOutlined />} type="primary" onClick={e => router.push(`/expenses/${ref}`)} />*/}
-                        <Popconfirm placement="top" title={text} onConfirm={_ => del(id)} okText="Yes" cancelText="No">
-                            <Button icon={<DeleteOutlined />} type="primary" danger/>
-                        </Popconfirm> 
-                    </td>}
+                    
                 </tr>
             ))}
             </tbody>

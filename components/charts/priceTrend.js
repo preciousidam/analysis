@@ -19,7 +19,10 @@ export const PriceTrendChart = ({years, prices, title}) => {
         scales: {
             yAxes: [{
                 ticks: {
-                    beginAtZero: true
+                    beginAtZero: true,
+                    callback: function(value, index, values) {
+                        return `${'₦'} ${value / 1e6}M`;
+                    }
                 },
                 gridLines: {
                     drawBorder: false,
@@ -34,6 +37,9 @@ export const PriceTrendChart = ({years, prices, title}) => {
         },
         responsive: true,
         maintainAspectRatio: false,
+        legend: {
+            display: false,
+        }
     }
 
 
@@ -87,7 +93,7 @@ PriceTrendChart.propTypes = {
 export const PriceTrendComparison = ({base, comArea}) => {
 
     let myChart = createRef();
-    const {data, isLoading} = getViewData(`stats/compare?comarea=${comArea}&bed=${base?.bedrooms}&type=${base.type}`)
+    const {data, isLoading} = getViewData(`stats/compare?area=${base.area}&comarea=${comArea}&bed=${base?.bedrooms}&type=${base.type}`)
     
 
     const [years, setYears] = useState([2016, 2017, 2018, 2019, 2020]);
@@ -97,7 +103,10 @@ export const PriceTrendComparison = ({base, comArea}) => {
         scales: {
             yAxes: [{
                 ticks: {
-                    beginAtZero: true
+                    beginAtZero: true,
+                    callback: function(value, index, values) {
+                        return `${'₦'} ${value / 1e6}M`;
+                    }
                 },
                 gridLines: {
                     drawBorder: false,
@@ -112,32 +121,14 @@ export const PriceTrendComparison = ({base, comArea}) => {
         },
         responsive: true,
         maintainAspectRatio: false,
+        legend:  {
+            position: 'bottom',
+            align: 'start',
+            labels: {
+                boxWidth: 10,
+            }
+        }
     }
-
-    useEffect(() => {
-        if (base){
-            let yrs = [];
-            let amt = [];
-            base?.rents.forEach(({year, amount}) => {
-                yrs.push(year);
-                amt.push(amount);
-            });
-            
-            setAmounts1(amt);
-        }
-    },[base])
-
-    useEffect(() => {
-        if (data){
-            let yrs = [];
-            let amt = [];
-            data?.rents.forEach(({year, amount}) => {
-                yrs.push(year);
-                amt.push(amount);
-            });
-            setAmounts2(amt);
-        }
-    },[data])
 
     const instatiateChart = _ => {
        return ({
@@ -147,7 +138,7 @@ export const PriceTrendComparison = ({base, comArea}) => {
                 barThickness: 20,
                 categoryPercentage: 0.5,
                 barPercentage: 0.5,
-                data: amounts1,
+                data: data[base.area],
                 backgroundColor: [
                     colors[base?.area],
                     colors[base?.area],
@@ -169,20 +160,20 @@ export const PriceTrendComparison = ({base, comArea}) => {
                 barThickness: 20,
                 categoryPercentage: 0.5,
                 barPercentage: 0.5,
-                data: amounts2,
+                data: data[comArea],
                 backgroundColor: [
-                    colors[data?.area],
-                    colors[data?.area],
-                    colors[data?.area],
-                    colors[data?.area],
-                    colors[data?.area],
+                    colors[comArea],
+                    colors[comArea],
+                    colors[comArea],
+                    colors[comArea],
+                    colors[comArea],
                 ],
                 borderColor: [
-                    colors[data?.area],
-                    colors[data?.area],
-                    colors[data?.area],
-                    colors[data?.area],
-                    colors[data?.area],
+                    colors[comArea],
+                    colors[comArea],
+                    colors[comArea],
+                    colors[comArea],
+                    colors[comArea],
                 ],
                 borderWidth: 1
             }]
@@ -193,7 +184,7 @@ export const PriceTrendComparison = ({base, comArea}) => {
         () => {
             if(!isLoading)
                 instatiateChart()
-        },[comArea, years, amounts1, amounts2]
+        },[comArea, data]
     );
 
     if( data === null){
@@ -210,20 +201,12 @@ export const PriceTrendComparison = ({base, comArea}) => {
             <div id="compChart" aria-label="Chart Of Account" role="img">
                 <Bar height={300} ref={myChart} data={instatiateChart()} options={options} />
             </div>
-            <div>
-                <Link 
-                    href={`/properties/${data?.area}/${data?.name.replace(' ', '-')}`} 
-                    className="link"
-                >
-                    <a>View Property</a>
-                </Link>
-            </div>
             <PriceTable 
                 years={years} 
-                amt1={amounts1}
-                amt2={amounts2}
+                amt1={data[base.area]}
+                amt2={data[comArea]}
                 area1={base?.area}
-                area2={data?.area}
+                area2={comArea}
             />
         </div>
     )

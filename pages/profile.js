@@ -1,5 +1,5 @@
 import { Paper } from "@material-ui/core";
-import { Button } from "antd";
+import { Button, Descriptions } from "antd";
 import {PersonOutlineOutlined} from '@material-ui/icons';
 
 import MainLayout from "../layouts";
@@ -16,19 +16,19 @@ export function Profile({}){
             
             <div id="main" className="container">
                 <div className='row'>
-                    <div className="col-sm-4">
-                        <Paper id="imageContainer">
-                            <header>Profile Image</header>
-                            <img src='/report.svg' />
-                            <p>Jpeg, Jpg, or Png files only</p>
-                            <Button onClick={_=> console.log('upload')}>Upload Image</Button>
-                        </Paper>
-                    </div>
-                    <div className="col-sm-8">
+                    <div className="col-sm-9">
                         <Paper id="formContainer">
                             <header>Profile Details</header>
-                            
-                            <ProfileForm />
+                            <Descriptions style={{padding: 20}} className="profile" layout="vertical">
+                                <Descriptions.Item label="Full Name">{user.name}</Descriptions.Item>
+                                <Descriptions.Item label="Username">{user.username}</Descriptions.Item>
+                                <Descriptions.Item label="Email">{user.email}</Descriptions.Item>
+                                <Descriptions.Item label="Phone Number">{user.phone}</Descriptions.Item>
+                            </Descriptions>
+                            <h4 style={{padding: 20}}>Change Password</h4>
+                            <div style={{padding: 20}} id="passwordChange">
+                                <ProfileForm />
+                            </div>                                                                                                 
                         </Paper>
                     </div>
                 </div>

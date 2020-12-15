@@ -34,15 +34,7 @@ export const InputWithLabel = ({id, label, ...rest}) => {
     )
 }
 
-export const Search = ({id, placeholder,...rest}) =>{
 
-    return (
-        <div className='searchbar' id={id}>
-            <FontAwesomeIcon icon='search' color='#c6c6c6' />
-            <input type='search' className="input" placeholder={placeholder} {...rest} />
-        </div>
-    )
-}
 
 export const SelectInput = ({id, label, icon, options, ...rest}) =>{
 
@@ -67,11 +59,6 @@ InputWithIconNonElevated.propTypes = {
     icon: PropTypes.element.isRequired,
     placeholder: PropTypes.string.isRequired,
     id: PropTypes.string.isRequired,
-}
-
-Search.propTypes = {
-    placeholder: PropTypes.string.isRequired,
-    id: PropTypes.string,
 }
 
 SelectInput.propTypes = {
