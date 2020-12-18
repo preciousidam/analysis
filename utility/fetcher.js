@@ -55,9 +55,9 @@ export const refreshToken = async (refresh_token) => {
     return token;
 }
 
-export const createUser = async (body,token) => {
-    console.log(body)
-    const res = await fetch(`${backend}/api/auth/create`,{
+export const changePassword = async (body,token) => {
+    
+    const res = await fetch(`${backend}/api/auth/request-password-reset`,{
         method: 'POST',
         headers: {...headers, Authorization: `Bearer ${token}`},
         body: JSON.stringify(body)
