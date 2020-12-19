@@ -17,7 +17,7 @@ export function Statistics({}){
     const {data, isLoading, isError} = getViewData(`properties/${area}/${name}`);
     
     const Stats = dynamic(
-        () => import('../../../components/detailsPage/stats'), {ssr: false, loading: () => <Loader />}
+        () => import('../components/detailsPage/stats'), {ssr: false, loading: () => <Loader />}
     )
     
     
