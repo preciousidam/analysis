@@ -5,10 +5,9 @@
 .elevatedInput{
     display: flex;
     background-color: $background-white;
-    padding: 5px 20px 5px 20px;
-    border: 1px solid transparent !important;
-    border-radius: 10px;
-    box-shadow: 2px 2px 2px 2px rgba($color:  #cdcdcd, $alpha: .3);
+    padding: 10px 20px 10px 20px;
+    border: 1px solid #c6c6c6 !important;
+    border-radius: 5px;
     margin: 30px auto;
     align-items: center;
     justify-content: center;
