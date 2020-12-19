@@ -28,13 +28,7 @@ export const MainLayout = ({children, title="", BreadIcon, links=[], right}) => 
                     <Sidebar />
                     <div className={`${className} content-area`}>
                         <Header />
-                        <Breadcrumb 
-                            pageTitle={title}
-                            pageIcon={BreadIcon}
-                            links={links}
-                            right={right}
-                        />
-                        <CustomScroll heightRelativeToParent="calc(100% - 135px)">
+                        <CustomScroll heightRelativeToParent="calc(100% - 60px)">
                             {children}
                             <Footer />
                         </CustomScroll>

@@ -49,6 +49,18 @@ export const SelectInput = ({id, label, icon, options, ...rest}) =>{
     )
 }
 
+export const SelectInputWithLabel = ({id, className, outterClass, label, icon, options, ...rest}) =>{
+
+    return (
+        <div className={`selectWithLabel ${outterClass}`}>
+            <label forHtml={id}>{label}</label>
+            <select label className={`input ${className}`} {...rest}  id={id}>
+                {options.map(({value, text}) => <option key={text} value={value}>{text}</option>)}
+            </select>
+        </div>
+    )
+}
+
 InputWithIcon.propTypes = {
     icon: PropTypes.element.isRequired,
     placeholder: PropTypes.string.isRequired,
@@ -67,4 +79,14 @@ SelectInput.propTypes = {
     id: PropTypes.string.isRequired,
     onChange: PropTypes.func,
     label: PropTypes.string.isRequired,
+}
+
+SelectInputWithLabel.propTypes = {
+    icon: PropTypes.element,
+    options: PropTypes.array.isRequired,
+    id: PropTypes.string,
+    onChange: PropTypes.func,
+    label: PropTypes.string.isRequired,
+    className: PropTypes.string,
+    outterClass: PropTypes.string,
 }

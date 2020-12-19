@@ -25,18 +25,12 @@ export const List = ({onClick, area}) => {
                     <th className='sn'><span>SN</span></th>
                     <th><span>PROPERTY NAME</span></th>
                     <th><span>PROPERTY ADDRESS</span></th>
-                    <th><span>BEDS</span></th>
-                    <th><span>BUILT</span></th>
-                    <th><span>UNITS</span></th>
+                    <th><span>BEDROOM</span></th>
+                    <th><span>YEAR BUILT</span></th>
+                    <th><span>TOTAL UNITS</span></th>
                     
-                    <th>
-                        <p style={{margin: 0, padding: 0}}>RENTS</p>
-                        <span>M=(000,000)</span>
-                    </th>
-                    <th><p style={{margin: 0, padding: 0}}>S-CHARGE</p>
-                        <span>M=(000,000)</span>
-                    </th>
-                    <th><span>FLOORS</span></th>
+                    <th>RENT</th>
+                    <th>S-CHARGE</th>
                 </tr>
             </thead>
             <tbody>

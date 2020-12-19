@@ -5,98 +5,248 @@
     display: flex;
     flex-direction: column;
 
-    #top{
+    #banner{
+        background: url('/header_bg3.jpg') no-repeat;
+        background-size: cover;
+        background-position: center;
+        height: 400px;
+        width: 100%;
         display: flex;
-        flex-direction: row;
-        justify-content: space-between;
         align-items: center;
-        padding: 50px 30px;
+        justify-content: center;
+        position: relative;
 
-        .col-sm-3{
-            .card{
-                padding: 20px 30px;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                box-shadow: 1.5px 1.5px 1.5px 1.5px rgba($color: #d8d8d8, $alpha: .3);
-                color: $background-white;
-                border-color: transparent;
-                .ant-typography{
-                    color: $background-white;
-                    margin: 0;
-                }
-                span{
-                    border-bottom: 1px solid rgba($color: #ffffff, $alpha: .4);
-                    display: block;
-                    width: 100%;
-                    text-align: center;
-                }
-            }
-            &:nth-child(1){
-                .card{
-                    background-color: $info;
-                }
-            }
-            &:nth-child(3){
-                .card{
-                    background-color: $success;
-                }
-            }
-            &:nth-child(2){
-                .card{
-                    background-color: $warning;
-                } 
-            }
-            &:nth-child(4){
-                .card{
-                    background-color: $danger;
-                }
+        #content{
+            width: 700px;
+            position: relative;
+            z-index: 10;
+            #index-search{
+                background-color: $background-white;
+                padding: 10px;
+                border-radius: 2px;
+                border: 1px solid transparent;
+                width: inherit;
+                outline: none;
             }
         }
-    }
-
-    #table-chart{
-        padding: 10px 30px 50px;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: flex-start;
-
-        #float-left{
+        #options{
             display: flex;
-            max-height: 600px;
-            flex-direction: column;
-            padding: 10px;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
 
-            #priceChart{
-                height: 450px !important;
-                width: 100%;
+            .option{
+                width: 100% !important;
+                outline: none !important;
+                padding: 10px !important;
+                border-radius: 0px !important;
+            }
+
+            .search-btn{
+                align-self: flex-end;
+                margin-bottom: 10px;
+            }
+        }
+        #overlay {
+            position: absolute; /* Sit on top of the page content */
+            display: block; /* Hidden by default */
+            width: 100%; /* Full width (cover the whole page) */
+            height: 100%; /* Full height (cover the whole page) */
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+            z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+        }
+    }
+
+    #chart-area{
+        border-radius: 5px;
+        background-color: $background-white;
+        padding: 20px 50px;
+        width: 100%;
+        min-height: 400px;
+        margin: 20px auto;
+        box-shadow: 0 2px 3px 0 rgba(0,0,0,0.2);
+
+        .contrllCont{
+            margin-bottom: 30px;
+            .controller{
+                width: 60% !important;
+                max-width: 60% !important;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+                margin: 0 auto;
+
+                
+                .button{
+                    text-align: center;
+                    background-color: $background-white !important;
+                    border-color: $info !important;
+                    color: #353535 !important;
+                    cursor: pointer;
+                }
+
+                .active{
+                    background-color: $info !important;
+                    color: #fff !important;
+                }
+                
+            }
+        }
+        h6{
+            font-weight: bold;
+            margin: 0;
+        }
+        .average{
+            margin: 15px 0;
+            h5{
+                font-weight: bold;
+                margin: 0;
+                color: #575757;
+            }
+            span{
+                font-size: 11px;
+                color: #c6c6c6;
             }
         }
 
-        #float-right{
-            .table{
-                thead{
-                    background-color: $info;
-                    color: $background-white;
-                    font-size: 14px;
+        .view{
+            max-width: 250px !important;
+        }
+        
+    }
+
+    
+
+    #areaCont{
+        padding: 30px !important;
+        .areas{
+            padding: 15px;
+            border-radius: 10px !important;
+            cursor: pointer;
+            hr{
+                background-color: #fff !important;
+                color: #fff !important;
+            }
+            color: #fff !important;
+
+            span{
+                font-size: 12px !important;
+            }
+
+            h5{
+                color: #fff !important;
+            }
+        }
+
+        #lekki{
+            background-image: linear-gradient(to bottom right, #ffb82c, #f57f59);
+        }
+        
+        #ikoyi{
+            background-image: linear-gradient(to bottom right, #ec4887,#b954a4);
+        }
+        
+        #vi{
+            background-image: linear-gradient(to bottom right, #875fc0, #5648ba);
+        }
+        
+        #oniru{
+            background-image: linear-gradient(to bottom right,#46c5f2, #6692d9);
+        }
+    }
+
+    .pap{
+        border-radius: 5px;
+        background-color: $background-white;
+        padding: 20px;
+        width: 100%;
+        min-height: 400px;
+        margin: 20px auto;
+        box-shadow: 0 2px 3px 0 rgba(0,0,0,0.2);
+
+        #reportHeader{
+            border-bottom: 1px solid rgba(100,100,100,0.5);
+            h6{
+                color: $text-color;
+            }
+
+        }
+        header{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+    
+            span{
+                font-size: 12px !important;
+                color: #c6c6c6 !important;
+            }
+        }
+
+        .table{
+            width: 100% !important;
+
+            thead{
+                background-color: #353535 !important;
+                border-radius: 5px !important;
+                th{
+                    color: #fff !important;
+                    font-size: 11px !important;
                 }
+                tr{
+                    border-radius: 5px !important;
+
+                    &:nth-child(1){
+                        border-top: 0 !important;
+                    }
+                }
+            }
+            
+            td{
+                font-size: 12px !important;
             }
         }
     }
 
-    header{
+    .report{
         display: flex;
+        position: relative;
         flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        padding: 10px;
+        align-items: flex-start;
+        width: inherit;
+        margin: 15px 0;
+        cursor: pointer;
 
-        #sBedroom{
-            box-shadow: none;
-            border-radius: 5px;
-            border: 1px solid rgba($color: #d8d8d8, $alpha: .9) !important;
-            margin: 0 !important;
+        .download{
+            position: absolute;
+            right: 10px;
+            top: 40%;
+            bottom: 0;
+            display: inline-block !important;
+        }
+
+        p{
+            margin: 0;
+            color: #353535;
+        }
+        span{
+            color: #c6c6c6;
+            font-size: 11px !important;
+        }
+
+        .title{
+            margin-left: 5px !important;
+        }
+
+        &:hover{
+            background-color: rgba(0,0,0,0.08);
         }
     }
 }
+

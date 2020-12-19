@@ -9,6 +9,12 @@ export const Support = ({}) => {
 
     return (
         <MainLayout title="Support" links={['Support']}>
+            <div id="banner">
+                <div id="overlay"></div>
+                <div id="content">
+                    <h1 className="bannerH1">Get In Touch</h1>
+                </div>
+            </div>
             <div id="support">
                 <Paper id="supportFormCont" className="container supportCont">
                     <header>

@@ -23,7 +23,7 @@
         align-items: center;
         margin: 0 !important;
         padding: 14px !important;
-        background-color: $primary;
+        background-image: linear-gradient(to bottom right, #ec4887, #875fc0);
         width: 100%;
         
         img{
@@ -80,7 +80,7 @@ hr{
 
         p{
             color: $text-color-light;
-            font-weight: bold;
+            font-weight: 400;
             text-transform: capitalize;
             margin-left: 20px;
             margin-bottom: 0;
@@ -93,7 +93,7 @@ hr{
 
 .active{
     //background-color: rgba($color: #000000, $alpha: 0.1);
-    border-right: 5px solid $success;
+    border-right: 5px solid $danger;
     cursor: pointer;
     background-color: rgba($color: #000000, $alpha: 0.1);
     
@@ -102,7 +102,7 @@ hr{
 
     }
     svg{
-        color: $success !important;
+        color: $danger !important;
     }
 
     a{
@@ -145,12 +145,12 @@ hr{
 }
 
 .min-active{
-    border-right: 5px solid $success;
+    border-right: 5px solid $danger;
     cursor: pointer;
     background-color: rgba($color: #000000, $alpha: 0.1);
     
     svg{
-        color: $success !important;
+        color: $danger !important;
     }
 }
 

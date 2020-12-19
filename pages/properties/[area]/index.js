@@ -15,6 +15,7 @@ import useAuth from '../../../provider';
 
 const {Option} =  Select;
 const {Title} = Typography;
+const areas = {vi: {title: 'Victoria Island', image: ''}}
 
 export function Properties({}){
 
@@ -24,11 +25,13 @@ export function Properties({}){
     const onClick = name => router.push(`/properties/${area}/${name.replace(' ','-')}`);
     
     return (
-        <MainLayout title={`Properties ${area}`} 
-            BreadIcon={<ApartmentOutlined fontSize="large" />} 
-            links={['Properties', 'Properties/'+area]}
-        >
-            
+        <MainLayout title={`Properties ${area}`} > 
+            <div id="banner">
+                <div id="overlay"></div>
+                <div id="content">
+                    <h1 className="bannerH1">{areas[area].title}</h1>
+                </div>
+            </div>
             <div id="mainContProp">
                 <div id="tableContainer">
                     <Paper>

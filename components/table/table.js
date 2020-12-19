@@ -27,11 +27,11 @@ export function PropertyList({}){
             </thead>
             <tbody>
             {prop?.map(({rents, area, name},index) => (
-                index < 8 ? <tr>
+                index < 7 ? <tr>
                     <td className='sn'><span>{index+1}</span></td>
                     <td><span>{name}</span></td>
                     <td>{rents.length > 0?<Money amount={`${rents[rents.length - 1].amount/m}`} prefix="M"/>: '--'}</td>
-                    <td><span>{area}</span></td>
+                    <td><span>{area.toUpperCase()}</span></td>
                 </tr>: null
             ))}
             </tbody>

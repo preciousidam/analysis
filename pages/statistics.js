@@ -10,41 +10,25 @@ import Loader from '../../../components/loader';
 import {getViewData} from '../../../libs/hooks';
 
 
-export function Id({}){
+export function Statistics({}){
     const router = useRouter();
-    const [compare, setCompare] = useState(false);
+    
     const {area, name} = router.query;
     const {data, isLoading, isError} = getViewData(`properties/${area}/${name}`);
-    const Details = dynamic(
-        () => import('../../../components/detailsPage/details'), {ssr: false, loading: () => <Loader />}
-    )
+    
     const Stats = dynamic(
         () => import('../../../components/detailsPage/stats'), {ssr: false, loading: () => <Loader />}
-    )
-
-    const breadcrumbRight = _ => (
-        <div id="breadRight">
-            <Button
-                onClick={() => setCompare(prev => !prev)}
-            >
-                {compare? 'View Details': 'View Stats'}
-            </Button>
-        </div>
     )
     
     
     return (
-        <MainLayout title={`${name}`} right={breadcrumbRight()} links={[area, `${area}/${name}`]}>
+        <MainLayout>
             {!isLoading && <div id='main'>
                 <div id="overlay"></div>
-                {!compare? <Details 
-                    compare={() => setCompare(prev => setCompare(!prev))}
-                    data={data}
-                />
-                : <Stats data={data} />}
+                <Stats data={data} />
             </div>}
         </MainLayout>
     )
 }
 
-export default ProtectRoute(Id);
+export default ProtectRoute(Statistics);

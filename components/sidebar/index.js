@@ -16,14 +16,14 @@ const userLink = [
         title: 'Properties', 
         link: 'properties', 
         options: [{
-            title: "V-Island", 
+            title: "Victoria Island", 
             link: '/properties/vi',
-        },{
-            title: "Oniru", 
-            link: '/properties/oniru',
         },{
             title: "Ikoyi", 
             link: '/properties/ikoyi',
+        },{
+            title: "Oniru", 
+            link: '/properties/oniru',
         },{
             title: "Lekki", 
             link: '/properties/lekki',
@@ -41,33 +41,16 @@ const userLink = [
     }
 ];
 
-const adminLink = [
-    {icon: <Apartment />, title: 'Properties', link: '/admin/properties'},
-    {icon: <People />, title: 'Users', link: '/admin/users', options: [
-        {
-            title: "All users",
-            link: "/admin/users/",
-        },{
-            title: "Add users",
-            link: "/admin/users/adduser",
-        },
-    ]},
-];
 
 
-export default function SideBar({min}){
-    const {isAdmin} = useAuth();
-    const [links, setLinks] = useState([]);
+export default function SideBar({}){
+
+    const [links, setLinks] = useState(userLink);
     
     const router = useRouter();
-
-    useEffect(() => {
-        if(isAdmin) setLinks(adminLink);
-        else setLinks(userLink);
-    }, [isAdmin]);
     
     return(
-        <SideBarLayout min={min}>
+        <SideBarLayout>
             <ul id="sidabar-content">
                 
                 <SidebarLink title="Home" icon={<AccountBalance />} link="/" active={router.pathname == "/" ? "active" : ""} />

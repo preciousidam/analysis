@@ -4,11 +4,10 @@ import { getViewData } from '../../libs/hooks';
 import { SelectInput, Search } from '../input';
 
 
-export function PriceChart({}){
+export function PriceChart({data}){
 
     const chart = createRef();
-    const [bed, setBed] = useState(3);
-    const {isLoading, data} = getViewData('stats/all-average/'+bed)
+    
     const options= {
         scales: {
             yAxes: [{
@@ -144,23 +143,8 @@ export function PriceChart({}){
 
     return (
         <div>
-            <header>
-                <h3>Average rent</h3>
-                <SelectInput 
-                    id="sBedroom" 
-                    value={bed}
-                    onChange={e => setBed(e.target.value)}
-                    label=""
-                    options={[
-                        {text: '1 Bedroom', value:1},
-                        {text: '2 Bedroom', value:2},
-                        {text: '3 Bedroom', value:3},
-                        {text: '4 Bedroom', value:4},
-                    ]} 
-                />
-            </header>
             <div id="priceChart">
-                <Bar height={400} ref={chart} data={instatiateChart()} options={options} />
+                <Bar height={350} ref={chart} data={instatiateChart()} options={options} />
             </div>
         </div>  
     )

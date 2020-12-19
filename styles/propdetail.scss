@@ -4,6 +4,20 @@
 #main{
     width: 100%;
     padding: 30px;
+    position: relative;
+
+    #overlay{
+        position: absolute; /* Sit on top of the page content */
+        display: block; /* Hidden by default */
+        width: 100%; /* Full width (cover the whole page) */
+        height: 100%; /* Full height (cover the whole page) */
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: linear-gradient(to bottom right, rgba(#46c5f2, .4),rgba(#ffb82c,.4));; /* Black background with opacity */
+        z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+    }
 
     #contentContainer{
         margin: 0;
@@ -29,6 +43,7 @@
         #facilities{
             background-color: rgba($color: #c3c3c3, $alpha: .5);
             padding: 10px;
+            min-height: 250px;
 
             header{
                 svg{

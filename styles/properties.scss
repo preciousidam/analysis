@@ -1,5 +1,44 @@
 @import './variables.scss';
 
+
+#banner{
+    background: url('/header_bg3.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 300px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    #content{
+        width: 700px;
+        position: relative;
+        z-index: 10;
+        
+    }
+    #overlay {
+        position: absolute; /* Sit on top of the page content */
+        display: block; /* Hidden by default */
+        width: 100%; /* Full width (cover the whole page) */
+        height: 100%; /* Full height (cover the whole page) */
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+        z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+    }
+
+    .bannerH1{
+        text-transform: capitalize !important;
+        color: $background-white !important;
+        text-align: center;
+        font-size: 50px;
+    }
+}
+
 #mainContProp{
     width: 100%;
     min-height: 88%;
