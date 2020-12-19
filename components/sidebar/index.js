@@ -12,7 +12,7 @@ import { CollapingLink } from './collapsingLink';
 
 const userLink = [
     {
-        icon: <Apartment />, 
+        icon: <Apartment  />, 
         title: 'Properties', 
         link: 'properties', 
         options: [{
@@ -30,7 +30,12 @@ const userLink = [
         }]
     },
     {
-        icon: <ContactSupport />,
+        icon: <FontAwesomeIcon icon="chart-bar" />,
+        title: 'Statistics',
+        link: '/statistics'
+    },
+    {
+        icon: <ContactSupport  />,
         title: 'Support',
         link: '/support'
     },

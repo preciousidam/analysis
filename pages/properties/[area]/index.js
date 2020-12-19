@@ -15,7 +15,8 @@ import useAuth from '../../../provider';
 
 const {Option} =  Select;
 const {Title} = Typography;
-const areas = {vi: {title: 'Victoria Island', image: ''}}
+const areas = {vi: {title: 'Victoria Island', class: 'vi'}, ikoyi: {title: 'Ikoyi', class: 'ikoyi'}, 
+            oniru: {title: 'Oniru', class: 'oniru'}, lekki: {title: 'Lekki', class: 'lekki'}}
 
 export function Properties({}){
 
@@ -26,7 +27,7 @@ export function Properties({}){
     
     return (
         <MainLayout title={`Properties ${area}`} > 
-            <div id="banner">
+            <div id="banner" className={areas[area].class}>
                 <div id="overlay"></div>
                 <div id="content">
                     <h1 className="bannerH1">{areas[area].title}</h1>

@@ -39,6 +39,27 @@
     }
 }
 
+#banner.lekki{
+    background: url('/lekki.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+#banner.ikoyi{
+    background: url('/ikoyi.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+#banner.oniru{
+    background: url('/oniru.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+#banner.vi{
+    background: url('/vi.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
 #mainContProp{
     width: 100%;
     min-height: 88%;
