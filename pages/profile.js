@@ -15,23 +15,21 @@ export function Profile({}){
         <MainLayout title="Profile" BreadIcon={<PersonOutlineOutlined fontSize="large" />} >
             
             <div id="main" className="container">
-                <div className='row'>
-                    <div className="col-sm-9">
-                        <Paper id="formContainer">
-                            <header>Profile Details</header>
-                            <Descriptions style={{padding: 20}} className="profile" layout="vertical">
-                                <Descriptions.Item label="Full Name">{user.name}</Descriptions.Item>
-                                <Descriptions.Item label="Username">{user.username}</Descriptions.Item>
-                                <Descriptions.Item label="Email">{user.email}</Descriptions.Item>
-                                <Descriptions.Item label="Phone Number">{user.phone}</Descriptions.Item>
-                            </Descriptions>
-                            <h4 style={{padding: 20}}>Change Password</h4>
-                            <div style={{padding: 20}} id="passwordChange">
-                                <ProfileForm />
-                            </div>                                                                                                 
-                        </Paper>
-                    </div>
-                </div>
+                <div id="overlay"></div>
+                <Paper id="formContainer">
+                    <header>Profile Details</header>
+                    <Descriptions style={{padding: 20}} className="profile" layout="vertical">
+                        <Descriptions.Item label="Full Name">{user.name}</Descriptions.Item>
+                        <Descriptions.Item label="Username">{user.username}</Descriptions.Item>
+                        <Descriptions.Item label="Email">{user.email}</Descriptions.Item>
+                        <Descriptions.Item label="Phone Number">{user.phone}</Descriptions.Item>
+                    </Descriptions>
+                    <h4 style={{padding: 20}}>Change Password</h4>
+                    <div style={{padding: 20}} id="passwordChange">
+                        <ProfileForm />
+                    </div>                                                                                                 
+                </Paper>
+                    
             </div>
         </MainLayout>
     );
