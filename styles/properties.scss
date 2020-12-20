@@ -91,7 +91,7 @@
         padding: 30px;
         
         #filterContainer{
-            padding: 15px 30px 15px 15px;
+            margin: 30px 0 50px !important;
             display: flex;
             flex-direction: row;
             justify-content: space-between;
@@ -124,8 +124,17 @@
             }
 
             #right{
+                display: flex;
                 button{
                     margin: 0 10px;
+                }
+
+                .button{
+                    background-color: $info !important;
+                    padding: 5px 10px !important;
+                    width: 100px !important;
+                    font-size: 12px;
+                    margin: 0 !important;
                 }
             }
         }

@@ -55,7 +55,7 @@ export const ProfileDropdown = ({links}) =>{
         <Dropdown id="profileCont" onClick={() => setDropdown(!dropdown)} overlay={menu}>
             <div id="profile">
                 <Avatar id="avater" className={classes.purple}>{user?.username[0]}</Avatar>
-                <p>{user?.username}</p>
+                <p>Hi, {user?.username}</p>
             </div>
         </Dropdown>
     );

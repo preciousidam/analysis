@@ -1,28 +1,23 @@
 import React, {useEffect, useState} from 'react';
-import { Button, Pagination, Popconfirm, Tooltip, Typography } from 'antd';
-import {DeleteOutlined} from '@ant-design/icons';
+import { Select, Pagination, Typography } from 'antd';
 import PropTypes from 'prop-types';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 
 import '../../styles/tables.scss';
-import useAuth from '../../provider';
 import { getViewData } from '../../libs/hooks';
 import Money from '../money';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { properties } from '../../libs/data';
+import {Search} from '../input/search';
 
-const {Title} = Typography;
+
+const {Option} =  Select;
 
 export const NewList = ({onClick, area, bed, filter}) => {
     const text = "Click to view historical data about property";
-    const m = 1000000;
-    const {isAdmin} = useAuth();
+    const m = 1e6;
     const [page, setPage] = useState(1);
-    const {data, isLoading} = getViewData(`properties/${area}/${page}`);
-    useEffect(() => {
-        console.log(page)
-    },[page])
-
+    const {data, isLoading} = getViewData(`properties/${area}?page=${page}`);
+    
     const onPaginationClicked = page => setPage(page);
     
     const sortByBed = (a,b) => {
@@ -38,9 +33,29 @@ export const NewList = ({onClick, area, bed, filter}) => {
 
     return (
         <div>
+            <div id="filterContainer">
+                <div id="left">
+                    
+                    <Select defaultValue='*' className="filterItem" onChange={e => sortByBed(e.target.value)}>
+                        <Option value='*'>No. of Bedroom</Option>
+                        <Option value={1}>1 Bedroom</Option>
+                        <Option value={2}>2 Bedroom</Option>
+                        <Option value={3}>3 Bedroom</Option>
+                        <Option value={4}>4 Bedroom</Option>
+                    </Select>
+                    
+                    <button className="button" onClick={e => filter('descending')}>New to Old</button>
+                    <button className="button" onClick={e => filter('ascending')}>Old to New</button>
+                
+                </div>
+                <div id="right">
+                    <Search placeholder="Property search" />
+                    <button className="button">Search</button>
+                </div>
+            </div>
             {
                 !isLoading && data?.properties?.map(({rents, name, address, built, bedrooms, units, serv_charge}, id) => (
-                    <div className="propItem" onClick={onClick}>
+                    <div className="propItem" onClick={_ => onClick(name)}>
                         <div className="sn"><span>{id+1}</span></div>
                         <div className="propName">
                             <p>{name}</p>
