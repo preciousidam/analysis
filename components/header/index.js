@@ -14,7 +14,7 @@ export default function header({}){
                 <ul id="navbar-content-left">
                     <li className="nav-link">
                           
-                        <Search placeholder="Search" />
+                        
                         
                     </li>  
                 </ul>

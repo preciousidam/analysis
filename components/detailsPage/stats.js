@@ -11,14 +11,13 @@ const areas = ['ikoyi', 'lekki', 'vi', 'oniru']
 
 export default function Stats({data}){
     const router = useRouter()
-    const [selectedArea, setSelectedArea] = useState(() => areas.filter(x => x != data?.area));
+    const [selectedArea, setSelectedArea] = useState(areas);
     const handleChange = (event) => {
         setSelectedArea(event.target.value);
     };
 
     return(
         <div id="propStat">
-            
             <div className="chartsContainer row">
                 {selectedArea.map(area => (<div className="col-md-6">
                     <Paper className="comparison">
@@ -29,10 +28,6 @@ export default function Stats({data}){
                     </Paper>
                 </div>))}
             </div>
-            <div className="tables">
-
-            </div>
-            
         </div>
     );
 }

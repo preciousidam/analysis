@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { Button, Select, Typography } from 'antd';
+import { Button, Select, Typography} from 'antd';
 import { FilePdfFilled} from '@ant-design/icons';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import { useRouter } from 'next/router';
@@ -7,10 +7,11 @@ import {ApartmentOutlined} from '@material-ui/icons';
 
 import MainLayout from '../../../layouts';
 import '../../../styles/properties.scss';
-import { List } from '../../../components/table/index';
+import { NewList } from '../../../components/table/index';
 import {  Paper } from '@material-ui/core';
 import { ProtectRoute } from '../../../route';
 import useAuth from '../../../provider';
+import {Search} from '../../../components/input/search';
 
 
 const {Option} =  Select;
@@ -23,7 +24,11 @@ export function Properties({}){
     const router = useRouter();
     const {isAdmin} = useAuth();
     const {area} = router.query;
+    const [bed, setBed] = useState('*');
+    const [yearBuilt, setYearBuilt] = useState('ascending');
     const onClick = name => router.push(`/properties/${area}/${name.replace(' ','-')}`);
+    const sortByBed = bed => setBed(bed);
+    const filter = value => setYearBuilt(value);
     
     return (
         <MainLayout title={`Properties ${area}`} > 
@@ -35,42 +40,31 @@ export function Properties({}){
             </div>
             <div id="mainContProp">
                 <div id="tableContainer">
-                    <Paper>
+                    <div>
                         <div id="filterContainer">
                             <div id="left">
                                 
-                                <Select defaultValue='*' className="filterItem">
-                                    <Option value='*'>Sort By</Option>
-                                    <Option value='price'>Rent</Option>
+                                <Select defaultValue='*' className="filterItem" onChange={e => sortByBed(e.target.value)}>
+                                    <Option value='*'>No. of Bedroom</Option>
+                                    <Option value={1}>1 Bedroom</Option>
+                                    <Option value={2}>2 Bedroom</Option>
+                                    <Option value={3}>3 Bedroom</Option>
+                                    <Option value={4}>4 Bedroom</Option>
                                 </Select>
-                                <Select defaultValue='all' className="filterItem">
-                                    <Option value='all'>By year Built</Option>
-                                    <Option value={2016}>2016</Option>
-                                    <Option value={2017}>2017</Option>
-                                    <Option value={2018}>2018</Option>
-                                    <Option value={2019}>2019</Option>
-                                    <Option value={2020}>2020</Option>
-                                </Select>
+                                
+                                <button className="button" onClick={e => filter('descending')}>New to Old</button>
+                                <button className="button" onClick={e => filter('ascending')}>Old to New</button>
+                            
                             </div>
                             <div id="right">
-                                {isAdmin && <Button 
-                                    type='primary'
-                                > 
-                                    <FontAwesomeIcon icon='file-csv' color="#fff" style={{marginRight: 10}} />
-                                    Export CSV
-                                </Button>}
-
-                                <Button 
-                                    type='primary' 
-                                    danger
-                                >
-                                    <FilePdfFilled />
-                                    Export PDF
-                                </Button>
+                                <Search placeholder="Property search" />
                             </div>
                         </div>
-                        <List onClick={onClick} area={area} />
-                    </Paper>
+                        
+                    </div>
+                    <div id="propertyContainer">
+                        <NewList onClick={onClick} area={area} bed={bed} filter={yearBuilt} />
+                    </div>
                 </div>
             </div>
         </MainLayout>

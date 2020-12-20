@@ -68,7 +68,7 @@
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        padding: 30px 50px 10px ;
+        padding: 30px 50px 10px;
     
         #left{
             display: flex;
@@ -105,6 +105,21 @@
 
                 .filterItem{
                     margin: 0 10px;
+                }
+
+                .button{
+                    padding: 5px 10px !important;
+                    font-size: 12px !important;
+                    margin: 0 5px !important;
+                    background-color: transparent !important;
+                    box-shadow: none !important;
+                    border: 1px solid $danger !important;
+                    color: #353535;
+
+                    &:hover, &:active{
+                        background-color: $danger !important;
+                        color: #fff !important;
+                    }
                 }
             }
 
@@ -152,3 +167,7 @@
     }
 }
 
+#propertyContainer{
+    width: 100% !important;
+    margin: 20px 0 !important;
+}

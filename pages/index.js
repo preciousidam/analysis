@@ -38,6 +38,8 @@ export function Home({}){
         setAverage(ave);
     },[data])
 
+    const onAreaClick = area => router.push(`/properties/${area}`);
+
     
     return (
         <MainLayout title='Dashboard' BreadIcon={<HomeOutlined fontSize='large' />}>
@@ -78,28 +80,28 @@ export function Home({}){
                 <div className="container" id="areaCont">
                     <div className="row">
                         <div className="col-md-3">
-                            <div id="ikoyi" className="areas">
+                            <div id="ikoyi" className="areas" onClick={e => onAreaClick('ikoyi')}>
                                 <h5>Ikoyi</h5>
                                 <hr />
                                 <span>View Properties <FontAwesomeIcon icon="angle-right" color="#fff" size={10} /></span>
                             </div>
                         </div>
                         <div className="col-md-3">
-                            <div id="vi" className="areas">
+                            <div id="vi" className="areas" onClick={e => onAreaClick('vi')}>
                                 <h5>Victoria Island</h5>
                                 <hr />
                                 <span>View Properties <FontAwesomeIcon icon="angle-right" color="#fff" size={10} /></span>
                             </div>
                         </div>
                         <div className="col-md-3">
-                            <div id="oniru" className="areas">
+                            <div id="oniru" className="areas" onClick={e => onAreaClick('oniru')}>
                                 <h5>Oniru</h5>
                                 <hr />
                                 <span>View Properties <FontAwesomeIcon icon="angle-right" color="#fff" size={10} /></span>
                             </div>
                         </div>
                         <div className="col-md-3">
-                            <div id="lekki" className="areas">
+                            <div id="lekki" className="areas" onClick={e => onAreaClick('lekki')}>
                                 <h5>Lekki</h5>
                                 <hr />
                                 <span>View Properties <FontAwesomeIcon icon="angle-right" color="#fff" size={10} /></span>
