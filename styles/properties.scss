@@ -135,6 +135,7 @@
                     width: 100px !important;
                     font-size: 12px;
                     margin: 0 !important;
+                    display: none !important;
                 }
             }
         }
@@ -179,4 +180,7 @@
 #propertyContainer{
     width: 100% !important;
     margin: 20px 0 !important;
+    height: calc(100% - 400px) !important;
+    min-height: calc(100% - 400px) !important;
+    align-items: center;
 }

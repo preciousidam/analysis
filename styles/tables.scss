@@ -41,14 +41,18 @@ table{
     width: 100%;
 }
 
+#new_table{
+    height: inherit !important;
+}
+
 
 .propItem{
     display: flex;
     flex-direction: row;
     background-color: $background-white !important;
     padding: 10px 15px !important;
-    box-shadow: 1px 2px 2px 1px rgba(0,0,0,.1) !important;
-    margin-bottom: 20px !important;
+    box-shadow: 1px 2px 2px 1px rgba(0,0,0,.08) !important;
+    margin-bottom: 5px !important;
     justify-content: space-between;
     align-items: center;
     border-radius: 5px !important;
@@ -59,7 +63,7 @@ table{
     }
 
     &:active{
-        box-shadow: 1px 2px 2px 1px rgba(0,0,0,0.1) !important;
+        box-shadow: 1px 2px 2px 1px rgba(0,0,0,.08) !important;
     }
 
     p{

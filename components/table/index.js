@@ -12,49 +12,35 @@ import {Search} from '../input/search';
 
 const {Option} =  Select;
 
-export const NewList = ({onClick, area, bed, filter}) => {
+export const NewList = ({onClick, area}) => {
     const text = "Click to view historical data about property";
     const m = 1e6;
     const [page, setPage] = useState(1);
-    const {data, isLoading} = getViewData(`properties/${area}?page=${page}`);
+    const [search, setSearch] = useState('')
+    const [bed, setBed] = useState('');
+    const {data, isLoading} = getViewData(`properties/${area}?q=${search}&bed=${bed}&page=${page}`);
     
-    const onPaginationClicked = page => setPage(page);
-    
-    const sortByBed = (a,b) => {
-        return a.bedrooms > b.bedrooms? 1 : a.bedrooms == b.bedrooms? 0 : -1;
-    }
-
-    const filterByDescending = (a,b) => {
-        return a.built > b.bedrooms? -1 : a.bedrooms == b.bedrooms? 0 : 1;
-    }
-    const filterByAscending = (a,b) => {
-        return a.built > b.bedrooms? 1 : a.bedrooms == b.bedrooms? 0 : -1;
-    }
+    const onPaginationClicked = page => setPage(page);    
 
     return (
-        <div>
+        <div id="new_table">
             <div id="filterContainer">
                 <div id="left">
-                    
-                    <Select defaultValue='*' className="filterItem" onChange={e => sortByBed(e.target.value)}>
-                        <Option value='*'>No. of Bedroom</Option>
+                    <Select defaultValue='' className="filterItem" onChange={value => setBed(value)}>
+                        <Option value=''>No. of Bedroom</Option>
                         <Option value={1}>1 Bedroom</Option>
                         <Option value={2}>2 Bedroom</Option>
                         <Option value={3}>3 Bedroom</Option>
                         <Option value={4}>4 Bedroom</Option>
                     </Select>
-                    
-                    <button className="button" onClick={e => filter('descending')}>New to Old</button>
-                    <button className="button" onClick={e => filter('ascending')}>Old to New</button>
-                
+                    <Search placeholder="Enter property name" onChange={e => setSearch(e.target.value)} />
                 </div>
                 <div id="right">
-                    <Search placeholder="Property search" />
                     <button className="button">Search</button>
                 </div>
             </div>
             {
-                !isLoading && data?.properties?.map(({rents, name, address, built, bedrooms, units, serv_charge}, id) => (
+                !isLoading ? data?.properties?.map(({rents, name, address, built, bedrooms, units, serv_charge}, id) => (
                     <div className="propItem" onClick={_ => onClick(name)}>
                         <div className="sn"><span>{id+1}</span></div>
                         <div className="propName">
@@ -90,13 +76,17 @@ export const NewList = ({onClick, area, bed, filter}) => {
                         <span className="more"><FontAwesomeIcon icon="angle-right" size="lg" color="#a5a5a5" /></span>
                     </div>
                 ))
-            }
-            <div id="pagi">
+            : <Loading />}
+            <div id="pagi" style={{marginTop: 15}}>
                 <Pagination defaultCurrent={1} current={page} total={data?.total} pageSize={10} onChange={onPaginationClicked} />
             </div>
         </div>
     );
 }
+
+export const Loading = _ => (<div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+    <FontAwesomeIcon icon="circle-notch" color=' #46c5f2' size="3x" spin />
+</div>)
 
 /*export const List = ({onClick, area}) => {
     const text = "Click to view historical data about property";

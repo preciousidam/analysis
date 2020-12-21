@@ -5,8 +5,6 @@ import MainLayout from '../../../layouts';
 import '../../../styles/properties.scss';
 import { NewList } from '../../../components/table/index';
 import { ProtectRoute } from '../../../route';
-import useAuth from '../../../provider';
-
 
 
 
@@ -16,13 +14,9 @@ const areas = {vi: {title: 'Victoria Island', class: 'vi'}, ikoyi: {title: 'Ikoy
 export function Properties({}){
 
     const router = useRouter();
-    const {isAdmin} = useAuth();
     const {area} = router.query;
-    const [bed, setBed] = useState('*');
-    const [yearBuilt, setYearBuilt] = useState('ascending');
     const onClick = name => router.push(`/properties/${area}/${name.replace(' ','-')}`);
-    const sortByBed = bed => setBed(bed);
-    const filter = value => setYearBuilt(value);
+    
     
     return (
         <MainLayout title={`Properties ${area}`} > 
@@ -35,7 +29,7 @@ export function Properties({}){
             <div id="mainContProp">
                 <div id="tableContainer">
                     <div id="propertyContainer">
-                        <NewList onClick={onClick} area={area} bed={bed} filter={yearBuilt} />
+                        <NewList onClick={onClick} area={area} />
                     </div>
                 </div>
             </div>
