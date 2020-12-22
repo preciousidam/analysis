@@ -18,7 +18,7 @@ import {report} from './report';
 
 
 const {Title} = Typography;
-const areas = {'vi':"Victoria Island", 'ikoyi':"Ikoyi",'lekki':"Lekki",'oniru': "Oniru"}
+const areaCode = {'vi':"Victoria Island", 'ikoyi':"Ikoyi",'lekki':"Lekki",'oniru': "Oniru"}
 
 
 export function Home({}){
@@ -26,14 +26,17 @@ export function Home({}){
     const router = useRouter();
     const [bed, setBed] = useState(3);
     const [averages, setAverage] = useState([]);
+    const {isBedLoading, data: beds} = getViewData('bedroom');
+    const {isAreaLoading, data: areas} = getViewData('areas');
     const {isLoading, data} = getViewData('stats/all-average/'+bed);
+    
 
     useEffect(() => {
         if(!data) return;
         let ave = []
         for(let key in data){
             let avv = data[key];
-            ave.push({area: areas[key], average: avv[avv.length - 1]});
+            ave.push({area: areaCode[key], average: avv[avv.length - 1]});
         }
         setAverage(ave);
     },[data])
@@ -79,34 +82,14 @@ export function Home({}){
                 </div>
                 <div className="container" id="areaCont">
                     <div className="row">
-                        <div className="col-md-3">
-                            <div id="ikoyi" className="areas" onClick={e => onAreaClick('ikoyi')}>
-                                <h5>Ikoyi</h5>
-                                <hr />
-                                <span>View Properties <FontAwesomeIcon icon="angle-right" color="#fff" size={10} /></span>
-                            </div>
-                        </div>
-                        <div className="col-md-3">
-                            <div id="vi" className="areas" onClick={e => onAreaClick('vi')}>
-                                <h5>Victoria Island</h5>
-                                <hr />
-                                <span>View Properties <FontAwesomeIcon icon="angle-right" color="#fff" size={10} /></span>
-                            </div>
-                        </div>
-                        <div className="col-md-3">
-                            <div id="oniru" className="areas" onClick={e => onAreaClick('oniru')}>
-                                <h5>Oniru</h5>
-                                <hr />
-                                <span>View Properties <FontAwesomeIcon icon="angle-right" color="#fff" size={10} /></span>
-                            </div>
-                        </div>
-                        <div className="col-md-3">
-                            <div id="lekki" className="areas" onClick={e => onAreaClick('lekki')}>
-                                <h5>Lekki</h5>
-                                <hr />
-                                <span>View Properties <FontAwesomeIcon icon="angle-right" color="#fff" size={10} /></span>
-                            </div>
-                        </div>
+                        {!isAreaLoading && areas?.map(area =>
+                            <div className={`col-md-${12/areas.length}`}>
+                                <div id={area} className="areas" onClick={e => onAreaClick(area)}>
+                                    <h5>{areaCode[area]}</h5>
+                                    <hr />
+                                    <span>View Properties <FontAwesomeIcon icon="angle-right" color="#fff" size={10} /></span>
+                                </div>
+                            </div>)}
                     </div>
                     
                 </div>
@@ -114,10 +97,9 @@ export function Home({}){
                     <div id="chart-area" className="row">
                         <div className="col-md-12 contrllCont">
                             <div className="controller">
-                                <div onClick={_ => setBed(1)} className={`button ${bed == 1? 'active': ''}`}>1 Bedroom</div>
-                                <div onClick={_ => setBed(2)} className={`button ${bed == 2? 'active': ''}`}>2 Bedroom</div>
-                                <div onClick={_ => setBed(3)} className={`button ${bed == 3? 'active': ''}`}>3 Bedroom</div>
-                                <div onClick={_ => setBed(4)} className={`button ${bed == 4? 'active': ''}`}>4 Bedroom</div>
+                                {!isBedLoading && beds?.map(x => 
+                                    <div onClick={_ => setBed(x)} className={`button ${bed == x? 'active': ''}`}>{x} Bedroom</div>)
+                                }
                             </div>
                         </div>
                         <div className="col-md-12">

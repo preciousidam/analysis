@@ -5,7 +5,7 @@ import dynamic from 'next/dynamic';
 
 import MainLayout from '../layouts';
 import { ProtectRoute } from '../route';
-import '../styles/propdetail.scss';
+import '../styles/stats.scss';
 import Loader from '../components/loader';
 import {getViewData} from '../libs/hooks';
 
@@ -13,20 +13,18 @@ import {getViewData} from '../libs/hooks';
 export function Statistics({}){
     const router = useRouter();
     
-    const {area, name} = router.query;
-    const {data, isLoading, isError} = getViewData(`properties/${area}/${name}`);
-    
-    const Stats = dynamic(
-        () => import('../components/detailsPage/stats'), {ssr: false, loading: () => <Loader />}
-    )
-    
     
     return (
         <MainLayout>
-            {!isLoading && <div id='main'>
-                <div id="overlay"></div>
-                <Stats data={data} />
-            </div>}
+            <div id='stats'>
+                <div id="banner">
+                    <div id="overlay"></div>
+                    <div id="content">
+                        <h1 className="bannerH1">Area Stats</h1>
+                        <p className="sub">Get historical data on all areas</p>
+                    </div>
+                </div>
+            </div>
         </MainLayout>
     )
 }

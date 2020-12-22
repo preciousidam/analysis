@@ -1,6 +1,7 @@
 import React, {useEffect, useState, createRef} from 'react';
 import {Bar} from 'react-chartjs-2';
 import { getViewData } from '../../libs/hooks';
+import { CommaFormatted } from '../../utility/converter';
 import { SelectInput, Search } from '../input';
 
 
@@ -36,6 +37,20 @@ export function PriceChart({data}){
             labels: {
                 boxWidth: 10,
             }
+        },
+        tooltips: {
+            callbacks: {
+                label: function(tooltipItem, data) {
+                    var label = data.datasets[tooltipItem.datasetIndex].label || '';
+
+                    if (label) {
+                        label += ': ₦';
+                    }
+                    label += CommaFormatted(parseFloat(tooltipItem.yLabel).toFixed(2));
+                    return label;
+                }
+            }
+           
         }
     }
 
@@ -136,7 +151,6 @@ export function PriceChart({data}){
 
     useEffect(
         () => {
-            console.log(chart)
             //chart.destroy();
         },[data]
     );

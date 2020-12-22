@@ -19,6 +19,7 @@ export const NewList = ({onClick, area}) => {
     const [search, setSearch] = useState('')
     const [bed, setBed] = useState('');
     const {data, isLoading} = getViewData(`properties/${area}?q=${search}&bed=${bed}&page=${page}`);
+    const {data:beds, isLoading: isBedLoading} = getViewData(`bedroom`);
     
     const onPaginationClicked = page => setPage(page);    
 
@@ -28,10 +29,7 @@ export const NewList = ({onClick, area}) => {
                 <div id="left">
                     <Select defaultValue='' className="filterItem" onChange={value => setBed(value)}>
                         <Option value=''>No. of Bedroom</Option>
-                        <Option value={1}>1 Bedroom</Option>
-                        <Option value={2}>2 Bedroom</Option>
-                        <Option value={3}>3 Bedroom</Option>
-                        <Option value={4}>4 Bedroom</Option>
+                        {!isBedLoading && beds?.map(x => <Option value={x}>{x} Bedroom</Option>)}
                     </Select>
                     <Search placeholder="Enter property name" onChange={e => setSearch(e.target.value)} />
                 </div>
