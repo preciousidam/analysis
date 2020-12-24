@@ -30,7 +30,7 @@ export default function Stats({area}){
 
     return(
         <div className="statistics">
-            <h5 id="header_name">{area} Summary</h5>
+            <h5 id="header_name">{area == 'vi'? 'Victoria Island' : area} Summary</h5>
             <div id="wrapper">
                 <div id="sCont">
                     <header>
@@ -54,7 +54,7 @@ export default function Stats({area}){
                     <div className="row">
                         <div className="col-md-3 heading">Type</div>
                         <div className="col-md-3 heading">Rent</div>
-                        <div className="col-md-3 heading">Percentage</div>
+                        <div className="col-md-3 heading">{' '}</div>
                     </div>
                     {!isLoading && Object.keys(data).map(bed=>
                         <div className="row">
