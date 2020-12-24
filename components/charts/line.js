@@ -1,37 +1,50 @@
 import React, {useEffect, useState, createRef} from 'react';
-import {Bar} from 'react-chartjs-2';
+import {Line} from 'react-chartjs-2';
 import { getViewData } from '../../libs/hooks';
 import { CommaFormatted } from '../../utility/converter';
 import { SelectInput, Search } from '../input';
 
-const colors = {vi: 'rgba(255, 99, 132, 1.0)', 
-    ikoyi: 'rgba(255, 206, 86, 1.0)', 
-    lekki: 'rgba(0, 250, 154, 1.0)',
-    oniru: 'rgba(54, 162, 235, 1.0)',
+const colors = {vi: 'rgba(255, 99, 132, .5)', 
+    ikoyi: 'rgba(255, 206, 86, .5)', 
+    lekki: 'rgba(0, 250, 154, .5)',
+    oniru: 'rgba(54, 162, 235, .5)',
 }
 
-export function PriceChart({data, years}){
+const bordercolors = {vi: 'rgba(255, 99, 132, 1)', 
+    ikoyi: 'rgba(255, 206, 86, 1)', 
+    lekki: 'rgba(0, 250, 154, 1)',
+    oniru: 'rgba(54, 162, 235, 1)',
+}
+
+export function PriceChart({data, year, area}){
 
     const chart = createRef();
-
+    const [dataset, setDataset] = useState([]);
     
     const options= {
         scales: {
             yAxes: [{
+                beginAtZero: true,
                 ticks: {
-                    beginAtZero: true,
+                    beginAtZero: false,
                     callback: function(value, index, values) {
                         return `${'₦'} ${value / 1e6}M`;
                     }
                 },
                 gridLines: {
                     drawBorder: false,
-                    //display: false,
+                    display: true,
                 },
             }],
             xAxes: [{
+                ticks: {
+                    beginAtZero: false,
+                    callback: function(value, index, values) {
+                        return `${value} Bedroom`;
+                    }
+                },
                 gridLines: {
-                    display: false,
+                    display: true,
                 }
             }]
         },
@@ -57,38 +70,41 @@ export function PriceChart({data, years}){
                 }
             }
            
-        }
+        },
+        fill: false,
     }
 
     
     const instatiateChart = _ => {
     return({
-            labels: years,
-            datasets: Object.keys(data).map(area => (
+            labels: Object.keys(data),
+            datasets: [
                 {
-                    label: `Average Rent in ${area.toUpperCase()}`,
-                    barThickness: 20,
-                    categoryPercentage: 0.5,
-                    barPercentage: 0.5,
-                    data: data[area],
+                    label: `Average Rent per bedrooms number`,
+                    data: dataset,
                     backgroundColor: colors[area],
-                    borderColor: colors[area],
-                    borderWidth: 1
+                    borderColor: bordercolors[area],
+                    fill: true,
+                    pointRadius: 3,
                 }
-            ))
+            ]
         });
     }
 
     useEffect(
         () => {
-            //chart.destroy();
-        },[data]
+            let arr = [];
+            for(let item in data){
+                arr.push(data[item][year]);
+            }
+            setDataset(arr)
+        },[year, data]
     );
 
     return (
         <div>
             <div id="priceChart">
-                <Bar height={350} ref={chart} data={instatiateChart()} options={options} />
+                <Line height={350} ref={chart} data={instatiateChart()} options={options} />
             </div>
         </div>  
     )

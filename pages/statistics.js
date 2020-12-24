@@ -8,12 +8,21 @@ import { ProtectRoute } from '../route';
 import '../styles/stats.scss';
 import Loader from '../components/loader';
 import {getViewData} from '../libs/hooks';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
 export function Statistics({}){
     const router = useRouter();
+    const {isLoading: isAreaLoading, data: areas} = getViewData('areas');
+    const [activeArea, setActiveArea] = useState('');
+    const Stats = dynamic(
+        () => import('../components/detailsPage/stats'), {ssr: false, loading: () => <Loader />}
+    )
     
-    
+    useEffect(() => {
+        if (areas && activeArea === '') setActiveArea(areas[0])
+    }, [areas]);
+
     return (
         <MainLayout>
             <div id='stats'>
@@ -24,9 +33,27 @@ export function Statistics({}){
                         <p className="sub">Get historical data on all areas</p>
                     </div>
                 </div>
+                <div id="mainContent" className="container">
+                    <div id="statList">
+                        <div id="controllers">
+                            {!isAreaLoading && areas.map(area => 
+                                <div id={area} 
+                                    className="button control"
+                                    onClick={e => setActiveArea(area)}
+                                >
+                                    {area === 'vi'? 'Victoria Island': area}
+                                    {area === activeArea && <span><FontAwesomeIcon icon="check" size="sm" color="#fff" /></span>}
+                                </div>)
+                            }
+                        </div>
+                        {activeArea !== '' && <Stats area={activeArea} />}
+                    </div>
+                </div>
             </div>
         </MainLayout>
     )
 }
+
+
 
 export default ProtectRoute(Statistics);

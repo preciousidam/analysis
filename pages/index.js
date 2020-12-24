@@ -27,6 +27,7 @@ export function Home({}){
     const [bed, setBed] = useState(3);
     const [averages, setAverage] = useState([]);
     const {isBedLoading, data: beds} = getViewData('bedroom');
+    const {data: years} = getViewData('years');
     const {isAreaLoading, data: areas} = getViewData('areas');
     const {isLoading, data} = getViewData('stats/all-average/'+bed);
     
@@ -119,7 +120,7 @@ export function Home({}){
                                     <button className="button view">View Historical Data</button>
                                 </div>
                                 <div className="col-md-8">
-                                    <PriceChart data={data} />
+                                    <PriceChart data={data} years={years} />
                                 </div>
                                
                             </div>: <Loading />}

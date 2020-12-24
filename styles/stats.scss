@@ -84,4 +84,153 @@
 
 #stats{
     width: 100% !important;
+
+    #mainContent{
+        width: 100% !important;
+        min-width: 100% !important;
+        padding: 20px !important;
+        margin: 0 auto !important;
+    
+        #statList{
+
+            width: 100% !important;
+            align-items: center;
+            justify-content: center;
+            display: flex;
+            flex-direction: column !important;
+
+            .statistics{
+                padding: 10px !important;
+                border-radius: 5px !important;
+                width: 100% !important;
+                margin: 20px 0 !important;
+            }
+
+            #controllers{
+                width: inherit;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                justify-self: center;
+
+                margin-top: 15px;
+
+                .control{
+                    border-radius: 10px !important;
+                    padding: 10px 10px !important;
+                    margin-right: 10px !important;
+                    text-transform: uppercase;
+                    text-align: center;
+                    cursor: pointer !important;
+                    position: relative;
+
+                    span{
+                        position: absolute !important;
+                        left: 10px !important;
+                        display: inline-block !important;
+                        padding: 3px;
+                        border-radius: 50% !important;
+                    }
+                }
+
+                #lekki{
+                    background-image: linear-gradient(to bottom right, #ffb82c,  #ffb82c) !important;
+                }
+                
+                #ikoyi{
+                    background-image: linear-gradient(to bottom right, #ec4887,#ec4887) !important;
+                }
+                
+                #vi{
+                    background-image: linear-gradient(to bottom right, #875fc0,  #875fc0) !important;
+                }
+                
+                #oniru{
+                    background-image: linear-gradient(to bottom right,#46c5f2,#46c5f2) !important;
+                }
+            }
+
+            #header_name{
+                text-transform: uppercase !important;
+                font-size: 14px;
+                font-weight: bold;
+            }
+            #wrapper{
+                display: flex;
+                width: 100%;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                background-color: $background-white;
+                border-radius: 5px;
+                box-shadow: 1px 2px 4px 1px rgba(0,0,0,0.2);
+                margin: 20px 0;
+                min-height: 400px !important;
+
+                header{
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+
+                    h5{
+                        margin-right: 15px;
+                    }
+
+                    .ant-select-selector{
+                        min-width: 100px;
+                        margin: 0 10px !important;
+                    }
+
+                    .filterItem.two{
+                        margin-left: 10px !important;
+                    }
+                }
+
+                #sCont{
+                    
+                    padding: 10px 10px 10px 20px;
+                    margin: 20px 0px 20px 0;
+                    flex: 6;
+                    min-height: inherit !important;
+
+                    #chartArea{
+                        margin-top: 15px;
+                    }
+
+                }
+
+                #asideBar{
+                    
+                    padding: 10px;
+                    flex: 4;
+                    width: 100%;
+                   
+                    min-height: inherit !important;
+
+
+                    .heading{
+                        font-weight: bold;
+                        font-size: 13px;
+                    }
+
+                    .row{
+                        margin: 15px 0 !important;
+
+                        .one{
+                            color: #a5a5a5;
+                            font-weight: bold;
+                        }
+
+                        .col-md-3{
+                            font-size: 13px;
+                        }
+                    }
+                }
+            }
+        }
+
+       
+    }
+    
+    
 }

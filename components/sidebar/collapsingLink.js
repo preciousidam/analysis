@@ -29,7 +29,8 @@ export const CollapingLink = ({icon, title, options}) => {
             {dropdown && <div className="collapsedItem">
                 {options.map(({title, link}) =><SidebarInnerLink  
                         title={title} 
-                        link={link} 
+                        link={link}
+                        key={title}
                         active={window.location.href.includes(link) ? "active" : ""} 
                     />
                 )}
@@ -43,6 +44,6 @@ CollapingLink.propTypes = {
     icon: PropTypes.element,
     title: PropTypes.string,
     link: PropTypes.string,
-    active: PropTypes.bool,
+    active: PropTypes.string,
     options: PropTypes.array,
 }
