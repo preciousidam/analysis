@@ -30,6 +30,15 @@ export function Home({}){
     const {data: years} = getViewData('years');
     const {isAreaLoading, data: areas} = getViewData('areas');
     const {isLoading, data} = getViewData('stats/all-average/'+bed);
+
+    const [search, setSearch] = useState({type: 'property', apt: 'flat'});
+
+    const onChange = e =>{
+        let name = e.target.name;
+        let value = e.target.value;
+
+        setSearch(prev => ({...prev, [name]: value}))
+    }
     
 
     useEffect(() => {
@@ -44,6 +53,20 @@ export function Home({}){
 
     const onAreaClick = area => router.push(`/properties/${area}`);
 
+    const searchOnClick = _ => {
+        let query = {};
+
+        if (search.type === 'reports'){
+            query['type'] = search.type;
+            query['q'] = search.q;
+            router.push({pathname: '/report', query});
+        }
+        else{
+            query = search;
+            router.push({pathname: '/properties/search', query: {apt: search.apt, q: search.q}});
+        }
+    }
+
     
     return (
         <MainLayout title='Dashboard' BreadIcon={<HomeOutlined fontSize='large' />}>
@@ -55,29 +78,35 @@ export function Home({}){
                             type="search" 
                             id="index-search"
                             placeholder="Enter an area, property name or report"
+                            name="q"
+                            onChange={onChange}
                         />
                         <div id="options">
                             <SelectInputWithLabel
                                 id="dropdowninput"
                                 className="option"
                                 label="Search For"
+                                name="type"
                                 options={[
                                     {text: 'Properties', value:'properties'},
                                     {text: 'Reports', value:'reports'},
                                 ]} 
+                                onChange={onChange}
                             />
                             <SelectInputWithLabel
                                 id="dropdowninput" 
                                 className="option"
                                 label="Type"
+                                name="apt"
                                 options={[
                                     {text: 'Flat', value:'flat'},
                                     {text: 'Duplex', value:'duplex'},
                                     {text: 'Pent House', value:'pent house'},
                                     {text: 'Maisonette', value:'maisonette'},
                                 ]} 
+                                onChange={onChange}
                             />
-                            <button className="button search-btn"> Search</button>
+                            <button onClick={searchOnClick} className="button search-btn"> Search</button>
                         </div>
                     </div>
                 </div>
@@ -117,7 +146,12 @@ export function Home({}){
                                             </div>
                                         ))}
                                     </div>
-                                    <button className="button view">View Historical Data</button>
+                                    <button 
+                                        className="button view"
+                                        onClick={e => router.push('/statistics')}
+                                    >
+                                        View Historical Data
+                                    </button>
                                 </div>
                                 <div className="col-md-8">
                                     <PriceChart data={data} years={years} />

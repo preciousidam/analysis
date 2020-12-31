@@ -43,7 +43,7 @@ export default function Details({data}){
                     <Title level={3}>{data?.name}</Title>
                     <p>
                         <FontAwesomeIcon icon="map-marker-alt" color="#2B734E" />
-                        {` ${data?.address}, ${data?.area}, ${data?.state}`}
+                        {` ${data?.address.toLowerCase()}, ${data?.area.toLowerCase()}, ${data?.state.toLowerCase()}`}
                     </p>
                 </header>
                 <div className="row">

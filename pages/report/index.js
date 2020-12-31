@@ -1,8 +1,8 @@
 import { Paper } from "@material-ui/core";
-import MainLayout from "../layouts";
-import { ProtectRoute } from "../route";
+import MainLayout from "../../layouts";
+import { ProtectRoute } from "../../route";
 import {PictureAsPdfOutlined} from '@material-ui/icons';
-import '../styles/report.scss';
+import '../../styles/report.scss';
 import { FilePdfOutlined } from "@ant-design/icons";
 
 export const report = [

@@ -19,7 +19,9 @@ const bordercolors = {vi: 'rgba(255, 99, 132, 1)',
 export function PriceChart({data, year, area}){
 
     const chart = createRef();
+    const {data: years, isLoading} = getViewData('years');
     const [dataset, setDataset] = useState([]);
+    const [validBed, setValidBed] = useState([]);
     
     const options= {
         scales: {
@@ -77,7 +79,7 @@ export function PriceChart({data, year, area}){
     
     const instatiateChart = _ => {
     return({
-            labels: Object.keys(data),
+            labels: validBed,
             datasets: [
                 {
                     label: `Average Rent per bedrooms number`,
@@ -93,11 +95,19 @@ export function PriceChart({data, year, area}){
 
     useEffect(
         () => {
-            let arr = [];
-            for(let item in data){
-                arr.push(data[item][year]);
+            if(!isLoading){
+                let arr = [];
+                let bds = [];
+                for(let item in data){
+                    let val = data[item][year];
+                    if(val > 0){
+                        arr.push(data[item][year]);
+                        bds.push(item);
+                    }
+                }
+                setDataset(arr);
+                setValidBed(bds);
             }
-            setDataset(arr)
         },[year, data]
     );
 

@@ -87,10 +87,12 @@ table{
         p{
             margin: 0 !important;
             font-weight: bold;
+            text-transform: uppercase !important;
         }
         span{
             font-weight: 500;
             color: #a5a5a5;
+            text-transform: capitalize !important;
         }
     }
 
