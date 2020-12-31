@@ -4,22 +4,17 @@ import { ProtectRoute } from "../../route";
 import {PictureAsPdfOutlined} from '@material-ui/icons';
 import '../../styles/report.scss';
 import { FilePdfOutlined } from "@ant-design/icons";
+import { getViewData } from "../../libs/hooks";
+import Loader from "../../components/loader";
+import { useRouter } from "next/router";
 
-export const report = [
-    {title: 'Some report', date: "08 Jan, 2020", description: 'Sometext that is a text', file: ''},
-    {title: 'Some report', date: "08 Jan, 2020", description: 'Sometext that is a text', file: ''},
-    {title: 'Some report', date: "08 Jan, 2020", description: 'Sometext that is a text', file: ''},
-    {title: 'Some report', date: "08 Jan, 2020", description: 'Sometext that is a text', file: ''},
-    {title: 'Some report', date: "08 Jan, 2020", description: 'Sometext that is a text', file: ''},
-    {title: 'Some report', date: "08 Jan, 2020", description: 'Sometext that is a text', file: ''},
-    {title: 'Some report', date: "08 Jan, 2020", description: 'Sometext that is a text', file: ''},
-    {title: 'Some report', date: "08 Jan, 2020", description: 'Sometext that is a text', file: ''},
-    {title: 'Some report', date: "08 Jan, 2020", description: 'Sometext that is a text', file: ''},
-]
 
 export const Report = ({}) => {
+    const router = useRouter()
+    const {q} = router.query;
+    const {data, isLoading} = getViewData(`reports/?q=${q || ''}`);
 
-    const onClick = file => {
+    function onClick(file) {
         let openPDF = window.open(file, '_blank');
         openPDF.location;
     }
@@ -27,8 +22,8 @@ export const Report = ({}) => {
         <MainLayout title="Report" BreadIcon={<PictureAsPdfOutlined fontSize="large" />} links={['Report']}>
             <div id="main" className="container">
                 <div id="overlay"></div>
-                <div className="row">
-                    {report.map(({title, date, description, file}) => (
+                {!isLoading ? <div className="row">
+                    {data?.map(({title, date, description, file}) => (
                         <div className="col-sm-4">
                             <div className="reportCard" onClick={e => onClick(file)}>
                                 <p className="title">{title}</p>
@@ -38,7 +33,7 @@ export const Report = ({}) => {
                             </div>
                         </div>
                     ))}
-                </div>
+                </div>: <Loader />}
             </div>
         </MainLayout>
     )

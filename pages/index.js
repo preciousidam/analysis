@@ -14,7 +14,7 @@ import { getViewData } from '../libs/hooks';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {CommaFormatted} from '../utility/converter';
 import { FilePdfOutlined } from "@ant-design/icons";
-import {report} from './report';
+
 
 
 const {Title} = Typography;
@@ -29,6 +29,7 @@ export function Home({}){
     const {isBedLoading, data: beds} = getViewData('bedroom');
     const {data: years} = getViewData('years');
     const {isAreaLoading, data: areas} = getViewData('areas');
+    const {isReportLoading, data: reports} = getViewData('reports/?q=');
     const {isLoading, data} = getViewData('stats/all-average/'+bed);
 
     const [search, setSearch] = useState({type: 'property', apt: 'flat'});
@@ -57,7 +58,6 @@ export function Home({}){
         let query = {};
 
         if (search.type === 'reports'){
-            query['type'] = search.type;
             query['q'] = search.q;
             router.push({pathname: '/report', query});
         }
@@ -65,6 +65,11 @@ export function Home({}){
             query = search;
             router.push({pathname: '/properties/search', query: {apt: search.apt, q: search.q}});
         }
+    }
+
+    function onReportClick(file) {
+        let openPDF = window.open(file, '_blank');
+        openPDF.location;
     }
 
     
@@ -169,7 +174,8 @@ export function Home({}){
                                 <header id="reportHeader">
                                     <h6>Reports</h6>
                                 </header>
-                                {report.slice(0,6).map(({title, date},ind) => <Report title={title} date={date} id={ind} />)}
+                                {reports?.slice(0,6).map(({title, date, file},ind) => 
+                                    <Report title={title} date={date} id={ind} onClick={e => onReportClick(file)} />)}
                             </div>
                             
                         </div>
@@ -219,8 +225,8 @@ const styles = [
     },
 ]
 
-export const Report = ({title, date, id}) => (
-    <div className="report">
+export const Report = ({title, date, id, onClick}) => (
+    <div className="report" onClick={onClick}>
         <Avatar style={styles[id % styles.length]} ><FilePdfOutlined style={{fontSize: 12, color: '#fff', margin: 'auto'}} /></Avatar>
         <div className="title">
             <p>{title}</p>
