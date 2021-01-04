@@ -66,3 +66,27 @@ export const changePassword = async (body,token) => {
     
     return json;
 }
+
+export const forgotPassword = async (body) => {
+    
+    const res = await fetch(`${backend}/api/auth/forgot-password`,{
+        method: 'POST',
+        headers: {...headers},
+        body: JSON.stringify(body)
+    });
+    const json = await res.json();
+    
+    return json;
+}
+
+export const resetPassword = async (body, token) => {
+    
+    const res = await fetch(`${backend}/api/auth/forgot-password/${token}`,{
+        method: 'POST',
+        headers: {...headers},
+        body: JSON.stringify(body)
+    });
+    const json = await res.json();
+    
+    return json;
+}

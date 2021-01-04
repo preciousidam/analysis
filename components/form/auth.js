@@ -63,7 +63,7 @@ export function SignInForm(){
             />
             <div id="forgot_remember">
                 <Checkbox>Remember me</Checkbox>
-                <Link href=""><a>Forgot Password?</a></Link>
+                <Link href="/reset-password"><a>Forgot Password?</a></Link>
             </div>
             <RoundedButton 
                 text={text} 
