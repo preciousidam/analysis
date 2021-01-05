@@ -234,3 +234,82 @@
     
     
 }
+
+#compare{
+    h4{
+        text-transform: capitalize !important;
+        font-size: 16px !important;
+        font-weight: bold;
+        margin: 20px 0 !important;
+    }
+
+    .row{
+        .item{
+            background-color: #fff !important;
+            border-radius: 5px !important;
+            box-shadow: 1px 2px 4px 1px rgba(0,0,0,0.2);
+            padding: 20px 10px 10px !important;
+
+            h5{
+                text-transform: capitalize !important;
+                font-size: 14px !important;
+                font-weight: bold;
+            }
+            
+            .row{
+                .col-md-6{
+                    margin-bottom: 0px !important;
+                    div{
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
+                        color: #fff !important;
+                        padding: 15px !important;
+                        border-radius: 5px !important;
+                        
+                        header{
+                            margin-bottom: 10px !important;
+                        }
+
+
+                        h6{
+                            font-size: 12px !important;
+                            color: #fff !important;
+                            margin: 0 !important;
+                        }
+                        span{
+                            font-size: 11px !important;
+                        }
+
+                        .price{
+                            padding: 10px;
+                            background-color: rgba($color: #FFFFFF, $alpha: .3);
+                            margin: 10px 0 20px !important;
+
+                            p{
+                                text-align: center;
+                                font-size: 16px !important;
+                                font-weight: bold !important;
+                                margin: 0 !important;
+                            }
+                        }
+
+                        .action{
+                            border: 1.5px solid #ffffff !important;
+                            text-align: center !important;
+                            padding: 5px 10px !important;
+                            cursor: pointer;
+                        }
+                    }
+                }
+                .mx{
+                    background-color: #6692d9;
+                }
+
+                .mn{
+                    background-color:  #e22122;
+                }
+            }
+        }
+    }
+}
