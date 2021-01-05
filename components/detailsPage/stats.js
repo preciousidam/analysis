@@ -62,8 +62,8 @@ export default function Stats({area}){
                     </div>
                     {!isLoading && Object.keys(data).map(bed=>
                         data[bed][year] > 0 && <div className="row">
-                            <div className="col-md-3 one">{bed} Bedroom</div>
-                            <div className="col-md-3">
+                            <div className="col-md-4 one">{bed} Bedroom</div>
+                            <div className="col-md-8">
                                 <Money amount={data[bed][year]/1e6} year={years[year]} prefix="M" />
                             </div>
                             <div className="col-md-3"></div>
@@ -76,7 +76,7 @@ export default function Stats({area}){
                 </aside>
             </div>
             <div id="compare">
-                <h4>Lowest rent againt Higest rent</h4>
+                <h4>Higest rent Against Lowest Rent Per Bedroom Size</h4>
                 {!isMMLoading && minmax && <div className="row">
                     {Object.keys(minmax).map(bed => (<div className="col-md-6">
                         <div className="item">

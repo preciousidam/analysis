@@ -30,7 +30,9 @@ export function PriceChart({data, year, area}){
                 ticks: {
                     beginAtZero: false,
                     callback: function(value, index, values) {
-                        return `${'₦'} ${value / 1e6}M`;
+                        if(value > 10)
+                            return `${'₦'} ${value / 1e6}M`;
+                        else return `0`
                     }
                 },
                 gridLines: {

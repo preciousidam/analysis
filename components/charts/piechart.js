@@ -9,7 +9,6 @@ export function TypeChart({data}){
     const chart = createRef();
     const [dataset, setDataset] = useState(Object.values(data));
     const [labels, setLabels] = useState([]);
-
     
     const options= {
         circumference: Math.PI * 4,
@@ -19,6 +18,22 @@ export function TypeChart({data}){
             align: 'end',
             labels: {
                 boxWidth: 10,
+            }
+        },
+        tooltips: {
+            callbacks: {
+              label: function(tooltipItem, data) {
+                var dataset = data.datasets[tooltipItem.datasetIndex];
+                var meta = dataset._meta[Object.keys(dataset._meta)[0]];
+                var total = meta.total;
+                var currentValue = dataset.data[tooltipItem.index];
+                var percentage = parseFloat((currentValue/total*100).toFixed(1));
+                //return currentValue + ' (' + percentage + '%)';
+                return `${percentage}%`;
+              },
+              title: function(tooltipItem, data) {
+                return data.labels[tooltipItem[0].index];
+              }
             }
         },
     }
