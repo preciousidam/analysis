@@ -28,7 +28,7 @@ export const NewList = ({onClick, area}) => {
             <div id="filterContainer">
                 <div id="left">
                     <Select defaultValue='' className="filterItem" onChange={value => setBed(value)}>
-                        <Option value=''>No. of Bedroom</Option>
+                        <Option value=''>No. of Bedrooms</Option>
                         {!isBedLoading && beds?.map(x => <Option value={x}>{x} Bedroom</Option>)}
                     </Select>
                     <Search placeholder="Enter property name" onChange={e => setSearch(e.target.value)} />

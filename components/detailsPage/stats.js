@@ -76,7 +76,7 @@ export default function Stats({area}){
                 </aside>
             </div>
             <div id="compare">
-                <h4>Higest rent Against Lowest Rent Per Bedroom Size</h4>
+                <h4>Highest rent Against Lowest Rent Per Bedroom Size</h4>
                 {!isMMLoading && minmax && <div className="row">
                     {Object.keys(minmax).map(bed => (<div className="col-md-6">
                         <div className="item">

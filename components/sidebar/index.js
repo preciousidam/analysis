@@ -41,8 +41,8 @@ const userLink = [
     },
     {
         icon: <PictureAsPdfOutlined />,
-        title: 'Report',
-        link: '/report'
+        title: 'Reports',
+        link: '/reports'
     }
 ];
 

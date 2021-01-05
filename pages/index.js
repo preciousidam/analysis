@@ -173,6 +173,7 @@ export function Home({}){
                             <div className="pap">
                                 <header id="reportHeader">
                                     <h6>Reports</h6>
+                                    <span>Recently Added</span>
                                 </header>
                                 {reports?.slice(0,6).map(({title, date, file},ind) => 
                                     <Report title={title} date={date} id={ind} onClick={e => onReportClick(file)} />)}
