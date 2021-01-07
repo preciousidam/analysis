@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import '../../styles/propdetail.scss';
 import {PriceTrendChart} from '../charts/priceTrend';
 import Money from '../money';
+import { CommaFormatted } from '../../utility/converter';
 
 
 
@@ -43,7 +44,7 @@ export default function Details({data}){
                     <Title level={3}>{data?.name}</Title>
                     <p>
                         <FontAwesomeIcon icon="map-marker-alt" color="#2B734E" />
-                        {` ${data?.address.toLowerCase()}, ${data?.area.toLowerCase()}, ${data?.state.toLowerCase()}`}
+                        {` ${data?.address.toLowerCase()}, ${data?.area != 'vi'? data?.area.toLowerCase(): 'Victoria Island'}, ${data?.state.toLowerCase()}`}
                     </p>
                 </header>
                 <div className="row">
@@ -93,7 +94,7 @@ export default function Details({data}){
                     title="Rent"
                 />
                 <div id="servCharge">
-                    <Title className='serv' level={5}>Current Rent: <Money amount={data?.rents[data?.rents.length -1 ]?.amount} year={data?.rents[data?.rents.length -1 ]?.year} /></Title>
+                    <Title className='serv' level={5}>Current Rent:  &#8358; {CommaFormatted(parseFloat(data?.rents[data?.rents.length -1 ]?.amount).toFixed(2))}</Title>
                 </div>
             </div>
         </Paper>

@@ -4,16 +4,16 @@ import { getViewData } from '../../libs/hooks';
 import { CommaFormatted } from '../../utility/converter';
 import { SelectInput, Search } from '../input';
 
-const colors = {vi: 'rgba(255, 99, 132, .5)', 
-    ikoyi: 'rgba(255, 206, 86, .5)', 
-    lekki: 'rgba(0, 250, 154, .5)',
-    oniru: 'rgba(54, 162, 235, .5)',
+const colors = {vi: 'rgba(135, 95, 192, .5)', 
+    ikoyi: 'rgba(236, 72, 135, .5)', 
+    lekki: 'rgba(255, 184, 44, .5)',
+    oniru: 'rgba(70, 197, 242, .5)',
 }
 
-const bordercolors = {vi: 'rgba(255, 99, 132, 1)', 
-    ikoyi: 'rgba(255, 206, 86, 1)', 
-    lekki: 'rgba(0, 250, 154, 1)',
-    oniru: 'rgba(54, 162, 235, 1)',
+const bordercolors = {vi: 'rgba(135, 95, 192, 1)', 
+    ikoyi: 'rgba(236, 72, 135, 1)', 
+    lekki: 'rgba(255, 184, 44, 1)',
+    oniru: 'rgba(70, 197, 242, 1)',
 }
 
 export function PriceChart({data, year, area}){

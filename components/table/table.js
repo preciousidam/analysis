@@ -31,7 +31,7 @@ export function PropertyList({}){
                     <td className='sn'><span>{index+1}</span></td>
                     <td><span>{name}</span></td>
                     <td>{rents.length > 0?<Money amount={`${rents[rents.length - 1].amount/m}`} prefix="M"/>: '--'}</td>
-                    <td><span>{area.toUpperCase()}</span></td>
+                    <td><span>{area == 'vi'? 'VICTORIA ISLAND': area.toUpperCase()}</span></td>
                 </tr>: null
             ))}
             </tbody>

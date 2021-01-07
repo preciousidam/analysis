@@ -4,10 +4,10 @@ import { getViewData } from '../../libs/hooks';
 import { CommaFormatted } from '../../utility/converter';
 import { SelectInput, Search } from '../input';
 
-const colors = {vi: 'rgba(255, 99, 132, 1.0)', 
-    ikoyi: 'rgba(255, 206, 86, 1.0)', 
-    lekki: 'rgba(0, 250, 154, 1.0)',
-    oniru: 'rgba(54, 162, 235, 1.0)',
+const colors = {vi: '#875fc0', 
+    ikoyi: '#ec4887', 
+    lekki: '#ffb82c',
+    oniru: '#46c5f2',
 }
 
 export function PriceChart({data, years}){
