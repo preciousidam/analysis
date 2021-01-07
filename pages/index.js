@@ -176,7 +176,7 @@ export function Home({}){
                                     <span>Recently Added</span>
                                 </header>
                                 {reports?.slice(0,6).map(({title, date, file},ind) => 
-                                    <Report title={title} date={date} id={ind} onClick={e => onReportClick(file)} />)}
+                                    <Report title={title.toUpperCase()} date={date} id={ind} onClick={e => onReportClick(file)} />)}
                             </div>
                             
                         </div>
