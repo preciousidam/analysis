@@ -32,3 +32,4 @@ jobs:
           host: ${{ secrets.HOST }}
           user: root
           key: ${{ secrets.PRIVATE_KEY}}
+          pass: ${{ secrets.PASSWORD}}
