@@ -71,6 +71,9 @@ export function PriceChart({data, year, area}){
                     }
                     label += CommaFormatted(parseFloat(tooltipItem.yLabel).toFixed(2));
                     return label;
+                },
+                title: function(tooltipItem, data) {
+                    return `${data.labels[tooltipItem[0].index]} Bedroom`;
                 }
             }
            
@@ -84,7 +87,7 @@ export function PriceChart({data, year, area}){
             labels: validBed,
             datasets: [
                 {
-                    label: `Average Rent per bedrooms number`,
+                    label: `Average Rent`,
                     data: dataset,
                     backgroundColor: colors[area],
                     borderColor: bordercolors[area],
