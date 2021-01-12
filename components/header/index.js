@@ -4,8 +4,9 @@ import {ProfileDropdown} from '../profile';
 import {Search} from '../input/search';
 import { useRouter } from 'next/router';
 import Money from '../money';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-export default function header({}){
+export const Header = ({}) => {
 
     const {push} = useRouter();
     const rates = [['2016', '380'], ['2017', '380'], ['2018', '365'], ['2019', '370'], ['2020', '450']]
@@ -53,3 +54,28 @@ export const Rate = ({year, amount}) => (
         <span>&#8358; {amount} / $1</span>
     </div>
 )
+
+export  const MobileHeader = ({onClick}) => {
+
+    const {push} = useRouter();
+    
+    return(
+        <header id="navbar" className="mobile">
+            <nav id="navbar-content">
+                <ul id="navbar-content-left">
+                    <li className="nav-link" id="brand">
+                        <img src="/logo.jpeg" />
+                        <h2 style={{color: '#ffffff'}}>NAPIMS</h2>
+                    </li>  
+                </ul>
+                <ul id="navbar-content-right">
+                   <li id="more" onClick={onClick}>
+                       <button onClick={onClick}>
+                            <FontAwesomeIcon icon="bars" size="lg" color="#fff" onClick={onClick} />
+                        </button>
+                   </li>
+                </ul>
+            </nav>
+        </header>
+    );
+}

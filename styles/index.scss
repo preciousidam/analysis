@@ -1,5 +1,6 @@
 @import './variables.scss';
 
+
 #home{
     width: 100%;
     display: flex;
@@ -123,7 +124,8 @@
     
 
     #areaCont{
-        padding: 30px !important;
+        padding: 30px;
+        margin: 0 auto;
         .areas{
             padding: 15px;
             border-radius: 10px !important;
@@ -251,3 +253,4 @@
     }
 }
 
+@import './media_queries//index.scss';

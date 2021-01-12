@@ -15,7 +15,7 @@ config.autoAddCss = false;
 import { faBars, faSpinner, faCheck, faEnvelope, faListAlt, faPlus,faFilePdf, faExchangeAlt, faUser, faMap,
         faCreditCard, faMoneyBillAlt, faEllipsisH, faCaretDown, faCalendarAlt, faMapMarkedAlt, faMapMarkerAlt,
         faArrowUp, faArrowDown, faBell, faSearch, faFileCsv, faMapPin, faBed, faBuilding, faArrowRight, faTh,
-        faChartBar, faAngleRight, faAngleDown, faInbox, faCircleNotch, faFileDownload} 
+        faChartBar, faAngleRight, faAngleDown, faInbox, faCircleNotch, faFileDownload, faTimes} 
 from '@fortawesome/free-solid-svg-icons';
 
 import {fab,faEtsy} from '@fortawesome/free-brands-svg-icons';
@@ -25,7 +25,7 @@ library.add(faBars,faSpinner, faCheck, faEnvelope, faListAlt, faCalendarAlt, faM
             faFilePdf, faExchangeAlt, faCreditCard, faMoneyBillAlt, faEllipsisH, faMapMarkedAlt, faUser,
            faCaretDown, faArrowUp, faArrowDown, faEtsy, faPlus, faBell, faSearch, faFileCsv, faArrowRight,
            faMapMarkerAlt, faMap, faTh, faChartBar, faAngleRight, faAngleDown, faInbox, faCircleNotch,
-           faFileDownload);
+           faFileDownload, faTimes);
 
 Router.events.on('routeChangeStart', () => NProgress.start()); 
 Router.events.on('routeChangeComplete', () => NProgress.done()); 

@@ -179,3 +179,32 @@ hr{
         background-color: rgba($color: #c6c6c6, $alpha: 0.2);
     }
 }
+
+#mobile-side-layout{
+    width: inherit !important;
+    position: absolute !important;
+    width: 100% !important;
+    height: 100% !important;
+    top: 55px;
+    z-index: 100;
+    background-color: $background-white !important;
+
+
+    #close-header{
+        display: flex !important;
+        margin: 0 !important;
+        width: inherit !important;
+        padding: 10px !important;
+        flex-direction: row;
+        justify-content: space-between !important;
+
+    }
+
+    #sidabar-content{
+        padding: 0 !important;
+    }
+}
+
+.hide{
+    display: none !important;
+}

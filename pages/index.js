@@ -5,15 +5,16 @@ import { Paper } from '@material-ui/core';
 import {HomeOutlined} from '@material-ui/icons';
 
 import MainLayout from '../layouts';
-import { SelectInputWithLabel } from '../components/input';
+import { SelectInputWithLabel, SelectInput } from '../components/input';
 import '../styles/index.scss';
 import { PropertyList } from '../components/table/table';
-import { PriceChart } from '../components/charts';
+import { PriceChart, PriceLineChart } from '../components/charts';
 import { ProtectRoute } from '../route';
 import { getViewData } from '../libs/hooks';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {CommaFormatted} from '../utility/converter';
 import { FilePdfOutlined } from "@ant-design/icons";
+import { isBrowser, isMobile } from 'react-device-detect';
 
 
 
@@ -118,7 +119,7 @@ export function Home({}){
                 <div className="container" id="areaCont">
                     <div className="row">
                         {!isAreaLoading && areas?.map(area =>
-                            <div className={`col-md-${12/areas.length}`}>
+                            <div className={`col-md-${12/areas.length} col-6`}>
                                 <div id={area} className="areas" onClick={e => onAreaClick(area)}>
                                     <h5>{areaCode[area]}</h5>
                                     <hr />
@@ -132,14 +133,21 @@ export function Home({}){
                     <div id="chart-area" className="row">
                         <div className="col-md-12 contrllCont">
                             <div className="controller">
-                                {!isBedLoading && beds?.map(x => 
+                                {!isBedLoading && isBrowser && beds?.map(x => 
                                     <div onClick={_ => setBed(x)} className={`button ${bed == x? 'active': ''}`}>{x} Bedroom</div>)
+                                }
+                                {
+                                    (!isBedLoading && isMobile) && beds && <SelectInput
+                                        onChange={e => setBed(e.target.value)}
+                                        value={3}
+                                        options={beds?.map(x => ({value:x, text:`${x} Bedroom`}))}
+                                    />
                                 }
                             </div>
                         </div>
                         <div className="col-md-12">
                             {!isLoading? <div className="row">
-                                <div className="col-md-4">
+                                <div className="col-md-4 col-12 order-2">
 
                                     <h6>Overview</h6>
                                     <p>Rent Average For 2020</p>
@@ -158,8 +166,8 @@ export function Home({}){
                                         View Historical Data
                                     </button>
                                 </div>
-                                <div className="col-md-8">
-                                    <PriceChart data={data} years={years} />
+                                <div className="col-md-8 col-12 order-1">
+                                    {isBrowser? <PriceChart data={data} years={years} />: <PriceLineChart data={data} years={years} />}
                                 </div>
                                
                             </div>: <Loading />}
@@ -169,7 +177,7 @@ export function Home({}){
 
                 <div className="container">
                     <div className='row'>
-                        <div className="col-md-5">
+                        <div className={`col-md-5 ${isMobile && 'order-2'}`}>
                             <div className="pap">
                                 <header id="reportHeader">
                                     <h6>Reports</h6>
@@ -180,7 +188,7 @@ export function Home({}){
                             </div>
                             
                         </div>
-                        <div className="col-md-7">
+                        <div className={`col-md-7 ${isMobile && 'order-1'}`}>
                             <div className="pap">
                                 <header>
                                     <h6>Properties</h6>
