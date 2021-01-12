@@ -151,11 +151,13 @@ export function Home({}){
 
                                     <h6>Overview</h6>
                                     <p>Rent Average For 2020</p>
-                                    <div>
+                                    <div className="row">
                                         {averages.map(({area,average}) => (
-                                            <div className="average">
-                                                <h5>&#8358; {CommaFormatted(parseFloat(average).toFixed(2))}</h5>
-                                                <span>Average rent for {area}</span>
+                                            <div className="col-md-12 col-6">
+                                                <div className="average">
+                                                    <h5>&#8358; {CommaFormatted(parseFloat(average).toFixed(2))}</h5>
+                                                    <span>Average rent for {area}</span>
+                                                </div>
                                             </div>
                                         ))}
                                     </div>
