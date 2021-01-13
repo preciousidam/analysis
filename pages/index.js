@@ -147,7 +147,7 @@ export function Home({}){
                         </div>
                         <div className="col-md-12">
                             {!isLoading? <div className="row">
-                                <div className="col-md-4 col-12 order-2">
+                                <div className={`col-md-4 col-12 ${ isMobile &&'order-2'}`}>
 
                                     <h6>Overview</h6>
                                     <p>Rent Average For 2020</p>
@@ -168,7 +168,7 @@ export function Home({}){
                                         View Historical Data
                                     </button>
                                 </div>
-                                <div className="col-md-8 col-12 order-1">
+                                <div className={`col-md-8 col-12 ${ isMobile &&'order-1'}`}>
                                     {isBrowser? <PriceChart data={data} years={years} />: <PriceLineChart data={data} years={years} />}
                                 </div>
                                

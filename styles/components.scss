@@ -330,6 +330,18 @@
         }
     }
 
+    #rates-btn{
+        button{
+            border: 1px solid #fff !important;
+            background-color: transparent !important;
+            border-radius: 5px !important;
+            padding: 5px !important;
+            color: $background-white !important;
+            outline: none;
+        }
+        margin-right: 10px !important;
+    }
+
     #more{
         display: inline-flex;
         justify-content: center;
@@ -342,6 +354,12 @@
             color: transparent !important;
             background-color: transparent !important;
         }
+    }
+}
+.ant-popover-inner-content .rate{
+    margin: 5px 0 !important;
+    span{
+        font-weight: bold !important;
     }
 }
 

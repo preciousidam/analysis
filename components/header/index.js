@@ -1,15 +1,18 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 import {ProfileDropdown} from '../profile';
 import {Search} from '../input/search';
 import { useRouter } from 'next/router';
 import Money from '../money';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Popover } from 'antd';
+
+const rates = [['2016', '380'], ['2017', '380'], ['2018', '365'], ['2019', '370'], ['2020', '450']]
 
 export const Header = ({}) => {
 
     const {push} = useRouter();
-    const rates = [['2016', '380'], ['2017', '380'], ['2018', '365'], ['2019', '370'], ['2020', '450']]
+    
     
     return(
         <header id="navbar">
@@ -55,9 +58,23 @@ export const Rate = ({year, amount}) => (
     </div>
 )
 
+export const MobileRate = ({year, amount}) => (
+    <div className="rate">
+        <p>{year} -- <span>&#8358; {amount} / $1</span></p>
+    </div>
+)
+
 export  const MobileHeader = ({onClick}) => {
 
-    const {push} = useRouter();
+    const [exVisible, setExVisible] = useState(false);
+
+    const visibleChange = visible => setExVisible(visible);
+
+    const contents = _ => (
+        <div>
+            {rates.map(rate => <MobileRate year={rate[0]} amount={rate[1]} />)}
+        </div>
+    )
     
     return(
         <header id="navbar" className="mobile">
@@ -69,6 +86,17 @@ export  const MobileHeader = ({onClick}) => {
                     </li>  
                 </ul>
                 <ul id="navbar-content-right">
+                    <li id="rates-btn">
+                        <Popover
+                            title="Dollar to Naira Rates"
+                            trigger="click"
+                            visible={exVisible}
+                            onVisibleChange={visibleChange}
+                            content={contents()}
+                        >
+                            <button>Exchange Rate</button>
+                        </Popover>
+                    </li>
                    <li id="more" onClick={onClick}>
                        <button onClick={onClick}>
                             <FontAwesomeIcon icon="bars" size="lg" color="#fff" onClick={onClick} />

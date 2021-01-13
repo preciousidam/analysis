@@ -4,10 +4,10 @@ import { getViewData } from '../../libs/hooks';
 import { CommaFormatted } from '../../utility/converter';
 import { SelectInput, Search } from '../input';
 
-const colors = {vi: 'rgba(135, 95, 192, .2)', 
-    ikoyi: 'rgba(236, 72, 135, .2)', 
-    lekki: 'rgba(255, 184, 44, .2)',
-    oniru: 'rgba(70, 197, 242, .2)',
+const colors = {vi: 'rgba(135, 95, 192, 1)', 
+    ikoyi: 'rgba(236, 72, 135, 1)', 
+    lekki: 'rgba(255, 184, 44, 1)',
+    oniru: 'rgba(70, 197, 242, 1)',
 }
 
 const bordercolors = {vi: 'rgba(135, 95, 192, 1)', 
