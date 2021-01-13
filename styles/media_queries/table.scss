@@ -1,0 +1,64 @@
+@media only screen and (max-width: 768px) {
+    .propItem{
+        .sn{
+        font-size: 10px !important;
+        }
+        .propName{
+            p{
+                font-size: 11.5px !important;
+            }
+            span{
+                text-transform: capitalize !important;
+                display: block !important;
+                font-size: 10.5px !important;
+                width: 100px !important;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+        }
+
+        .service, .built, .unit{
+            display: none !important;
+        }
+
+        p{
+            font-size: 10.5px !important;
+        }
+        span{
+            font-size: 10.5px !important;
+        }
+    }
+
+    #tableContainer{
+        padding: 30px 15px !important;
+    }
+
+    #filterContainer{
+        max-width: 100% !important;
+        width: 100% !important;
+        margin-bottom: 30px !important;
+
+        #left{
+            display: flex !important;
+            flex-direction: row !important;
+            justify-content: space-evenly !important;
+            align-items: center !important;
+
+            .filterItem{
+                flex: 1 !important;
+                margin: 5px !important;
+            }
+            .searchIn{
+                flex: 1 !important;
+                margin: 5px !important;
+                width: 50% !important;
+                border: none !important;
+            }
+        }
+
+        #right{
+            display: none !important;
+        }
+    }
+}

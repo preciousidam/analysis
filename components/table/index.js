@@ -8,6 +8,7 @@ import '../../styles/tables.scss';
 import { getViewData } from '../../libs/hooks';
 import Money from '../money';
 import {Search} from '../input/search';
+import { isMobile } from 'react-device-detect';
 
 
 const {Option} =  Select;
@@ -31,7 +32,7 @@ export const NewList = ({onClick, area}) => {
                         <Option value=''>No. of Bedrooms</Option>
                         {!isBedLoading && beds?.map(x => <Option value={x}>{x} Bedroom</Option>)}
                     </Select>
-                    <Search placeholder="Enter property name" onChange={e => setSearch(e.target.value)} />
+                    <Search className="searchIn" placeholder="Enter property name" onChange={e => setSearch(e.target.value)} />
                 </div>
                 <div id="right">
                     <button className="button">Search</button>
@@ -76,7 +77,7 @@ export const NewList = ({onClick, area}) => {
                 ))
             : <Loading />}
             <div id="pagi" style={{marginTop: 15}}>
-                <Pagination defaultCurrent={1} current={page} total={data?.total} pageSize={10} onChange={onPaginationClicked} />
+                <Pagination size={isMobile ?"small": 'default'} defaultCurrent={1} current={page} total={data?.total} pageSize={10} onChange={onPaginationClicked} />
             </div>
         </div>
     );
