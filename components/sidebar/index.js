@@ -99,7 +99,6 @@ export const MobileSideBar = ({visible}) => {
     const [links, setLinks] = useState(userLink);
     
     const router = useRouter();
-    console.log(visible)
     
     return(
         visible && <MobileLayout>

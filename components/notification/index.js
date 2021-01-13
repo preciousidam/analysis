@@ -3,7 +3,6 @@ import { notification } from 'antd';
 
 
 export const openNotification = (status,msg) => {
-  console.log(status)
     notification.open({
       message: status,
       description: msg,

@@ -36,7 +36,6 @@ export function PropertyForm({}){
         let body = {...form, rents: rent};
         const {status, msg, data} = await setData('properties/create', body, token);
         openNotification(status, msg);
-        console.log(data)
     }
 
     return (

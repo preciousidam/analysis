@@ -11,7 +11,6 @@ export const CollapingLink = ({icon, title, options}) => {
 
     const [dropdown, setDropdown] = useState(true);
     const router = useRouter();
-    console.log(window.location.href)
 
     return (
         <div className="collapsingLink">
