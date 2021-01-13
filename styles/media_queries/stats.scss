@@ -1,0 +1,60 @@
+@media only screen and (max-width: 768px) {
+    #stats{
+        #controllers{
+            .control{
+                font-size: 11px !important;
+                padding: 0 !important;
+                
+                .tick{
+                    position: absolute !important;
+                    left: 5px !important;
+                    display: inline-block !important;
+                    padding: 3px;
+                    border-radius: 50% !important;
+                }
+            }
+        }
+    }
+
+    #mainContent{
+        padding: 10px !important;
+
+        header{
+            display: flex;
+            flex-direction: column !important;
+            align-items: flex-start !important;
+            justify-content: flex-start;
+            padding-top: 10px !important;
+
+            h5{
+                margin-right: 15px;
+                font-size: 14px !important;
+                font-weight: bold !important;
+            }
+
+            .ant-select-selector{
+                min-width: 100px;
+                margin: 0 10px 0 0 !important;
+            }
+
+            .filterItem.two{
+                margin-left: 10px !important;
+            }
+        }
+
+    }
+
+    #wrapper{
+        display: block !important;
+
+        #sCont{
+            padding: 10px !important;
+        }
+    }
+
+    #compare{
+        .row .row .col-md-6.cmx{
+            margin-bottom: 15px !important;
+        }
+    }
+}

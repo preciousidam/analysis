@@ -88,7 +88,7 @@
     #mainContent{
         width: 100% !important;
         min-width: 100% !important;
-        padding: 20px !important;
+        padding: 20px;
         margin: 0 auto !important;
     
         #statList{
@@ -123,14 +123,18 @@
                     text-align: center;
                     cursor: pointer !important;
                     position: relative;
+                    display: inline-flex !important;
+                    justify-content: center;
+                    align-items: center;
 
-                    span{
+                    .tick{
                         position: absolute !important;
                         left: 10px !important;
                         display: inline-block !important;
                         padding: 3px;
                         border-radius: 50% !important;
                     }
+
                 }
 
                 #lekki{
@@ -178,7 +182,7 @@
 
                     .ant-select-selector{
                         min-width: 100px;
-                        margin: 0 10px !important;
+                        margin: 0 10px ;
                     }
 
                     .filterItem.two{
@@ -314,3 +318,5 @@
         }
     }
 }
+
+@import './media_queries/stats.scss';

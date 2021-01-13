@@ -1,5 +1,6 @@
 import React, {useEffect, useState, createRef} from 'react';
 import {Line} from 'react-chartjs-2';
+import { isBrowser, isMobile } from 'react-device-detect';
 import { getViewData } from '../../libs/hooks';
 import { CommaFormatted } from '../../utility/converter';
 import { SelectInput, Search } from '../input';
@@ -52,7 +53,7 @@ export function PriceChart({data, year, area}){
                 }
             }]
         },
-        responsive: true,
+        responsive: isMobile || isBrowser,
         maintainAspectRatio: false,
         legend:  {
             position: 'bottom',

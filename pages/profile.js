@@ -7,6 +7,7 @@ import useAuth from "../provider";
 import { ProtectRoute } from "../route";
 import '../styles/profile.scss';
 import { ProfileForm } from "../components/form/profile";
+import { isBrowser } from "react-device-detect";
 
 
 export function Profile({}){
@@ -18,7 +19,7 @@ export function Profile({}){
                 <div id="overlay"></div>
                 <Paper id="formContainer">
                     <header>Profile Details</header>
-                    <Descriptions style={{padding: 20}} className="profile" layout="vertical">
+                    <Descriptions style={{padding: 20}} className="profile" layout={isBrowser? "vertical": "horizontal"}>
                         <Descriptions.Item label="Full Name">{user.name}</Descriptions.Item>
                         <Descriptions.Item label="Username">{user.username}</Descriptions.Item>
                         <Descriptions.Item label="Email">{user.email}</Descriptions.Item>

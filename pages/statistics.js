@@ -41,8 +41,8 @@ export function Statistics({}){
                                     className="button control"
                                     onClick={e => setActiveArea(area)}
                                 >
-                                    {area === 'vi'? 'Victoria Island': area}
-                                    {area === activeArea && <span><FontAwesomeIcon icon="check" size="sm" color="#fff" /></span>}
+                                    <span>{area === 'vi'? 'Victoria Island': area}</span>
+                                    {area === activeArea && <span className="tick"><FontAwesomeIcon icon="check" size="sm" color="#fff" /></span>}
                                 </div>)
                             }
                         </div>

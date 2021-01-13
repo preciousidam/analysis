@@ -48,3 +48,19 @@
         }
     }
 }
+
+@media only screen and (max-width: 768px) {
+    #main{
+        padding: 10px !important;
+    }
+    #overlay{
+
+    }
+    #formContainer{
+        z-index: 100 !important;
+    }
+
+    #profileForm{
+        padding: 0 !important;
+    }
+}

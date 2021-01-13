@@ -1,0 +1,39 @@
+@media only screen and (max-width: 768px) {
+    #authContainer{
+        width: 100%;
+        height: 100%;
+        max-width: 100% !important;
+        max-height: 100% !important;
+        display: flex;
+        padding: 30px !important;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-family: $font-main;
+        background: #dd3e54;  /* fallback for old browsers */
+        background: -webkit-linear-gradient(to top left,#6692d9, #e22122);  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to top left, #6692d9, #e22122); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
+        p{
+            font-size: 11px !important;
+        }
+    
+        #formContainer{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: $background-white !important;
+            margin: auto auto;
+            
+            border-radius: 10px;
+            box-shadow: 5px 10px 15px 5px rgba($color: #000000, $alpha: .1);
+           
+    
+            
+            #aside{
+                display: none !important;
+            }
+    
+        }
+    }
+}

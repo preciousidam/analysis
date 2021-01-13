@@ -43,12 +43,14 @@ export default function Stats({area}){
                 <div id="sCont">
                     <header>
                         <h5>Rent Trend</h5>
-                        {!isYearLoading && <Select defaultValue={years.length - 1} className="filterItem" onChange={value => setYear(value)}>
-                            {years?.map((x,i) => <Option value={i}>{x}</Option>)}
-                        </Select>}
-                        {!isTypeLoading && types && <Select defaultValue="Flat" className="filterItem two" onChange={value => setType(value)}>
-                            {types.map(type => <Option value={type}>{type.toUpperCase()}</Option>)}
-                        </Select>}
+                        <div className="filt">
+                            {!isYearLoading && <Select defaultValue={years.length - 1} className="filterItem" onChange={value => setYear(value)}>
+                                {years?.map((x,i) => <Option value={i}>{x}</Option>)}
+                            </Select>}
+                            {!isTypeLoading && types && <Select defaultValue="Flat" className="filterItem two" onChange={value => setType(value)}>
+                                {types.map(type => <Option value={type}>{type.toUpperCase()}</Option>)}
+                            </Select>}
+                        </div>
                     </header>
                     <div id="chartArea">
                         {!isLoading && <PriceChart data={data} year={year} area={area} />}
@@ -56,17 +58,17 @@ export default function Stats({area}){
                 </div>
                 <aside id="asideBar">
                     <div className="row">
-                        <div className="col-md-3 heading">Type</div>
-                        <div className="col-md-3 heading">Rent</div>
-                        <div className="col-md-3 heading">{' '}</div>
+                        <div className="col-6 heading">Type</div>
+                        <div className="col-6 heading">Rent</div>
+                        
                     </div>
                     {!isLoading && Object.keys(data).map(bed=>
                         data[bed][year] > 0 && <div className="row">
-                            <div className="col-md-4 one">{bed} Bedroom</div>
-                            <div className="col-md-8">
+                            <div className="col-6 one">{bed} Bedroom</div>
+                            <div className="col-6">
                                 <Money amount={data[bed][year]/1e6} year={years[year]} prefix="M" />
                             </div>
-                            <div className="col-md-3"></div>
+                            
                         </div>)
                     }
 
@@ -82,7 +84,7 @@ export default function Stats({area}){
                         <div className="item">
                             <h5>{bed} Bedroom Apartment</h5>
                             <div className="row">
-                                <div className="col-md-6">
+                                <div className="col-md-6 cmx">
                                     <div className="mx">
                                         <header>
                                             <h6>{minmax[bed].max.name}</h6>
