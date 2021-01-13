@@ -6,6 +6,7 @@ import '../../styles/charts.scss';
 import {Money} from '../money';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { CommaFormatted } from '../../utility/converter';
 
 const colors = {vi: 'rgba(255, 99, 132, 1.0)',
     ikoyi: 'rgba(255, 206, 86, 1.0)', oniru: 'rgba(54, 162, 235, 1.0)',
@@ -39,6 +40,20 @@ export const PriceTrendChart = ({years, prices, title}) => {
         maintainAspectRatio: false,
         legend: {
             display: false,
+        },
+        tooltips: {
+            callbacks: {
+                label: function(tooltipItem, data) {
+                    var label = data.datasets[tooltipItem.datasetIndex].label || '';
+
+                    if (label) {
+                        label += ': ₦';
+                    }
+                    label += CommaFormatted(parseFloat(tooltipItem.yLabel).toFixed(2));
+                    return label;
+                }
+            }
+           
         }
     }
 
