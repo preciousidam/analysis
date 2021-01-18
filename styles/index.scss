@@ -251,6 +251,17 @@
             background-color: rgba(0,0,0,0.08);
         }
     }
+
+    #foot-note{
+        font-weight: bold;
+        display: flex;
+        align-items: center !important;
+        margin-top: 15px !important;
+
+        p{
+            margin: 0 !important;
+        }
+    }
 }
 
 @import './media_queries//index.scss';

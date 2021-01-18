@@ -171,7 +171,9 @@ export function Home({}){
                                 <div className={`col-md-8 col-12 ${ isMobile &&'order-1'}`}>
                                     {isBrowser? <PriceChart data={data} years={years} />: <PriceLineChart data={data} years={years} />}
                                 </div>
-                               
+                                <div className={`col-12 ${ isMobile &&'order-3'}`} id="foot-note">
+                                    <p>NB: At prevailing exchange rates applicable at the time</p>
+                                </div>
                             </div>: <Loading />}
                         </div>
                     </div>

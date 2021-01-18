@@ -32,13 +32,13 @@ export const Header = ({}) => {
                             </Badge></a>
                         </Link>
                     </li>*/}
-                    <li id="rates" className="nav-link">
+                    {/*<li id="rates" className="nav-link">
                     <div className="rate">
                         <p className="clear">Exchange</p>
                         <span className="clear">Rates</span>
                     </div>
                         {rates.map(rate => <Rate year={rate[0]} amount={rate[1]} />)}
-                    </li>
+                    </li>*/}
                     <li className="nav-link">
                         <ProfileDropdown links={[
                                 {text:'Profile', onClick: _ => push('/profile')},
@@ -86,7 +86,7 @@ export  const MobileHeader = ({onClick}) => {
                     </li>  
                 </ul>
                 <ul id="navbar-content-right">
-                    <li id="rates-btn">
+                    {/*<li id="rates-btn">
                         <Popover
                             title="Dollar to Naira Rates"
                             trigger="click"
@@ -96,7 +96,7 @@ export  const MobileHeader = ({onClick}) => {
                         >
                             <button>Exchange Rate</button>
                         </Popover>
-                    </li>
+                    </li>*/}
                    <li id="more" onClick={onClick}>
                        <button onClick={onClick}>
                             <FontAwesomeIcon icon="bars" size="lg" color="#fff" onClick={onClick} />
