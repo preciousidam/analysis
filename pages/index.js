@@ -19,7 +19,13 @@ import { isBrowser, isMobile } from 'react-device-detect';
 
 
 const {Title} = Typography;
-const areaCode = {'vi':"Victoria Island", 'ikoyi':"Ikoyi",'lekki':"Lekki",'oniru': "Oniru"}
+export const areaCode = {'vi':"Victoria Island", 
+                    'ikoyi':"Ikoyi",
+                    'lekki':"Lekki",
+                    'oniru': "Oniru", 
+                    'ph': 'Port Harcourt',
+                    'abuja': 'Abuja'
+                }
 
 
 export function Home({}){
@@ -119,13 +125,20 @@ export function Home({}){
                 <div className="container" id="areaCont">
                     <div className="row">
                         {!isAreaLoading && areas?.map(area =>
-                            <div className={`col-md-${12/areas.length} col-6`}>
+                            <div className={`col-md-2 col-6`}>
                                 <div id={area} className="areas" onClick={e => onAreaClick(area)}>
                                     <h5>{areaCode[area]}</h5>
                                     <hr />
                                     <span>View Properties <FontAwesomeIcon icon="angle-right" color="#fff" size={10} /></span>
                                 </div>
                             </div>)}
+                            <div className={`col-md-2 col-6`}>
+                                <div id={'abuja'} className="areas" onClick={e => onAreaClick('abuja')}>
+                                    <h5>{areaCode['abuja']}</h5>
+                                    <hr />
+                                    <span>View Properties <FontAwesomeIcon icon="angle-right" color="#fff" size={10} /></span>
+                                </div>
+                            </div>
                     </div>
                     
                 </div>

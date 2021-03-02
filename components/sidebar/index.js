@@ -17,19 +17,27 @@ const userLink = [
         icon: <Apartment  />, 
         title: 'Properties', 
         link: 'properties', 
-        options: [{
-            title: "Victoria Island", 
-            link: '/properties/vi',
-        },{
-            title: "Ikoyi", 
-            link: '/properties/ikoyi',
-        },{
-            title: "Oniru", 
-            link: '/properties/oniru',
-        },{
-            title: "Lekki", 
-            link: '/properties/lekki',
-        }]
+        options: [
+            {
+                title: "Abuja", 
+                link: '/properties/abuja',
+            },{
+                title: "Ikoyi", 
+                link: '/properties/ikoyi',
+            },{
+                title: "Lekki", 
+                link: '/properties/lekki',
+            },{
+                title: "Oniru", 
+                link: '/properties/oniru',
+            },{
+                title: "Port Harcourt", 
+                link: '/properties/ph',
+            },{
+                title: "Victoria Island", 
+                link: '/properties/vi',
+            }
+        ]
     },
     {
         icon: <FontAwesomeIcon icon="chart-bar" />,

@@ -9,7 +9,8 @@ import { ProtectRoute } from '../../../route';
 
 
 const areas = {vi: {title: 'Victoria Island', class: 'vi'}, ikoyi: {title: 'Ikoyi', class: 'ikoyi'}, 
-            oniru: {title: 'Oniru', class: 'oniru'}, lekki: {title: 'Lekki', class: 'lekki'}}
+            oniru: {title: 'Oniru', class: 'oniru'}, lekki: {title: 'Lekki', class: 'lekki'},
+            ph: {title: 'Port Harcourt', class: 'ph'}, abuja: {title: 'Abuja', class: 'abuja'}}
 
 export function Properties({}){
 

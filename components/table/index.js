@@ -22,7 +22,7 @@ export const NewList = ({onClick, area}) => {
     const {data, isLoading} = getViewData(`properties/${area}?q=${search}&bed=${bed}&page=${page}`);
     const {data:beds, isLoading: isBedLoading} = getViewData(`bedroom`);
     
-    const onPaginationClicked = page => setPage(page);    
+    const onPaginationClicked = page => setPage(page); 
 
     return (
         <div id="new_table">
@@ -38,6 +38,7 @@ export const NewList = ({onClick, area}) => {
                     <button className="button">Search</button>
                 </div>
             </div>
+            {!isLoading && (data?.properties?.length <= 0 || !data) && <Empty />}
             {
                 !isLoading ? data?.properties?.map(({rents, name, address, built, bedrooms, units, serv_charge}, id) => (
                     <div className="propItem" onClick={_ => onClick(name)}>
@@ -147,6 +148,13 @@ export const SearchList = ({onClick, apt, q}) => {
 export const Loading = _ => (<div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
     <FontAwesomeIcon icon="circle-notch" color=' #46c5f2' size="3x" spin />
 </div>)
+
+export const Empty = ({}) => (
+    <div id="empty">
+        <img src="/empty.png" alt="empty" />
+        <p>Nothing to see here, please check back later</p>
+    </div>
+)
 
 /*export const List = ({onClick, area}) => {
     const text = "Click to view historical data about property";

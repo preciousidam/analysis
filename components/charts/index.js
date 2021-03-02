@@ -8,12 +8,16 @@ const colors = {vi: 'rgba(135, 95, 192, 1)',
     ikoyi: 'rgba(236, 72, 135, 1)', 
     lekki: 'rgba(255, 184, 44, 1)',
     oniru: 'rgba(70, 197, 242, 1)',
+    abuja: '#99D644',
+    ph: '#f00'
 }
 
 const bordercolors = {vi: 'rgba(135, 95, 192, 1)', 
     ikoyi: 'rgba(236, 72, 135, 1)', 
     lekki: 'rgba(255, 184, 44, 1)',
     oniru: 'rgba(70, 197, 242, 1)',
+    abuja: '#99D644',
+    ph: '#F00'
 }
 
 export function PriceChart({data, years}){
