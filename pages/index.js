@@ -24,9 +24,15 @@ export const areaCode = {'vi':"Victoria Island",
                     'lekki':"Lekki",
                     'oniru': "Oniru", 
                     'ph': 'Port Harcourt',
-                    'abuja': 'Abuja'
+                    'maitama': 'Maitama',
+                    'asokoro': 'asokoro',
+                    'wuse II': 'Wuse II',
+                    'mabushi': 'Mabushi',
+                    'jabi': 'Jabi',
+                    'utako': 'Utako',
                 }
 
+const arealist = ['vi', 'ikoyi', 'wuse II', 'lekki', 'ph', 'maitama']
 
 export function Home({}){
 
@@ -124,21 +130,14 @@ export function Home({}){
                 </div>
                 <div className="container" id="areaCont">
                     <div className="row">
-                        {!isAreaLoading && areas?.map(area =>
+                        {arealist?.map(area =>
                             <div className={`col-md-2 col-6`}>
-                                <div id={area} className="areas" onClick={e => onAreaClick(area)}>
+                                <div id={area === 'wuse II'? 'wuse': area} className="areas" onClick={e => onAreaClick(area)}>
                                     <h5>{areaCode[area]}</h5>
                                     <hr />
                                     <span>View Properties <FontAwesomeIcon icon="angle-right" color="#fff" size={10} /></span>
                                 </div>
                             </div>)}
-                            <div className={`col-md-2 col-6`}>
-                                <div id={'abuja'} className="areas" onClick={e => onAreaClick('abuja')}>
-                                    <h5>{areaCode['abuja']}</h5>
-                                    <hr />
-                                    <span>View Properties <FontAwesomeIcon icon="angle-right" color="#fff" size={10} /></span>
-                                </div>
-                            </div>
                     </div>
                     
                 </div>

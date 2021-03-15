@@ -9,7 +9,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { CommaFormatted } from '../../utility/converter';
 
 const colors = {vi: 'rgba(255, 99, 132, 1.0)',
-    ikoyi: 'rgba(255, 206, 86, 1.0)', oniru: 'rgba(54, 162, 235, 1.0)',
+    ikoyi: 'rgba(255, 206, 86, 1.0)', 'wuse II': 'rgba(54, 162, 235, 1.0)',
     lekki: 'rgba(0, 250, 154, 1.0)',    
 }
 
