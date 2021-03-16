@@ -3,13 +3,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
 
-import {SidebarInnerLink} from './sidebarLinks';
+import {SidebarInnerLink, InnerCollapingLink} from './sidebarLinks';
 import '../../styles/components.scss';
 import { useRouter } from 'next/router';
 
 export const CollapingLink = ({icon, title, options}) => {
 
-    const [dropdown, setDropdown] = useState(true);
+    const [dropdown, setDropdown] = useState(false);
     const router = useRouter();
 
     return (
@@ -26,7 +26,17 @@ export const CollapingLink = ({icon, title, options}) => {
             </li>
             
             {dropdown && <div className="collapsedItem">
-                {options.map(({title, link}) =><SidebarInnerLink  
+                {options.map(({title, link, options}, id) => options? <InnerCollapingLink
+                        key={id} 
+                        title={title} 
+                        link={link}
+                        options={options}
+                        active={
+                            router.pathname.includes(link) 
+                            ? "active" : ""
+                        } 
+                    /> :
+                    <SidebarInnerLink 
                         title={title} 
                         link={link}
                         key={title}

@@ -21,21 +21,55 @@ const userLink = [
             {
                 title: "Abuja", 
                 link: '/properties/abuja',
-            },{
-                title: "Ikoyi", 
-                link: '/properties/ikoyi',
-            },{
-                title: "Lekki", 
-                link: '/properties/lekki',
-            },{
-                title: "Oniru", 
-                link: '/properties/oniru',
-            },{
+                options: [
+                    {
+                        title: 'Asokoro',
+                        link: '/properties/asokoro'
+                    },
+                    {
+                        title: 'Jabi',
+                        link: '/properties/jabi'
+                    },
+                    {
+                        title: 'Mabushi',
+                        link: '/properties/mabushi'
+                    },
+                    {
+                        title: 'Maitama',
+                        link: '/properties/maitama'
+                    },
+                    {
+                        title: 'Utako',
+                        link: '/properties/utako'
+                    },
+                    {
+                        title: 'Wuse II',
+                        link: '/properties/wuse-II'
+                    },
+                ]
+            },
+            {
+                title: 'Lagos',
+                link: 'properties/lagos',
+                options: [
+                    {
+                        title: "Ikoyi", 
+                        link: '/properties/ikoyi',
+                    },{
+                        title: "Lekki", 
+                        link: '/properties/lekki',
+                    },{
+                        title: "Oniru", 
+                        link: '/properties/oniru',
+                    },{
+                        title: "Victoria Island", 
+                        link: '/properties/vi',
+                    }
+                ]
+            },
+            {
                 title: "Port Harcourt", 
                 link: '/properties/ph',
-            },{
-                title: "Victoria Island", 
-                link: '/properties/vi',
             }
         ]
     },

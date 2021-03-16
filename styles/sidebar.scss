@@ -164,10 +164,28 @@ hr{
 
     
     .inner{
-        padding-left: 70px;
+        padding-left: 50px;
         a{
             color: $text-color-light;
             text-decoration: none;
+        }
+    }
+
+    .collapsingLink.inner{
+        width: 100%;
+        padding-left: 0;
+        .link{
+            padding-left: 30px;
+        }
+        .collapsedItem{
+            width: 100%;
+            padding: 0;
+            margin: 0;
+            background-color: rgba($color: #c6c6c6, $alpha: 0.3);
+
+            .inner{
+                padding-left: 80px;
+            }
         }
     }
     
