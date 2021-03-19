@@ -26,13 +26,13 @@ export function Areas({}){
     
     return (
         <MainLayout title="All Locations" > 
-            <div id="banner" >
+            <div id="areas-banner" >
                 <div id="overlay"></div>
                 <div id="content">
                     <h1 className="bannerH1">All Locations</h1>
                 </div>
             </div>
-            <div id="mainContProp">
+            <div id="areasCont">
                 <div className="container" id="locations">
                     <div className="row">
                         {

@@ -26,7 +26,7 @@ export function Statistics({}){
     return (
         <MainLayout>
             <div id='stats'>
-                <div id="banner">
+                <div id="stat-banner">
                     <div id="overlay"></div>
                     <div id="content">
                         <h1 className="bannerH1">Area Stats</h1>

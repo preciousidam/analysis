@@ -39,22 +39,32 @@
     }
 }
 
-#banner.lekki{
+#banner.lekki, #banner.maitama{
     background: url('/lekki.jpg') no-repeat;
     background-size: cover;
     background-position: center;
 }
-#banner.ikoyi{
+#banner.ikoyi, #banner.asokoro{
     background: url('/ikoyi.jpg') no-repeat;
     background-size: cover;
     background-position: center;
 }
-#banner.oniru{
+#banner.oniru, #banner.wuse-II{
     background: url('/oniru.jpg') no-repeat;
     background-size: cover;
     background-position: center;
 }
-#banner.vi{
+#banner.vi, #banner.utako{
+    background: url('/vi.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+#banner.oniru, #banner.mabushi{
+    background: url('/oniru.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+#banner.vi, #banner.jabi{
     background: url('/vi.jpg') no-repeat;
     background-size: cover;
     background-position: center;

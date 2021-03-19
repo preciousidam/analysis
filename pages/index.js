@@ -42,7 +42,6 @@ export function Home({}){
     const [averages, setAverage] = useState([]);
     const {isBedLoading, data: beds} = getViewData('bedroom');
     const {data: years} = getViewData('years');
-    const {isAreaLoading, data: areas} = getViewData('areas');
     const {isReportLoading, data: reports} = getViewData('reports/?q=');
     const {isLoading, data} = getViewData('stats/all-average/'+bed);
 
@@ -140,7 +139,7 @@ export function Home({}){
                                 </div>
                             </div>)}
                     </div>
-                    <Link href="/areas" ><a className="all">{"< View All Locations >"} </a></Link>
+                    <Link href="/areas" ><a className="all">View All Locations</a></Link>
                 </div>
                 <div className="container">
                     <div id="chart-area" className="row">
