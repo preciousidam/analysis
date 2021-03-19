@@ -9,7 +9,7 @@ import { useRouter } from 'next/router';
 
 export const CollapingLink = ({icon, title, options}) => {
 
-    const [dropdown, setDropdown] = useState(false);
+    const [dropdown, setDropdown] = useState(true);
     const router = useRouter();
 
     return (

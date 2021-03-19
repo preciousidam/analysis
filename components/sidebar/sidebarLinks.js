@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useMemo, useState} from 'react';
 import Link from 'next/link';
 import { MinSideBar } from '.';
 import PropTypes from 'prop-types';
@@ -29,6 +29,14 @@ export const InnerCollapingLink = ({icon, title, options}) => {
     const [dropdown, setDropdown] = useState(false);
     const router = useRouter();
 
+    useEffect(() => {
+        options?.map(({link}) => {
+            if (window.location.href.includes(link)){
+                setDropdown(true)
+            } 
+        })
+    }, [])
+
     return (
         <div className=" link collapsingLink inner">
             
@@ -49,7 +57,7 @@ export const InnerCollapingLink = ({icon, title, options}) => {
                         link={link}
                         options={options}
                         active={
-                            router.pathname.includes(link) 
+                            window.location.href.includes(link) 
                             ? "active" : ""
                         } 
                     /> :

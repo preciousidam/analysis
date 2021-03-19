@@ -9,6 +9,8 @@ import '../styles/stats.scss';
 import Loader from '../components/loader';
 import {getViewData} from '../libs/hooks';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { isBrowser, isMobile } from 'react-device-detect';
+import { SelectInput } from '../components/input';
 
 
 export function Statistics({}){
@@ -36,14 +38,21 @@ export function Statistics({}){
                 <div id="mainContent" className="container">
                     <div id="statList">
                         <div id="controllers">
-                            {!isAreaLoading && areas.map(area => 
+                            { (isBrowser && !isAreaLoading) && areas.map(area => 
                                 <div id={area === 'wuse II'? 'wuse': area} 
                                     className="button control"
                                     onClick={e => setActiveArea(area)}
                                 >
-                                    <span>{area === 'vi'? 'Victoria Island': area}</span>
+                                    <span>{area === 'vi'? 'Victoria Island': area === 'ph'? "Port Harcourt": area}</span>
                                     {area === activeArea && <span className="tick"><FontAwesomeIcon icon="check" size="sm" color="#fff" /></span>}
                                 </div>)
+                            }
+                            {
+                                (isMobile && !isAreaLoading) && <SelectInput
+                                    onChange={e => setActiveArea(e.target.value)}
+                                    value={activeArea}
+                                    options={areas?.map(area => ({value: area, text: area === 'vi'? 'Victoria Island'.toUpperCase(): area === 'ph'? "Port Harcourt".toUpperCase(): area.toUpperCase()}))} 
+                                />
                             }
                         </div>
                         {activeArea !== '' && <Stats area={activeArea} />}

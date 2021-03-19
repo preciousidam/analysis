@@ -152,7 +152,7 @@ export function Home({}){
                                     (!isBedLoading && isMobile) && beds && <SelectInput
                                         onChange={e => setBed(e.target.value)}
                                         value={3}
-                                        options={beds?.map(x => ({value:x, text:`${x} Bedroom`}))}
+                                        options={beds?.map(x => ({value:x, text:`${x} Bedroom Apartment`}))}
                                     />
                                 }
                             </div>
