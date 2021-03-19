@@ -128,6 +128,7 @@
                     align-items: center;
                     width: 7.5%;
                     font-size: 75%;
+                    font-weight: bold;
 
                     .tick{
                         position: absolute !important;
@@ -153,6 +154,34 @@
                 
                 #oniru{
                     background-image: linear-gradient(to bottom right,#46c5f2,#46c5f2) !important;
+                }
+
+                #ph{
+                    background-image: linear-gradient(to bottom right, #f8869d,  #f8869d) !important;
+                }
+                
+                #wuse{
+                    background-image: linear-gradient(to bottom right, #ade05d,#ade05d) !important;
+                }
+                
+                #jabi{
+                    background-image: linear-gradient(to bottom right, #eeae14,  #eeae14) !important;
+                }
+                
+                #utako{
+                    background-image: linear-gradient(to bottom right,#565656,#565656) !important;
+                }
+
+                #maitama{
+                    background-image: linear-gradient(to bottom right,#14ee94,#14ee94) !important;
+                }
+                
+                #mabushi{
+                    background-image: linear-gradient(to bottom right, #f71741,  #f71741) !important;
+                }
+
+                #asokoro{
+                    background-image: linear-gradient(to bottom right,#17c39d,#17c39d) !important;
                 }
             }
 

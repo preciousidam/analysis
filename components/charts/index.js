@@ -8,15 +8,15 @@ const colors = {vi: 'rgba(135, 95, 192, 1)',
     ikoyi: 'rgba(236, 72, 135, 1)', 
     lekki: 'rgba(255, 184, 44, 1)',
     'wuse II': 'rgba(70, 197, 242, 1)',
-    maitama: 'rgbs(153, 214, 68, 1)',
-    ph: 'rgba(255, 0, 0, 1)'
+    maitama: 'rgba(153, 214, 68, 1)',
+    ph: 'rgba(255, 0, 0, 1)',
 }
 
 const bordercolors = {vi: 'rgba(135, 95, 192, 1)', 
     ikoyi: 'rgba(236, 72, 135, 1)', 
     lekki: 'rgba(255, 184, 44, 1)',
     'wuse II': 'rgba(70, 197, 242, 1)',
-    maitama: 'rgbs(153, 214, 68, 1)',
+    maitama: 'rgba(153, 214, 68, 1)',
     ph: 'rgba(255, 0, 0, 1)'
 }
 
@@ -73,7 +73,8 @@ export function PriceChart({data, years}){
 
     
     const instatiateChart = _ => {
-    return({
+        const len = years.length;
+        return({
             labels: years,
             datasets: Object.keys(data).map(area => (
                 {
@@ -92,7 +93,7 @@ export function PriceChart({data, years}){
     return (
         <div>
             <div id="priceChart">
-                <Bar height={350} ref={chart} data={instatiateChart()} options={options} />
+                <Bar height={400} ref={chart} data={instatiateChart()} options={options} />
             </div>
         </div>  
     )

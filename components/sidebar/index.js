@@ -44,7 +44,7 @@ const userLink = [
                     },
                     {
                         title: 'Wuse II',
-                        link: '/properties/wuse-II'
+                        link: '/properties/wuse II'
                     },
                 ]
             },

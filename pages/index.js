@@ -15,6 +15,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {CommaFormatted} from '../utility/converter';
 import { FilePdfOutlined } from "@ant-design/icons";
 import { isBrowser, isMobile } from 'react-device-detect';
+import Link from 'next/link';
 
 
 
@@ -139,7 +140,7 @@ export function Home({}){
                                 </div>
                             </div>)}
                     </div>
-                    
+                    <Link href="/areas" ><a className="all">{"< View All Locations >"} </a></Link>
                 </div>
                 <div className="container">
                     <div id="chart-area" className="row">
@@ -181,7 +182,7 @@ export function Home({}){
                                     </button>
                                 </div>
                                 <div className={`col-md-8 col-12 ${ isMobile &&'order-1'}`}>
-                                    {isBrowser? <PriceChart data={data} years={years} />: <PriceLineChart data={data} years={years} />}
+                                    {isBrowser? <PriceChart data={data} years={years?.slice(1)?.slice(-3)} />: <PriceLineChart data={data} years={years?.slice(1)?.slice(-3)} />}
                                 </div>
                                 <div className={`col-12 ${ isMobile &&'order-3'}`} id="foot-note">
                                     <p>NB: At prevailing exchange rates applicable at the time</p>

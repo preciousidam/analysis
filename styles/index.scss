@@ -126,6 +126,14 @@
     #areaCont{
         padding: 30px;
         margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+
+        .all{
+            align-self: center;
+            padding: 15px;
+            margin-top: 15px;
+        }
         .areas{
             padding: 15px;
             border-radius: 10px !important;

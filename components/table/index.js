@@ -40,7 +40,7 @@ export const NewList = ({onClick, area}) => {
             </div>
             {!isLoading && (data?.properties?.length <= 0 || !data) && <Empty />}
             {
-                !isLoading ? data?.properties?.map(({rents, name, address, built, bedrooms, units, serv_charge}, id) => (
+                !isLoading ? data?.properties?.map(({rents, name, address, type, bedrooms, units, serv_charge}, id) => (
                     <div className="propItem" onClick={_ => onClick(name)}>
                         <div className="sn"><span>{id+1}</span></div>
                         <div className="propName">
@@ -65,8 +65,8 @@ export const NewList = ({onClick, area}) => {
                             : <span>--</span>}
                         </div>
                         <div className="built">
-                            <p>Year Built</p>
-                            <span>{built? built: '--'}</span>
+                            <p>Apartment Type</p>
+                            <span>{type? type: '--'}</span>
                         </div>
                         <div className="unit">
                             <p>Total Unit</p>
@@ -101,7 +101,7 @@ export const SearchList = ({onClick, apt, q}) => {
                 </header>
             </div>
             {
-                !isLoading ? data?.properties?.map(({rents, area, name, address, built, bedrooms, units, serv_charge}, id) => (
+                !isLoading ? data?.properties?.map(({rents, area, name, address, type, bedrooms, units, serv_charge}, id) => (
                     <div className="propItem" onClick={_ => onClick(area, name)}>
                         <div className="sn"><span>{id+1}</span></div>
                         <div className="propName">
@@ -126,8 +126,8 @@ export const SearchList = ({onClick, apt, q}) => {
                             : <span>--</span>}
                         </div>
                         <div className="built">
-                            <p>Year Built</p>
-                            <span>{built? built: '--'}</span>
+                            <p>Apartment Type</p>
+                            <span>{type? type: '--'}</span>
                         </div>
                         <div className="unit">
                             <p>Total Unit</p>

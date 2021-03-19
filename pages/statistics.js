@@ -37,7 +37,7 @@ export function Statistics({}){
                     <div id="statList">
                         <div id="controllers">
                             {!isAreaLoading && areas.map(area => 
-                                <div id={area} 
+                                <div id={area === 'wuse II'? 'wuse': area} 
                                     className="button control"
                                     onClick={e => setActiveArea(area)}
                                 >

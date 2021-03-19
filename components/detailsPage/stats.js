@@ -3,9 +3,7 @@ import { FormControl, ListItemText, MenuItem, Input, Checkbox, Paper } from "@ma
 import { Select, Pagination, Typography } from 'antd';
 
 import '../../styles/stats.scss';
-import { PriceTrendComparison } from '../charts/priceTrend';
 import { useRouter } from 'next/router';
-import Link from 'next/link';
 import {PriceChart} from '../charts/line';
 import {TypeChart} from '../charts/piechart';
 import { getViewData } from '../../libs/hooks';

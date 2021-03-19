@@ -3,22 +3,31 @@ import {Line} from 'react-chartjs-2';
 import { isBrowser, isMobile } from 'react-device-detect';
 import { getViewData } from '../../libs/hooks';
 import { CommaFormatted } from '../../utility/converter';
-import { SelectInput, Search } from '../input';
 
 const colors = {vi: 'rgba(135, 95, 192, .5)', 
     ikoyi: 'rgba(236, 72, 135, .5)', 
     lekki: 'rgba(255, 184, 44, .5)',
     oniru: 'rgba(70, 197, 242, .5)',
-    abuja: 'rgbs(153, 214, 68, .5)',
-    ph: 'rgba(242, 101, 143, .5)'
+    maitama: 'rgba(20, 238, 148, .5)',
+    ph: 'rgba(248, 134, 157, .5)',
+    asokoro: 'rgba(23, 195, 157, .5)', 
+    utako: 'rgba(86, 86, 86, .5)',
+    mabushi: 'rgba(247, 23, 65, .5)',
+    jabi: 'rgba(238, 174, 20, .5)',
+    'wuse II': 'rgba(173, 224, 93, .5)',
 }
 
 const bordercolors = {vi: 'rgba(135, 95, 192, 1)', 
     ikoyi: 'rgba(236, 72, 135, 1)', 
     lekki: 'rgba(255, 184, 44, 1)',
     oniru: 'rgba(70, 197, 242, 1)',
-    abuja: 'rgbs(153, 214, 68, 1)',
-    ph: 'rgba(242, 101, 143, 1)'
+    maitama: 'rgba(20, 238, 148, 1)',
+    ph: 'rgba(248, 134, 157, 1)',
+    asokoro: 'rgba(23, 195, 157, 1)', 
+    utako: 'rgba(86, 86, 86, 1)',
+    mabushi: 'rgba(247, 23, 65, 1)',
+    jabi: 'rgba(238, 174, 20, 1)',
+    'wuse II': 'rgba(173, 224, 93, 1)',
 }
 
 export function PriceChart({data, year, area}){
