@@ -11,10 +11,9 @@ import Money from '../money';
 import { CommaFormatted } from '../../utility/converter';
 
 
-const areas = ['ikoyi', 'lekki', 'vi', 'oniru'];
 const {Option} =  Select;
 
-export default function Stats({area}){
+export default function Stats({area, state}){
     const router = useRouter();
     const [type, setType] = useState('flat');
     const {data, isLoading} = getViewData(`stats/${area}?type=${type}`);
@@ -36,7 +35,7 @@ export default function Stats({area}){
 
     return(
         <div className="statistics">
-            <h5 id="header_name">{area == 'vi'? 'Victoria Island' : area} Summary</h5>
+            <h5 id="header_name">{area == 'vi'? 'Victoria Island' : area} - {state} Summary</h5>
             <div id="wrapper">
                 <div id="sCont">
                     <header>

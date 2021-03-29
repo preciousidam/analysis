@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import { Typography, Avatar } from 'antd';
 import { useRouter } from 'next/router';
 import { Paper } from '@material-ui/core';
-import {HomeOutlined} from '@material-ui/icons';
+import {HomeOutlined, Sort} from '@material-ui/icons';
 
 import MainLayout from '../layouts';
 import { SelectInputWithLabel, SelectInput } from '../components/input';
@@ -33,7 +33,7 @@ export const areaCode = {'vi':"Victoria Island",
                     'utako': 'Utako',
                 }
 
-const arealist = ['vi', 'ikoyi', 'wuse II', 'lekki', 'ph', 'maitama']
+const arealist = [{area: 'vi', state: 'Lagos'}, {area: 'ikoyi', state: 'Lagos'}, {area: 'wuse II', state: 'Abuja'}, {area: 'lekki', state: 'Lagos'}, {area: 'ph', state: 'Rivers'}, {area: 'maitama', state: 'Abuja'}]
 
 export function Home({}){
 
@@ -117,7 +117,7 @@ export function Home({}){
                                 label="Type"
                                 name="apt"
                                 options={[
-                                    {text: 'Flat', value:'flat'},
+                                    {text: 'Apartment', value:'flat'},
                                     {text: 'Duplex', value:'duplex'},
                                     {text: 'Pent House', value:'pent house'},
                                     {text: 'Maisonette', value:'maisonette'},
@@ -130,10 +130,11 @@ export function Home({}){
                 </div>
                 <div className="container" id="areaCont">
                     <div className="row">
-                        {arealist?.map(area =>
+                        {arealist?.sort((a,b) => a.area < b.area? -1 : a.area == b.area? 0 : 1)?.map(({area, state}) =>
                             <div className={`col-md-2 col-6`}>
                                 <div id={area === 'wuse II'? 'wuse': area} className="areas" onClick={e => onAreaClick(area)}>
                                     <h5>{areaCode[area]}</h5>
+                                    <p>{state}</p>
                                     <hr />
                                     <span>View Properties <FontAwesomeIcon icon="angle-right" color="#fff" size={10} /></span>
                                 </div>

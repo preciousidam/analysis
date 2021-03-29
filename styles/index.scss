@@ -135,7 +135,7 @@
             margin-top: 15px;
         }
         .areas{
-            padding: 15px;
+            padding: 10px;
             border-radius: 10px !important;
             cursor: pointer;
             hr{
@@ -151,8 +151,15 @@
             h5{
                 color: #fff !important;
                 text-transform: uppercase !important;
-                font-size: 14px;
+                font-size: 12.5px;
             }
+            p{
+                color: #fff !important;
+                text-transform: uppercase !important;
+                font-size: 11px;
+                margin: 0 !important;
+            }
+
         }
 
         #lekki{
@@ -192,6 +199,7 @@
             border-bottom: 1px solid rgba(100,100,100,0.5);
             h6{
                 color: $text-color;
+                font-weight: bold !important;
             }
 
         }
@@ -205,6 +213,10 @@
             span{
                 font-size: 12px !important;
                 color: #c6c6c6 !important;
+            }
+
+            h6{
+                font-weight: bold !important;
             }
         }
 

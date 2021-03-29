@@ -17,12 +17,14 @@ export function Statistics({}){
     const router = useRouter();
     const {isLoading: isAreaLoading, data: areas} = getViewData('areas');
     const [activeArea, setActiveArea] = useState('');
+    const [activeState, setActiveState] = useState('');
     const Stats = dynamic(
         () => import('../components/detailsPage/stats'), {ssr: false, loading: () => <Loader />}
     )
     
     useEffect(() => {
-        if (areas && activeArea === '') setActiveArea(areas[0])
+        if (areas && activeArea === '') setActiveArea(areas[0].area)
+        if (areas && activeState === '') setActiveState(areas[0].state)
     }, [areas]);
 
     return (
@@ -38,10 +40,14 @@ export function Statistics({}){
                 <div id="mainContent" className="container">
                     <div id="statList">
                         <div id="controllers">
-                            { (isBrowser && !isAreaLoading) && areas.map(area => 
+                            { (isBrowser && !isAreaLoading) && areas.sort((a,b) => a.area < b.area? -1 : 
+                                a.area == b.area? 0 : 1).map(({area, state}) => 
                                 <div id={area === 'wuse II'? 'wuse': area} 
                                     className="button control"
-                                    onClick={e => setActiveArea(area)}
+                                    onClick={e => {
+                                        setActiveArea(area);
+                                        setActiveState(state);
+                                    }}
                                 >
                                     <span>{area === 'vi'? 'Victoria Island': area === 'ph'? "Port Harcourt": area}</span>
                                     {area === activeArea && <span className="tick"><FontAwesomeIcon icon="check" size="sm" color="#fff" /></span>}
@@ -49,13 +55,18 @@ export function Statistics({}){
                             }
                             {
                                 (isMobile && !isAreaLoading) && <SelectInput
-                                    onChange={e => setActiveArea(e.target.value)}
+                                    onChange={e => {
+                                        let act = areas.find(({area}) => area == e.target.value);
+                                        setActiveArea(act.area);
+                                        setActiveState(act.state);
+                                    }}
                                     value={activeArea}
-                                    options={areas?.map(area => ({value: area, text: area === 'vi'? 'Victoria Island'.toUpperCase(): area === 'ph'? "Port Harcourt".toUpperCase(): area.toUpperCase()}))} 
+                                    options={areas?.sort((a,b) => a.area < b.area? -1 : 
+                                        a.area == b.area? 0 : 1)?.map(({area}) => ({value: area, text: area === 'vi'? 'Victoria Island'.toUpperCase(): area === 'ph'? "Port Harcourt".toUpperCase(): area.toUpperCase()}))} 
                                 />
                             }
                         </div>
-                        {activeArea !== '' && <Stats area={activeArea} />}
+                        {activeArea !== '' && <Stats area={activeArea} state={activeState} />}
                     </div>
                 </div>
             </div>
