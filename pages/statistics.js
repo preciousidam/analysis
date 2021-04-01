@@ -33,7 +33,7 @@ export function Statistics({}){
                 <div id="stat-banner">
                     <div id="overlay"></div>
                     <div id="content">
-                        <h1 className="bannerH1">Area Stats</h1>
+                        <h1 className="bannerH1">Location Stats</h1>
                         <p className="sub">Get historical data on all areas</p>
                     </div>
                 </div>
