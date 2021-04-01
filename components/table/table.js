@@ -22,7 +22,7 @@ export function PropertyList({}){
                     <th className='sn'><span>SN</span></th>
                     <th><span>PROPERTY NAME</span></th>
                     <th><span>RENT</span></th>
-                    <th><span>AREA</span></th>
+                    <th><span>LOCATION</span></th>
                 </tr>
             </thead>
             <tbody>
