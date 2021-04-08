@@ -75,6 +75,24 @@ export const AuthProvider = ({ children }) => {
         return {status, msg};
     }
 
+    const register = async (name, email, password, phone) => {
+        
+        const res = await fetch(`${backend}/api/auth/register`, {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({name, email,password, phone, username: name.split(' ')[0]}),
+        });
+
+        const json = await res.json();
+
+        const {status, msg} = await json;
+        
+        return {status, msg};
+    }
+
     const logout = () => {
         Cookies.remove('token');
         Cookies.remove('refresh_token')
@@ -89,7 +107,7 @@ export const AuthProvider = ({ children }) => {
                 isAuthenticated: !!user, 
                 user, token,
                 isAdmin: role?.role === 'admin' && role?.permissions === 'read,write',
-                role, login, 
+                role, login, register,
                 loading, logout }}
         >
             {!loading ? children: <Loader />}
