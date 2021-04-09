@@ -20,22 +20,35 @@
     #formContainer{
         display: flex;
         justify-content: space-between;
-        align-items: center;
         background: $background-white !important;
         margin: auto auto;
-        
         border-radius: 10px;
         box-shadow: 5px 10px 15px 5px rgba($color: #000000, $alpha: .1);
+        min-height: 70vh !important;
+        padding: 0 !important;
        
 
         
-        #aside{
+        #aside_login{
             width: 450px;
-            height: 100%;
+            height: inherit;
+            min-height: inherit;
             background: url('/front2.jpg') no-repeat;
-            background-size: cover;
+            background-size: cover !important;
             border-radius: 10px 0px 0px 10px;
-            
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+
+        #aside_register{
+            width: 450px;
+            height: inherit;
+            min-height: inherit;
+            background: url('/front2.jpg') no-repeat;
+            background-size: cover !important;
+            border-radius: 10px 0px 0px 10px;
+            margin: 0 !important;
+            padding: 0 !important;
         }
 
     }

@@ -31,7 +31,7 @@ export default function Auth() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div id="formContainer">
-        <div id="aside"></div>
+        <div id="aside_login"></div>
         <SignInForm />
       </div>
       <div><p style={{color: 'white'}}>&copy; copyright 2020 Cortts Limited</p></div>

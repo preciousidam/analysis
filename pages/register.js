@@ -18,7 +18,7 @@ export default function Register() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div id="formContainer">
-        <div id="aside"></div>
+        <div id="aside_register"></div>
         <SignUpForm />
       </div>
       <div><p style={{color: 'white'}}>&copy; copyright 2020 Cortts Limited</p></div>

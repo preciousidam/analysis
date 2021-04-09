@@ -141,7 +141,7 @@ export function SignUpForm(){
                 onChange={e => setPassword(e.target.value)}
             />
             <div id="forgot_remember">
-                <Link href="/login"><a>Account Login</a></Link>
+                <Link href="/login"><a>Login to your account</a></Link>
             </div>
             <RoundedButton 
                 text={text} 

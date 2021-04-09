@@ -80,6 +80,7 @@ export const NewPasswordForm = ({}) => {
         if (status == 'success'){
             openNotification(status, msg);
             setText(<FontAwesomeIcon icon='check' color="#ffffff" />);
+            router.replace('/login');
         }
         else if(status == 'error'){
             openNotification(status, msg);
@@ -117,7 +118,7 @@ export const NewPasswordForm = ({}) => {
                 />
             </form>
             <footer>
-                <Link href="/reset-password"><a>Back to Login?</a></Link>
+                <Link href="/login"><a>Back to Login?</a></Link>
             </footer>
         </div>
     )
