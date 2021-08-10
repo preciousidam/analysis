@@ -19,7 +19,7 @@ export function PropertyForm({}){
         floors: '', built: '', serv_charge: '', land_size: '', sale_price: '',
         facilities: '',
     }
-    const rentYear = {2016: '', 2017: '', 2018: '', 2019: '', 2020: ''};
+    const rentYear = {2017: '', 2018: '', 2019: '', 2020: '', 2021: ''};
     const [form, setForm] = useState({...formData});
     const [rent, setRent] = useState({...rentYear});
     const {token} = useAuth();

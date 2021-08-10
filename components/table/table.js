@@ -56,7 +56,7 @@ export function BedPriceTable({}){
                 index < 5 ? <tr>
                     <td className='sn'><span>{index+1}</span></td>
                     <td><span>{prop?.name}</span></td>
-                    <td><span>&#8358; {prop?.rent['2020']}</span></td>
+                    <td><span>&#8358; {prop?.rent['2021']}</span></td>
                     <td><span>&#8358; {prop?.serv_charge}M</span></td>
                 </tr>: null
             ))}

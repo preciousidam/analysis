@@ -111,7 +111,7 @@ export const PriceTrendComparison = ({base, comArea}) => {
     const {data, isLoading} = getViewData(`stats/compare?area=${base.area}&comarea=${comArea}&bed=${base?.bedrooms}&type=${base.type}`)
     
 
-    const [years, setYears] = useState([2016, 2017, 2018, 2019, 2020]);
+    const [years, setYears] = useState([2017, 2018, 2019, 2020, 2021]);
     const [amounts1, setAmounts1] = useState();
     const [amounts2, setAmounts2] = useState();
     const options = {

@@ -21,7 +21,7 @@ export default function Auth() {
       <div id="formContainer">
             <NewPasswordForm />
       </div>
-      <div><p style={{color: 'white'}}>&copy; copyright 2020 Cortts Limited</p></div>
+      <div><p style={{color: 'white'}}>&copy; copyright 2021 Cortts Limited</p></div>
     </div>
   )
 }

@@ -163,7 +163,7 @@ export function Home({}){
                                 <div className={`col-md-4 col-12 ${ isMobile &&'order-2'}`}>
 
                                     <h6>Overview</h6>
-                                    <p>Rent Average For 2020</p>
+                                    <p>Rent Average For 2021</p>
                                     <div className="row">
                                         {averages.map(({area,average}) => (
                                             <div className="col-md-12 col-6">

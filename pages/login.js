@@ -34,7 +34,7 @@ export default function Auth() {
         <div id="aside_login"></div>
         <SignInForm />
       </div>
-      <div><p style={{color: 'white'}}>&copy; copyright 2020 Cortts Limited</p></div>
+      <div><p style={{color: 'white'}}>&copy; copyright 2021 Cortts Limited</p></div>
     </div>
   )
 }

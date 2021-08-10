@@ -21,7 +21,7 @@ export default function Register() {
         <div id="aside_register"></div>
         <SignUpForm />
       </div>
-      <div><p style={{color: 'white'}}>&copy; copyright 2020 Cortts Limited</p></div>
+      <div><p style={{color: 'white'}}>&copy; copyright 2021 Cortts Limited</p></div>
     </div>
   )
 }
