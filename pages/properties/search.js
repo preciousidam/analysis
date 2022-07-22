@@ -15,11 +15,11 @@ export function Search({}){
 
     const router = useRouter();
     const {q, apt} = router.query;
-    const onClick = (area, name) => router.push(`/properties/${area}/${name.replace(' ','-')}`);
-    
-    
+    const onClick = (area, propertyId) => router.push(`/properties/${area}/${propertyId}`);
+
+
     return (
-        <MainLayout title={`Properties search | ${q}`} > 
+        <MainLayout title={`Properties search | ${q}`} >
             <div id="mainContProp">
                 <div id="tableContainer">
                     <div id="propertyContainer">

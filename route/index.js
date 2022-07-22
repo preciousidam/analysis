@@ -7,31 +7,31 @@ import { StopFilled } from '@ant-design/icons';
 import Link from 'next/link';
 
 export function ProtectRoute(Component) {
-    
+
     return (props) => {
-       
+
         const { isAuthenticated } = useAuth();
         const router = useRouter();
         useEffect(()=>{
             if (!isAuthenticated) router.push('/login');
         },[isAuthenticated])
-        
-        return (<Component {...arguments} {...props} />);
-        
+
+        return (isAuthenticated ? <Component {...arguments} {...props} /> : <Loader />);
+
     }
 }
 
 export function AdminProtectRoute(Component) {
-    
+
     return (props) => {
-       
+
         const { isAdmin } = useAuth();
         const router = useRouter();
-        
+
         if(!isAdmin) return (<NoAccess />);
 
         return (<Component {...arguments} {...props} />);
-        
+
     }
 }
 

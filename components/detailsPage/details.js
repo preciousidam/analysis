@@ -50,8 +50,8 @@ export default function Details({data}){
                 <div className="row">
                     <div className="col-4">
                         <p>
-                            <FontAwesomeIcon icon="bed" />Bedroom: 
-                            {` `+data?.bedrooms} 
+                            <FontAwesomeIcon icon="bed" />Bedroom:
+                            {` `+data?.bedrooms}
                         </p>
                     </div>
                     <div className="col-4">
@@ -62,12 +62,29 @@ export default function Details({data}){
                     </div>
                     <div className="col-4">
                         <p>
-                            <FontAwesomeIcon icon="th" />Total Units:  
+                            <FontAwesomeIcon icon="th" />Total Units:
                             {` `+data?.units}
                         </p>
                     </div>
-                   
+
                 </div>
+                { data?.is_commercial && <div className="row">
+                    <div className="col-4">
+                        <p>
+                            Commercial Type: {` ${data?.commercial_type}`}
+                        </p>
+                    </div>
+                    <div className="col-4">
+                        <p>
+                            Rent Per Unit: {` ${data?.rent_per_sqm ?? 'N/A'}`}
+                        </p>
+                    </div>
+                    <div className="col-4">
+                        <p>
+                            Size (SQM): {` ${data?.size_in_sqm ?? 'N/A'}`}
+                        </p>
+                    </div>
+                </div>}
                 <div id="facilities">
                     <header>
                         <FontAwesomeIcon icon="list-alt" />
@@ -88,9 +105,9 @@ export default function Details({data}){
                     <FontAwesomeIcon icon="chart-bar" color="#fff" style={{marginRight: 10}} />
                     Rent Trend By Year
                 </header>
-                <PriceTrendChart 
-                    years={years} 
-                    prices={amounts} 
+                <PriceTrendChart
+                    years={years}
+                    prices={amounts}
                     title="Rent"
                 />
                 <div id="servCharge">

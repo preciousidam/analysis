@@ -19,7 +19,7 @@ export function Properties({}){
 
     const router = useRouter();
     const {area} = router.query;
-    const onClick = name => router.push(`/properties/${area}/${name.replace(' ','-')}`);
+    const onClick = propertyId => router.push(`/properties/${area}/${propertyId}`);
     
     
     return (

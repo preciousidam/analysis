@@ -13,8 +13,8 @@ import {getViewData} from '../../../libs/hooks';
 export function Id({}){
     const router = useRouter();
     const [compare, setCompare] = useState(false);
-    const {area, name} = router.query;
-    const {data, isLoading, isError} = getViewData(`properties/${area}/${name}`);
+    const {area, id} = router.query;
+    const {data, isLoading, isError} = getViewData(`properties/${area}/${id}`);
     const Details = dynamic(
         () => import('../../../components/detailsPage/details'), {ssr: false, loading: () => <Loader />}
     )
@@ -31,13 +31,13 @@ export function Id({}){
             </Button>
         </div>
     )
-    
-    
+
+
     return (
-        <MainLayout title={`${name}`} right={breadcrumbRight()} links={[area, `${area}/${name}`]}>
+        <MainLayout title={`${data?.name ?? ''}`} right={breadcrumbRight()} links={[area, `${area}/${data?.name}`]}>
             {!isLoading && <div id='main'>
                 <div id="overlay"></div>
-                {!compare? <Details 
+                {!compare? <Details
                     compare={() => setCompare(prev => setCompare(!prev))}
                     data={data}
                 />

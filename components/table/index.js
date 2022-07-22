@@ -19,10 +19,11 @@ export const NewList = ({onClick, area}) => {
     const [page, setPage] = useState(1);
     const [search, setSearch] = useState('')
     const [bed, setBed] = useState('');
-    const {data, isLoading} = getViewData(`properties/${area}?q=${search}&bed=${bed}&page=${page}`);
+    const [comm, setComm] = useState('');
+    const {data, isLoading} = getViewData(`properties/${area}?q=${search}&bed=${bed}&prop_type=${comm}&page=${page}`);
     const {data:beds, isLoading: isBedLoading} = getViewData(`bedroom`);
-    
-    const onPaginationClicked = page => setPage(page); 
+
+    const onPaginationClicked = page => setPage(page);
 
     return (
         <div id="new_table">
@@ -32,6 +33,11 @@ export const NewList = ({onClick, area}) => {
                         <Option value=''>No. of Bedrooms</Option>
                         {!isBedLoading && beds?.map(x => <Option value={x}>{x} Bedroom</Option>)}
                     </Select>
+                    <Select defaultValue='' className="filterItem" onChange={value => setComm(value)}>
+                        <Option value=''>All properties</Option>
+                        <Option value='commercial'>Commercial</Option>
+                        <Option value='non-commercial'>Non Commercial</Option>
+                    </Select>
                     <Search className="searchIn" placeholder="Enter property name" onChange={e => setSearch(e.target.value)} />
                 </div>
                 <div id="right">
@@ -40,9 +46,9 @@ export const NewList = ({onClick, area}) => {
             </div>
             {!isLoading && (data?.properties?.length <= 0 || !data) && <Empty />}
             {
-                !isLoading ? data?.properties?.map(({rents, name, address, type, bedrooms, units, serv_charge}, id) => (
-                    <div className="propItem" onClick={_ => onClick(name)}>
-                        <div className="sn"><span>{id+1}</span></div>
+                !isLoading ? data?.properties?.map(({id, rents, name, address, type, bedrooms, units, serv_charge}, index) => (
+                    <div className="propItem" onClick={_ => onClick(id)}>
+                        <div className="sn"><span>{index+1}</span></div>
                         <div className="propName">
                             <p>{name.toLowerCase()}</p>
                             <span>{address.toLowerCase()}</span>
@@ -53,14 +59,12 @@ export const NewList = ({onClick, area}) => {
                         </div>
                         <div className="rent">
                             <p>Rent</p>
-                            
                             {rents.length > 0?
                             <Money prefix="M" amount={`${rents[rents.length -1 ]?.amount/m}`} year={rents[rents.length -1 ]?.year} />
                             : <span>--</span>}
                         </div>
                         <div className="service">
                             <p>Service Charge</p>
-                            
                             {serv_charge ?<Money amount={`${serv_charge/m}`} prefix="M" />
                             : <span>--</span>}
                         </div>
@@ -89,8 +93,8 @@ export const SearchList = ({onClick, apt, q}) => {
     const m = 1e6;
     const [page, setPage] = useState(1);
     const {data, isLoading} = getViewData(`properties/search?q=${q}&type=${apt}&page=${page}`);
-    
-    const onPaginationClicked = page => setPage(page);    
+
+    const onPaginationClicked = page => setPage(page);
 
     return (
         <div id="new_table">
@@ -101,9 +105,9 @@ export const SearchList = ({onClick, apt, q}) => {
                 </header>
             </div>
             {
-                !isLoading ? data?.properties?.map(({rents, area, name, address, type, bedrooms, units, serv_charge}, id) => (
-                    <div className="propItem" onClick={_ => onClick(area, name)}>
-                        <div className="sn"><span>{id+1}</span></div>
+                !isLoading ? data?.properties?.map(({id, rents, area, name, address, type, bedrooms, units, serv_charge}, index) => (
+                    <div className="propItem" onClick={_ => onClick(area, id)}>
+                        <div className="sn"><span>{index+1}</span></div>
                         <div className="propName">
                             <p>{name.toLowerCase()}</p>
                             <span>{address.toLowerCase()}</span>
@@ -114,14 +118,12 @@ export const SearchList = ({onClick, apt, q}) => {
                         </div>
                         <div className="rent">
                             <p>Rent</p>
-                            
                             {rents.length > 0?
                             <Money prefix="M" amount={`${rents[rents.length -1 ]?.amount/m}`} year={rents[rents.length -1 ]?.year} />
                             : <span>--</span>}
                         </div>
                         <div className="service">
                             <p>Service Charge</p>
-                            
                             {serv_charge ?<Money amount={`${serv_charge/m}`} prefix="M" />
                             : <span>--</span>}
                         </div>
@@ -161,7 +163,7 @@ export const Empty = ({}) => (
     const m = 1000000;
     const {isAdmin} = useAuth();
     const {data, isLoading} = getViewData(area? `properties/${area}`:'properties/');
-    
+
 
     return (
         !isLoading && <div><table className="table">
@@ -173,7 +175,7 @@ export const Empty = ({}) => (
                     <th><span>BEDROOM</span></th>
                     <th><span>YEAR BUILT</span></th>
                     <th><span>TOTAL UNITS</span></th>
-                    
+
                     <th>RENT</th>
                     <th>S-CHARGE</th>
                 </tr>
@@ -205,7 +207,7 @@ export const Empty = ({}) => (
                     </td>
                     <td>{prop?.serv_charge ?<Money amount={`${prop?.serv_charge/m}`} prefix="M" />: `--`}</td>
                     <td><span>{prop?.floors}</span></td>
-                    
+
                 </tr>
             ))}
             </tbody>
