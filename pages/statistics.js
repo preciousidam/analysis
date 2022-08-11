@@ -21,7 +21,7 @@ export function Statistics({}){
     const Stats = dynamic(
         () => import('../components/detailsPage/stats'), {ssr: false, loading: () => <Loader />}
     )
-    
+
     useEffect(() => {
         if (areas && activeArea === '') setActiveArea(areas[0].area)
         if (areas && activeState === '') setActiveState(areas[0].state)

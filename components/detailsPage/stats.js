@@ -16,13 +16,14 @@ const {Option} =  Select;
 export default function Stats({area, state}){
     const router = useRouter();
     const [type, setType] = useState('flat');
-    const {data, isLoading} = getViewData(`stats/${area}?type=${type}`);
+    const [comm, setComm] = useState('');
+    const {data, isLoading} = getViewData(`stats/${area}?type=${type}&commercial=${comm}`);
     const {data: years, isLoading: isYearLoading} = getViewData('years');
     const {data: types, isLoading: isTypeLoading} = getViewData('types');
-    const {data: typestats, isLoading: isTStatsLoading} = getViewData(`stats/types/${area}`);
+    const {data: typestats, isLoading: isTStatsLoading} = getViewData(`stats/types/${area}&commercial=${comm}`);
     const {data: minmax, isLoading: isMMLoading} = getViewData(`stats/minmax/${area}`);
     const [year, setYear] = useState();
-    
+
 
     useEffect(() => {
         if(year !== undefined) return;
@@ -47,6 +48,11 @@ export default function Stats({area, state}){
                             {!isTypeLoading && types && <Select defaultValue="Flat" className="filterItem two" onChange={value => setType(value)}>
                                 {types.map(type => <Option value={type}>{type.toUpperCase()}</Option>)}
                             </Select>}
+                            {data && <Select defaultValue="" className="filterItem two" onChange={value => setComm(value)}>
+                                <Option value=''>All properties</Option>
+                                <Option value='true'>Commercial</Option>
+                                <Option value='false'>Non commercial</Option>
+                            </Select>}
                         </div>
                     </header>
                     <div id="chartArea">
@@ -57,7 +63,6 @@ export default function Stats({area, state}){
                     <div className="row">
                         <div className="col-6 heading">Type</div>
                         <div className="col-6 heading">Rent</div>
-                        
                     </div>
                     {!isLoading && Object.keys(data).map(bed=>
                         data[bed][year] > 0 && <div className="row">
@@ -65,7 +70,6 @@ export default function Stats({area, state}){
                             <div className="col-6">
                                 <Money amount={data[bed][year]/1e6} year={years[year]} prefix="M" />
                             </div>
-                            
                         </div>)
                     }
 

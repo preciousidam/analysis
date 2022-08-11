@@ -10,10 +10,10 @@ import { CommaFormatted } from '../../utility/converter';
 
 const colors = {vi: 'rgba(255, 99, 132, 1.0)',
     ikoyi: 'rgba(255, 206, 86, 1.0)', 'wuse II': 'rgba(54, 162, 235, 1.0)',
-    lekki: 'rgba(0, 250, 154, 1.0)',    
+    lekki: 'rgba(0, 250, 154, 1.0)',
 }
 
-export const PriceTrendChart = ({years, prices, title}) => {
+export const PriceTrendChart = ({years, prices, title, per}) => {
 
     let myChart = createRef();
     const options = {
@@ -50,6 +50,7 @@ export const PriceTrendChart = ({years, prices, title}) => {
                         label += ': ₦';
                     }
                     label += CommaFormatted(parseFloat(tooltipItem.yLabel).toFixed(2));
+                    label += per[tooltipItem.datasetIndex] && per[tooltipItem.datasetIndex] != 'building' ? ' / '+per[tooltipItem.datasetIndex] : ''
                     return label;
                 }
             }
@@ -86,12 +87,6 @@ export const PriceTrendChart = ({years, prices, title}) => {
         })
     }
 
-    useEffect(
-        () => {
-            
-        },[years, prices]
-    );
-
     return (
         <div id="priceChart" aria-label="Chart Of Account" role="img">
             <Bar height={300} ref={myChart} data={instatiateChart()} options={options} />
@@ -109,7 +104,7 @@ export const PriceTrendComparison = ({base, comArea}) => {
 
     let myChart = createRef();
     const {data, isLoading} = getViewData(`stats/compare?area=${base.area}&comarea=${comArea}&bed=${base?.bedrooms}&type=${base.type}`)
-    
+
 
     const [years, setYears] = useState([2017, 2018, 2019, 2020, 2021]);
     const [amounts1, setAmounts1] = useState();

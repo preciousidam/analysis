@@ -46,7 +46,7 @@ export const NewList = ({onClick, area}) => {
             </div>
             {!isLoading && (data?.properties?.length <= 0 || !data) && <Empty />}
             {
-                !isLoading ? data?.properties?.map(({id, rents, name, address, type, bedrooms, units, serv_charge}, index) => (
+                !isLoading ? data?.properties?.map(({id, rents, name, address, type, bedrooms, units, serv_charge, is_commercial}, index) => (
                     <div className="propItem" onClick={_ => onClick(id)}>
                         <div className="sn"><span>{index+1}</span></div>
                         <div className="propName">
@@ -75,6 +75,10 @@ export const NewList = ({onClick, area}) => {
                         <div className="unit">
                             <p>Total Unit</p>
                             <span>{units  === '' ? '--': units}</span>
+                        </div>
+                        <div className="unit">
+                            <p>Commercial</p>
+                            <span>{is_commercial ? 'Yes' : '--'}</span>
                         </div>
 
                         <span className="more"><FontAwesomeIcon icon="angle-right" size="lg" color="#a5a5a5" /></span>

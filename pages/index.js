@@ -39,11 +39,12 @@ export function Home({}){
 
     const router = useRouter();
     const [bed, setBed] = useState(3);
+    const [comm_type, setCommType] = useState('')
     const [averages, setAverage] = useState([]);
     const {isBedLoading, data: beds} = getViewData('bedroom');
     const {data: years} = getViewData('years');
     const {isReportLoading, data: reports} = getViewData('reports/?q=');
-    const {isLoading, data} = getViewData('stats/all-average/'+bed);
+    const {isLoading, data} = getViewData('stats/all-average/'+bed+'?commercial_type='+comm_type);
 
     const [search, setSearch] = useState({type: 'property', apt: 'flat'});
 
@@ -53,7 +54,7 @@ export function Home({}){
 
         setSearch(prev => ({...prev, [name]: value}))
     }
-    
+
 
     useEffect(() => {
         if(!data) return;
@@ -85,7 +86,7 @@ export function Home({}){
         openPDF.location;
     }
 
-    
+
     return (
         <MainLayout title='Dashboard' BreadIcon={<HomeOutlined fontSize='large' />}>
             <div id="home">
@@ -108,11 +109,11 @@ export function Home({}){
                                 options={[
                                     {text: 'Properties', value:'properties'},
                                     {text: 'Reports', value:'reports'},
-                                ]} 
+                                ]}
                                 onChange={onChange}
                             />
                             <SelectInputWithLabel
-                                id="dropdowninput" 
+                                id="dropdowninput"
                                 className="option"
                                 label="Type"
                                 name="apt"
@@ -121,7 +122,7 @@ export function Home({}){
                                     {text: 'Duplex', value:'duplex'},
                                     {text: 'Pent House', value:'pent house'},
                                     {text: 'Maisonette', value:'maisonette'},
-                                ]} 
+                                ]}
                                 onChange={onChange}
                             />
                             <button onClick={searchOnClick} className="button search-btn"> Search</button>
