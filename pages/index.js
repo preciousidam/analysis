@@ -124,6 +124,7 @@ export function Home({}){
                                     {text: 'Maisonette', value:'maisonette'},
                                     {text: 'Detached', value:'detached'},
                                     {text: 'Semi detached', value:'semi-detached'},
+                                    {text: 'Bungalow', value:'bungalow'},
                                 ]}
                                 onChange={onChange}
                             />
