@@ -51,7 +51,7 @@ export default function Stats({area, state}){
                             {data && <Select defaultValue="" className="filterItem two" onChange={value => setComm(value)}>
                                 <Option value=''>All properties</Option>
                                 <Option value='true'>Commercial</Option>
-                                <Option value='false'>Non commercial</Option>
+                                <Option value='false'>Residential</Option>
                             </Select>}
                         </div>
                     </header>
