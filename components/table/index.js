@@ -36,7 +36,7 @@ export const NewList = ({onClick, area}) => {
                     <Select defaultValue='' className="filterItem" onChange={value => setComm(value)}>
                         <Option value=''>All properties</Option>
                         <Option value='commercial'>Commercial</Option>
-                        <Option value='non-commercial'>Non Commercial</Option>
+                        <Option value='residential'>Residential</Option>
                     </Select>
                     <Search className="searchIn" placeholder="Enter property name" onChange={e => setSearch(e.target.value)} />
                 </div>
