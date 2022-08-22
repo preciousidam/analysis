@@ -55,7 +55,7 @@ export const NewList = ({onClick, area}) => {
                         </div>
                         <div className="bed">
                             <p>Bedroom</p>
-                            <span>{bedrooms}</span>
+                            <span>{bedrooms ?? '--'}</span>
                         </div>
                         <div className="rent">
                             <p>Rent</p>
